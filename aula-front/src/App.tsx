@@ -2,20 +2,24 @@ import styled from "styled-components"
 import { Button } from "@/components/ui/button"
 import { useState } from 'react'
 import './App.css'
-
+import Header from "./header"
+import { IStyledComponent } from "styled-components"
+import { Link } from "react-router-dom";
 
 function App() {
 
   return (
     <>
+    <Header/>
       <DashboardStyle>
         <ImageStyle src="src/assets/insper.jpeg" alt="Descrição da imagem" />
-        <H1Style>"Handout Front-End”
-        </H1Style>
+    
         <H2Style>"Introdução básica
         ao front-end"</H2Style>
         <Parag> Atividade Pratica </Parag>
       </DashboardStyle>
+    <Link to="/tela_2">Ir para Tela 2</Link>
+
 
     </>
   )
