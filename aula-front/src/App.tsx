@@ -9,12 +9,12 @@ function App() {
   return (
     <>
       <DashboardStyle>
-      <ImageStyle src="src/assets/insper.jpeg" alt="Descrição da imagem" />
-      <H1Style>"Handout Front-End”
-      </H1Style>
-      <H2Style>"Introdução básica
-      ao front-end"</H2Style>
-      <Parag> Atividade Pratica </Parag>
+        <ImageStyle src="src/assets/insper.jpeg" alt="Descrição da imagem" />
+        <H1Style>"Handout Front-End”
+        </H1Style>
+        <H2Style>"Introdução básica
+        ao front-end"</H2Style>
+        <Parag> Atividade Pratica </Parag>
       </DashboardStyle>
 
     </>
@@ -28,7 +28,8 @@ const DashboardStyle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 70%;
+  margin: 0 auto;
   height: 100vh;
   background-color: white;
   font-family: Arial, sans-serif;
