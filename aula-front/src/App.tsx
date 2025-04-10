@@ -3,6 +3,26 @@ import { Button } from "@/components/ui/button"
 import { useState } from 'react'
 import './App.css'
 
+
+function App() {
+
+  return (
+    <>
+      <DashboardStyle>
+      <ImageStyle src="src/assets/insper.jpeg" alt="Descrição da imagem" />
+      <H1Style>"Handout Front-End”
+      </H1Style>
+      <H2Style>"Introdução básica
+      ao front-end"</H2Style>
+      <Parag> Atividade Pratica </Parag>
+      </DashboardStyle>
+
+    </>
+  )
+}
+
+export default App
+
 const DashboardStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,7 +33,6 @@ const DashboardStyle = styled.div`
   background-color: white;
   font-family: Arial, sans-serif;
 `
-
 
 const H1Style = styled.h1`
   color: red;
@@ -33,23 +52,4 @@ const ImageStyle = styled.img`
   margin: 5rem;
 `
 const Parag = styled.p`
-  color:black;
-`
-function App() {
-
-  return (
-    <>
-      <DashboardStyle>
-      <ImageStyle src="src/assets/insper.jpeg" alt="Descrição da imagem" />
-      <H1Style>"Handout Front-End”
-      </H1Style>
-      <H2Style>"Introdução básica
-      ao front-end"</H2Style>
-      <Parag> Atividade Pratica </Parag>
-      </DashboardStyle>
-
-    </>
-  )
-}
-
-export default App
+  color:black;`
