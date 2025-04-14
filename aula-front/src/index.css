@@ -1,0 +1,13 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Define fonte e cor de fundo global */
+  body {
+    font-family: 'Playfair Display', serif;
+    background-color: white;
+  }
+    
