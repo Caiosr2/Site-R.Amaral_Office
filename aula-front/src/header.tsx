@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import { FaShoppingCart } from 'react-icons/fa';
@@ -12,6 +11,7 @@ const Header = () => {
         <span className="title">R. Amaral Office</span>
       </Link>
       <nav className="nav">
+        <Link to="/funcionarios">Funcionarios</Link>
         <Link to="/produtos">Produtos</Link>
         <Link to="/servicos">Serviços</Link>
         <Link to="/nossa-historia">Nossa História</Link>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Produtos = () => {
   return (
-    <div style={{ padding: '2rem' }}>
+    <div>
       <h1>Produtos</h1>
       <p>Confira nossa seleção de móveis e suprimentos para escritório.</p>
     </div>
