@@ -11,10 +11,8 @@ const Header = () => {
         <span className="title">R. Amaral Office</span>
       </Link>
       <nav className="nav">
-        <Link to="/funcionarios">Funcionarios</Link>
         <Link to="/produtos">Produtos</Link>
         <Link to="/servicos">Serviços</Link>
-        <Link to="/nossa-historia">Nossa História</Link>
         <Link to="/carrinho" className="cart">
             <FaShoppingCart size={20} color="white" />
         </Link>
