@@ -6,6 +6,9 @@
   width: 100%;
   box-sizing: border-box;
 }
+.button {
+  font-family: "Playfair Display" , serif;
+}
 
 .footer-content {
   display: flex;
@@ -85,12 +88,6 @@
   color: #994f26;
 }
 
-.footer-bottom {
-  text-align: center;
-  font-size: 0.85rem;
-  margin-top: 2rem;
-  opacity: 0.85;
-}
 
 @media (max-width: 768px) {
   .footer-content {

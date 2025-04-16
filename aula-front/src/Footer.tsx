@@ -29,17 +29,17 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Mapa do Site</h4>
           <ul>
-            
+            <li><Link to="/funcionarios">Funcionários</Link></li>
             <li><Link to="/nossa-historia">Nossa História</Link></li>
             <li><Link to="/produtos">Produtos</Link></li>
             <li><Link to="/servicos">Serviços</Link></li>
-            <li><Link to="/funcionarios">Funcionários</Link></li>
+            
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Contato</h4>
-          <p><FaMapMarkerAlt /> Rua XXXXX – XXXX XXXXXX (UF)</p>
+          <p><FaMapMarkerAlt /> Rua XXXXX – XXXX  (UF)</p>
           <p><FaPhoneAlt /> (XX) XXXXX-XXXX</p>
           <p><FaEnvelope /> suporte@ramaral.com.br</p>
         </div>
@@ -52,10 +52,6 @@ const Footer = () => {
             <button onClick={handleClick}>Quero ser contatado</button>
           </div>
         </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} R. Amaral Office – Todos os direitos reservados.</p>
       </div>
     </footer>
   );
