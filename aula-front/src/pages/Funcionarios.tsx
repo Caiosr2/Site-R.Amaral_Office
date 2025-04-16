@@ -8,14 +8,14 @@ const Funcionarios = () => {
       <form className="login-form">
         <h2>Área do Funcionário</h2>
 
-        <label htmlFor="usuario">Usuário</label>
+        <label>Usuário</label>
         <input
           type="text"
           id="usuario"
           placeholder="Digite seu usuário"
         />
 
-        <label htmlFor="senha">Senha</label>
+        <label>Senha</label>
         <input
           type="password"
           id="senha"

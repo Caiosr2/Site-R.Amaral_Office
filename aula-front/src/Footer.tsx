@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="footer-form">
             <input type="text" id="nome" placeholder="Seu nome" required />
             <input type="email" id="email" placeholder="Seu email" required />
-            <button onClick={handleClick}>Quero ser contatado</button>
+            <button onClick={handleClick}>Enviar</button>
           </div>
         </div>
       </div>

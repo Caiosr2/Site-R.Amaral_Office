@@ -1,8 +1,8 @@
 const UsoInterno = () => {
     return (
       <div>
-        <h1>Carrinho de Compras</h1>
-        <p>Seu carrinho está vazio no momento. Explore nossos produtos e adicione itens ao carrinho.</p>
+        <h1>Área do funcionário</h1>
+        <p>Olá Funcionário, aqui você terá acesso a ferramentas de uso intern.  </p>
       </div>
     );
   };

@@ -12,8 +12,8 @@ const NossaHistoria = () => {
       <header className="historia-header">
         <h1>Nossa História</h1>
         <p>
-          Conheça os marcos que fizeram da <br />
-          R. Amaral Office uma referência em <br />
+          Conheça os marcos que fizeram da
+          <strong> R. Amaral Office</strong> uma referência em
           soluções corporativas.
         </p>
       </header>
