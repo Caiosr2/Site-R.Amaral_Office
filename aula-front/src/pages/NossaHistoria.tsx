@@ -20,7 +20,7 @@ const NossaHistoria = () => {
 
       <section className="timeline">
         <div className="evento">
-          <img src={img1} alt="Fundador" />
+          <img className= "avatar-img" src={img1} alt="Fundador" />
           <div className="texto">
             <h2>2010 | Fundação</h2>
             <p>
@@ -39,11 +39,11 @@ const NossaHistoria = () => {
               Nesse período, conquistou seus primeiros contratos com instituições públicas, reforçando sua credibilidade no fornecimento B2B.
             </p>
           </div>
-          <img src={img2} alt="Portfólio" />
+          <img className= "avatar-img" src={img2} alt="Portfólio" />
         </div>
 
         <div className="evento">
-          <img src={img3} alt="Loja Física" />
+          <img className= "avatar-img" src={img3} alt="Loja Física" />
           <div className="texto">
             <h2>2020 | Adaptação e resposta à nova realidade</h2>
             <p>
@@ -61,11 +61,11 @@ const NossaHistoria = () => {
               Nesse período, suas soluções modulares, com boa durabilidade e capacidade de escalar, marcam a presença no planejamento estratégico de negócios modernos e flexíveis.
             </p>
           </div>
-          <img src={img4} alt="Startups" />
+          <img className= "avatar-img" src={img4} alt="Startups" />
         </div>
 
         <div className="evento">
-          <img src={img5} alt="Estoque" />
+          <img className= "avatar-img" src={img5} alt="Estoque" />
           <div className="texto">
             <h2>2024 | Lançamento do e-commerce</h2>
             <p>

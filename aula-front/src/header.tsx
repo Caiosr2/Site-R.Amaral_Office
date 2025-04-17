@@ -11,12 +11,14 @@ const Header = () => {
           <img src={logo} alt="Logo" className="logo" />
           <span className="title">R. Amaral Office</span>
         </Link>
+        <div className="right-section">
+          <input type="text" placeholder="Meu escritório precisa de..." className="search-bar" />
 
-        <input type="text" placeholder="Meu escritório precisa de..." className="search-bar" />
-
-        <Link to="/carrinho" className="cart">
-          <FaShoppingCart size={24} color="white" />
-        </Link>
+          <Link to="/carrinho" className="cart">
+            <FaShoppingCart size={24} color="white" />
+          </Link>
+        </div>
+        
       </div>
 
       <nav className="nav-bar">

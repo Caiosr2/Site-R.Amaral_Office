@@ -2,6 +2,9 @@
 import '../styles/Carrinho.css';
 import impressora from '../assets/impressora.png';
 import ssd from '../assets/ssd.png';
+import cadeira from '../assets/cadeira_ergonomica.png'
+import teclado_e_mouse from '../assets/teclado_e_mouse.png'
+import papel from '../assets/papel.png'
 import { FaTrash } from 'react-icons/fa';
 
 const Carrinho = () => {
@@ -67,6 +70,28 @@ const Carrinho = () => {
           <button className="checkout-button">Finalizar a compra</button>
         </div>
       </div>
+      <div className="suggestions">
+    <h2>Você também pode se interessar por:</h2>
+    <div className="suggestion-list">
+      <div className="suggestion-item">
+        <img src={cadeira} alt="Cadeira ergonômica" />
+        <p>Cadeira Ergonômica</p>
+        <span>R$ 899,99</span>
+      </div>
+      <div className="suggestion-item">
+        <img src={teclado_e_mouse} alt="Monitor 24 polegadas" />
+        <p>Combo Teclado e Mouse sem fio Logitech MK235 </p>
+        <span>R$ 159,99</span>
+      </div>
+      <div className="suggestion-item">
+        <img src={papel} alt="Organizadores de mesa" />
+        <p>Papel Sulfite A4 
+        10 Pacotes x 500 Folhas </p>
+        <span>R$ 249,99</span>
+      </div>
+    </div>
+</div>
+
     </div>
   );
 }

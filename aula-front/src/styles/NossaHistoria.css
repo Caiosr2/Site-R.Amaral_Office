@@ -2,7 +2,7 @@
     width: 100%;
     padding: 2rem;
     box-sizing: border-box;
-    background-color: #f4e9dc;
+    background-color: white;
     font-family: 'Playfair Display', serif;
     color: black;
   }
@@ -34,10 +34,10 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
-    background-color: #fff7f0;
+    background-color: #fafbfb;;
     border-radius: 1rem;
     padding: 1.5rem;
-    box-shadow: 0 0 1rem black;
+    border: 0.1rem solid black;
   }
   
   .evento img {
@@ -76,4 +76,8 @@
       font-size: 0.95rem;
     }
   }
+  .avatar-img {
+  filter: brightness(0.80) saturate(80%) hue-rotate(150deg);
+  }
+  
   

@@ -17,14 +17,14 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-col">
-          <h3>R. Amaral Office</h3>
-          <p>
-            Referência em qualidade e inovação no mercado corporativo.<br />
-            Especializada em móveis, eletrônicos e suprimentos para escritórios.<br />
-            Agora também online!
-          </p>
-        </div>
+      <div className="footer-col">
+        <h3>R. Amaral Office</h3>
+        <p>Referência em qualidade e inovação no mercado </p>
+        <p>corporativo.  Especializada em móveis, eletrônicos</p> 
+        <p>e suprimentos para escritórios.</p>
+        <p>Agora também online!</p>
+      </div>
+
 
         <div className="footer-col">
           <h4>Mapa do Site</h4>

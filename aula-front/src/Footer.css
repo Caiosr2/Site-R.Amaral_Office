@@ -1,5 +1,5 @@
 .footer {
-  background-color: #b86633;
+  background-color: #243436;;
   color: white;
   font-family: 'Playfair Display', serif;
   padding: 3rem 2rem 1rem;
@@ -12,18 +12,24 @@
 
 .footer-content {
   display: flex;
+  align-items: stretch;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   gap: 2rem;
   box-sizing: border-box;
+  
 }
 
 .footer-col {
   flex: 1;
   min-width: 250px;
+  max-width: 350px;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-col h3,
@@ -51,7 +57,7 @@
 }
 
 .footer-col ul li a:hover {
-  color: #ffe5c1;
+  color: #bbeede;
 }
 
 .footer-col svg {
@@ -77,14 +83,14 @@
 
 .footer-form button {
   background-color: #fff;
-  color: #b86633;
+  color: #344A4b;
   font-weight: bold;
   cursor: pointer;
 }
 
 .footer-form button:hover {
-  background-color: #ffe5c1;
-  color: #994f26;
+  background-color: #bbeede;
+  color: #344A4b;
 }
 
 

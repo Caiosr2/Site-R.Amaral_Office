@@ -1,7 +1,7 @@
 
 .cart-container {
-    padding: 2rem 1rem;
-    background-color: #F4E9DC;
+    padding: 2rem 4rem;
+    background-color: rgba(228, 228, 228, 0.693);
     font-family: 'Lora';
     max-width: 100vw;
     box-sizing: border-box;
@@ -26,7 +26,7 @@
   
   .cart-items {
     flex: 1;
-    background-color: #E8D8C2;
+    background-color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 12px;
   }
@@ -70,7 +70,7 @@
   .quantity-control button {
     padding: 0.3rem 0.6rem;
     border: none;
-    background-color: #d5a06a;
+    background-color: #344A4b;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -79,7 +79,7 @@
   
   .order-summary {
     width: 380px; 
-    background-color: #E8D8C2;
+    background-color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 12px;
   }
@@ -113,8 +113,8 @@
   .checkout-button {
     margin-top: 1.5rem;
     width: 100%;
-    background-color: yellow;
-    color: black;
+    background-color: #e65c00;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     padding: 1rem;
     border: none;
@@ -124,6 +124,54 @@
   }
   
   .checkout-button:hover {
-    background-color: #ffe600;
+    background-color: #344A4b;
+  }
+  
+  .suggestions {
+    margin-top: 3rem;
+  }
+  
+  .suggestions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .suggestion-list {
+    display: flex;
+    gap: 2rem;
+    flex-wrap:  wrap;
+    justify-content: flex-start;
+  }
+  
+  .suggestion-item {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    width: clamp(160px, 25%, 220px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+  }
+  
+  .suggestion-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+  }
+  
+  .suggestion-item:hover {
+    transform: translateY(-4px);
+  }
+  
+  .suggestion-item p {
+    font-weight: 500;
+    margin: 0.5rem 0 0.25rem;
+  }
+  
+  .suggestion-item span {
+    font-weight: bold;
+    color: #333;
   }
   
