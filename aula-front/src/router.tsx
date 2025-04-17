@@ -7,6 +7,7 @@ import NossaHistoria from "./pages/NossaHistoria";
 import Carrinho from "./pages/Carrinho";
 import Funcionarios from "./pages/Funcionarios";
 import UsoInterno from "./pages/funcionarios/UsoInterno";
+import Orcamento from "./pages/Orcamento";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ export const router = createBrowserRouter([
       { path: "servicos", element: <Servicos /> },
       { path: "nossa-historia", element: <NossaHistoria /> },
       { path: "carrinho", element: <Carrinho /> },
-      { path: "uso-interno", element: <UsoInterno /> }
+      { path: "uso-interno", element: <UsoInterno /> },
+      {path: "orcamento", element: <Orcamento />}
     ]
   }
 ]);
