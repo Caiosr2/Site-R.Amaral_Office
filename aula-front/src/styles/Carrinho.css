@@ -1,177 +1,195 @@
-
 .cart-container {
-    padding: 2rem 4rem;
-    background-color: rgba(228, 228, 228, 0.693);
-    font-family: 'Lora';
-    max-width: 100vw;
-    box-sizing: border-box;
-  }
-  
-  
-  .cart-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .cart-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .cart-items {
-    flex: 1;
-    background-color: rgb(255, 255, 255);
-    padding: 2rem;
-    border-radius: 12px;
-  }
-  
-  .cart-item {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-sizing: border-box;
-    max-width: 100%;
-  }
-  
-  .product-image {
-    width: 120px;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  .product-info {
-    flex: 1;
-  }
-  
-  .cart-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .trash-icon {
-    cursor: pointer;
-    color: #000;
-  }
-  
-  .quantity-control {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .quantity-control button {
-    padding: 0.3rem 0.6rem;
-    border: none;
-    background-color: #344A4b;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .order-summary {
-    width: 380px; 
-    background-color: rgb(255, 255, 255);
-    padding: 2rem;
-    border-radius: 12px;
-  }
-  
-  .order-summary h2 {
-    margin-bottom: 1rem;
-  }
-  
-  .summary-line,
-  .summary-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0.5rem 0;
-  }
-  
-  .summary-line span:first-child {
-    max-width: 70%;
-  
-  }
-  
-  .summary-line span:last-child {
-    white-space: nowrap;
-  }
-  
-  
-  .final {
-    font-size: 1.2rem;
-  }
-  
-  .checkout-button {
-    margin-top: 1.5rem;
-    width: 100%;
-    background-color: #e65c00;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    padding: 1rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  
-  }
-  
-  .checkout-button:hover {
-    background-color: #344A4b;
-  }
-  
-  .suggestions {
-    margin-top: 3rem;
-  }
-  
-  .suggestions h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-  }
-  
-  .suggestion-list {
-    display: flex;
-    gap: 2rem;
-    flex-wrap:  wrap;
-    justify-content: flex-start;
-  }
-  
-  .suggestion-item {
-    background-color: #ffffff;
-    border-radius: 0.75rem;
-    padding: 1rem;
-    width: clamp(160px, 25%, 220px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    
-  }
-  
-  .suggestion-item img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 0.5rem;
-  }
-  
-  .suggestion-item:hover {
-    transform: translateY(-4px);
-  }
-  
-  .suggestion-item p {
-    font-weight: 500;
-    margin: 0.5rem 0 0.25rem;
-  }
-  
-  .suggestion-item span {
-    font-weight: bold;
-    color: #333;
-  }
-  
+  padding: 2rem 4rem;
+  background-color: rgba(228, 228, 228, 0.693);
+  font-family: 'Lora';
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.cart-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.cart-items {
+  flex: 1;
+  background-color: rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.product-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trash-icon {
+  cursor: pointer;
+  color: #000;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-control button {
+  padding: 0.3rem 0.6rem;
+  border: none;
+  background-color: #344A4b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.order-summary {
+  width: 380px;
+  background-color: rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.order-summary h2 {
+  margin-bottom: 1rem;
+}
+
+.summary-line,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0.5rem 0;
+}
+
+.summary-line span:first-child {
+  max-width: 70%;
+}
+
+.summary-line span:last-child {
+  white-space: nowrap;
+}
+
+.final {
+  font-size: 1.2rem;
+}
+
+.checkout-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  background-color: #e65c00;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: #344A4b;
+}
+
+.suggestions {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ccc;
+}
+
+.suggestions h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.suggestion-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.suggestion-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.suggestion-carousel::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 4px;
+}
+
+.suggestion-item {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.suggestion-item img {
+  width: auto;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.suggestion-item:hover {
+  transform: translateY(-4px);
+}
+
+.suggestion-item p {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  min-height: 3rem;
+}
+
+.suggestion-item span {
+  font-weight: bold;
+  color: #333;
+}
+
