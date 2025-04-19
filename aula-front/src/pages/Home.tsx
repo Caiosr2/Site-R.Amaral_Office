@@ -10,6 +10,9 @@ import impressora from '../assets/impressora.png';
 import moveis from '../assets/categoria_moveis.png';
 import tecnologia from '../assets/categoria_tecnologia.png';
 import papelaria from '../assets/categoria_papelaria.png';
+import avatar1 from '../assets/avatar1.png';
+import avatar2 from '../assets/avatar2.png';
+import avatar3 from '../assets/avatar3.png';
 
 const Home = () => {
   const banners = [banner1, banner2];
@@ -45,48 +48,85 @@ const Home = () => {
       </Banner>
 
       <SectionTitle>Produtos mais procurados</SectionTitle>
-      <Carousel ref={carouselRef}>
-        <CarouselItem to="/produto/1">
-          <img src={mouse} alt="Mouse" />
-          <p>Mouse com fio USB Logitech M90</p>
-          <span>R$ 33,90</span>
-        </CarouselItem>
-        <CarouselItem to="/produto/2">
-          <img src={cadeira} alt="Cadeira" />
-          <p>Cadeira de Escritório Fortt Milano</p>
-          <span>R$ 199,99</span>
-        </CarouselItem>
-        <CarouselItem to="/produto/3">
-          <img src={impressora} alt="Impressora" />
-          <p>Impressora Multifuncional Epson L5590</p>
-          <span>R$ 1709,99</span>
-        </CarouselItem>
-      </Carousel>
+      <CarouselWrapper>
+        <Carousel ref={carouselRef}>
+          <CarouselItem to="/produto/1">
+            <img src={mouse} alt="Mouse" />
+            <p>Mouse com fio USB Logitech M90</p>
+            <span>R$ 33,90</span>
+          </CarouselItem>
+          <CarouselItem to="/produto/2">
+            <img src={cadeira} alt="Cadeira" />
+            <p>Cadeira de Escritório Fortt Milano</p>
+            <span>R$ 199,99</span>
+          </CarouselItem>
+          <CarouselItem to="/produto/3">
+            <img src={impressora} alt="Impressora" />
+            <p>Impressora Multifuncional Epson L5590</p>
+            <span>R$ 1709,99</span>
+          </CarouselItem>
+          <CarouselItem to="/produto/4">
+            <img src={moveis} alt="Mesa Escritório" />
+            <p>Mesa Escritório Compacta</p>
+            <span>R$ 299,90</span>
+          </CarouselItem>
+          <CarouselItem to="/produto/5">
+            <img src={tecnologia} alt="Notebook" />
+            <p>Notebook Dell Inspiron</p>
+            <span>R$ 3199,00</span>
+          </CarouselItem>
+          <CarouselItem to="/produto/6">
+            <img src={papelaria} alt="Caneta" />
+            <p>Kit Canetas Esferográficas</p>
+            <span>R$ 19,90</span>
+          </CarouselItem>
+        </Carousel>
+      </CarouselWrapper>
 
+      <SectionTitle>Categorias</SectionTitle>
       <Categories>
-        <img src={moveis} alt="Móveis" />
-        <img src={tecnologia} alt="Tecnologia" />
-        <img src={papelaria} alt="Papelaria" />
+        <CategoryButton to="/moveis">
+          <img src={moveis} alt="Móveis" />
+          <span>MÓVEIS</span>
+        </CategoryButton>
+        <CategoryButton to="/tecnologia">
+          <img src={tecnologia} alt="Tecnologia" />
+          <span>TECNOLOGIA</span>
+        </CategoryButton>
+        <CategoryButton to="/papelaria">
+          <img src={papelaria} alt="Papelaria" />
+          <span>PAPELARIA</span>
+        </CategoryButton>
       </Categories>
 
       <SectionTitle>Depoimentos de clientes</SectionTitle>
       <Testimonials>
         <Testimonial>
-          <h4>Lucas Andrade</h4>
+          <div className="profile">
+            <img src={avatar1} alt="Lucas Andrade" />
+            <h4>Lucas Andrade</h4>
+          </div>
           <p>"A Amaral Office transformou nosso escritório com móveis confortáveis e modernos. Excelente experiência!"</p>
         </Testimonial>
         <Testimonial>
-          <h4>Fernanda Lopes</h4>
+          <div className="profile">
+            <img src={avatar2} alt="Fernanda Lopes" />
+            <h4>Fernanda Lopes</h4>
+          </div>
           <p>"Produtos de alta qualidade e atendimento excelente. A entrega foi rápida e os preços são justos."</p>
         </Testimonial>
         <Testimonial>
-          <h4>Mariana Queiroz</h4>
+          <div className="profile">
+            <img src={avatar3} alt="Mariana Queiroz" />
+            <h4>Mariana Queiroz</h4>
+          </div>
           <p>"Recomendo demais! Encontrei tudo que precisava para meu home office com ótimo custo-benefício."</p>
         </Testimonial>
       </Testimonials>
     </HomeContainer>
   );
 };
+
 const HomeContainer = styled.div`
   background-color: #f4f4f4;
   padding: 2rem 4rem;
@@ -96,19 +136,28 @@ const HomeContainer = styled.div`
 const Banner = styled.div`
   width: 100%;
   overflow: hidden;
+  height: auto;
+  max-height: 400px;
   margin-bottom: 2rem;
+  border-radius: 12px;
 `;
 
 const BannerImage = styled.img`
   width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
   border-radius: 12px;
-  object-fit: cover;
 `;
 
 const SectionTitle = styled.h2`
   font-size: 1.6rem;
   font-weight: bold;
   margin: 2rem 0 1rem;
+`;
+
+const CarouselWrapper = styled.div`
+  overflow: hidden;
 `;
 
 const Carousel = styled.div`
@@ -161,14 +210,43 @@ const CarouselItem = styled(Link)`
 
 const Categories = styled.div`
   display: flex;
-  justify-content: space-around;
-  margin: 2rem 0;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2.5rem 0 3rem;
+  flex-wrap: wrap;
+`;
+
+const CategoryButton = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  width: 160px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
   img {
-    width: 100px;
+    width: 80px;
     height: auto;
     object-fit: contain;
+    margin-bottom: 1rem;
+  }
+
+  span {
+    font-weight: bold;
+    color: #2b3f42;
+    font-size: 1rem;
   }
 `;
 
@@ -186,9 +264,24 @@ const Testimonial = styled.div`
   flex: 1 1 30%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  h4 {
-    margin-bottom: 0.5rem;
-    color: #344A4b;
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    h4 {
+      margin: 0;
+      color: #344A4b;
+      font-size: 1rem;
+    }
   }
 
   p {
@@ -196,5 +289,5 @@ const Testimonial = styled.div`
     color: #333;
   }
 `;
-export default Home;
 
+export default Home;
