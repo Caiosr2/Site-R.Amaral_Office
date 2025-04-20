@@ -15,7 +15,11 @@ import avatar2 from '../assets/avatar2.png';
 import avatar3 from '../assets/avatar3.png';
 
 const Home = () => {
-  const banners = [banner1, banner2];
+  const banners =  [
+    { image: banner1, link: "/orcamento" },
+    { image: banner2, link: "/produtos" }
+  ];
+  
   const [currentBanner, setCurrentBanner] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -43,9 +47,13 @@ const Home = () => {
 
   return (
     <HomeContainer>
-      <Banner>
-        <BannerImage src={banners[currentBanner]} alt="banner" />
-      </Banner>
+  <BannerWrapper as={Link} to={banners[currentBanner].link}>
+  <BannerImage src={banners[currentBanner].image} alt="banner" />
+</BannerWrapper>
+
+
+
+
 
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
@@ -129,26 +137,43 @@ const Home = () => {
 
 const HomeContainer = styled.div`
   background-color: #f4f4f4;
-  padding: 2rem 4rem;
+  padding: 0 4rem 2rem 4rem;  // tiramos o padding-top
   box-sizing: border-box;
 `;
 
-const Banner = styled.div`
-  width: 100%;
+
+const Banner = styled(Link)`
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   overflow: hidden;
-  height: auto;
-  max-height: 400px;
-  margin-bottom: 2rem;
-  border-radius: 12px;
+  margin: 0;
+  padding: 0;
+  display: block;
 `;
+
 
 const BannerImage = styled.img`
   width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain;
-  border-radius: 12px;
+  height: 40rem; // ou o valor que quiser
+  object-fit: cover;
+  object-position: center;
+  display: block;
 `;
+
+
+
+const BannerWrapper = styled(Link)`
+  display: block;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* Centraliza usando vw */
+  overflow: hidden;
+`;
+
+
+
+
 
 const SectionTitle = styled.h2`
   font-size: 1.6rem;
