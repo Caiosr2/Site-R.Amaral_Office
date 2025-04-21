@@ -58,7 +58,7 @@ const Home = () => {
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
         <Carousel ref={carouselRef}>
-          <CarouselItem to="/produto/1">
+          <CarouselItem to="/produto1">
             <img src={mouse} alt="Mouse" />
             <p>Mouse com fio USB Logitech M90</p>
             <span>R$ 33,90</span>

@@ -8,6 +8,7 @@ import Carrinho from "./pages/Carrinho";
 import Funcionarios from "./pages/Funcionarios";
 import UsoInterno from "./pages/funcionarios/UsoInterno";
 import Orcamento from "./pages/Orcamento";
+import Produto1 from "./pages/produto1";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,8 @@ export const router = createBrowserRouter([
       { path: "nossa-historia", element: <NossaHistoria /> },
       { path: "carrinho", element: <Carrinho /> },
       {path: "orcamento", element: <Orcamento />},
+      {path: "produto1", element: <Produto1 />},
+
     ]
   },
   { path: "funcionarios", element: <Funcionarios /> },
