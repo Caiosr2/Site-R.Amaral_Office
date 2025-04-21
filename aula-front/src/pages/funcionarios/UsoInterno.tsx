@@ -172,6 +172,18 @@ const LembreteCard = styled.div`
   width: 240px;
 `;
 
+const LembreteWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 function handleDownloadClick(e: React.MouseEvent<HTMLAnchorElement>) {
   e.preventDefault();
   alert('O arquivo foi baixado no seu computador.');
@@ -252,7 +264,7 @@ export default function UsoInterno() {
           )}
 
           {abaAtiva === 'lembretes' && (
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <LembreteWrapper>
               <LembreteCard>
                 🔴 <strong>Orçamento Marcos Silva</strong>
                 <p>X dias para a entrega do orçamento</p>
@@ -261,7 +273,7 @@ export default function UsoInterno() {
                 🔴 <strong>Orçamento Maria Clara Silvestre</strong>
                 <p>X dias para a entrega do orçamento</p>
               </LembreteCard>
-            </div>
+            </LembreteWrapper>
           )}
         </ContentBox>
       </PageContent>
