@@ -93,11 +93,22 @@ const ContentBox = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const CalendarWrapper = styled.div`
-  width: 820px;
-  height: 500px;
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const ImgCalendario = styled.img`
@@ -107,11 +118,17 @@ const ImgCalendario = styled.img`
 `;
 
 const Eventos = styled.div`
-  padding: 0 0 0 0;
+  padding: 0;
   max-width: 300px;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const TituloEventos = styled.h3`
