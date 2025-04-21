@@ -5,8 +5,19 @@ a {
   background-color: #243436;
   color: white;
   font-family: "Playfair Display" , serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
-
+body {
+  padding-top: 101px; /* ajuste conforme a altura real do seu header */
+@media (max-width: 768px) {
+  padding-top: 164px;
+    
+  }
+}
 .top-bar {
   display: flex;
   align-items: center;
@@ -75,3 +86,39 @@ a {
   text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+  .top-bar {
+    flex-wrap: wrap;
+  }
+
+  .search-bar {
+    flex: 1 1 100%;
+    min-width: 200px;
+    margin-top: 0.5rem;
+  }
+
+  .right-section {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .search-bar {
+    max-width: 12px;
+    font-size: 0.8rem;
+  }
+
+  .logo {
+    height: 2rem;
+  }
+
+  .cart {
+    font-size: 1.2rem; /* ou ajuste o SVG */
+  }
+}

@@ -109,71 +109,71 @@ const Home = () => {
 
       <SectionTitle>Depoimentos de clientes</SectionTitle>
       <Testimonials>
-        <Testimonial>
-          <div className="profile">
-            <img src={avatar1} alt="Lucas Andrade" />
-            <h4>Lucas Andrade</h4>
-          </div>
-          <p>"A Amaral Office transformou nosso escritório com móveis confortáveis e modernos. Excelente experiência!"</p>
-        </Testimonial>
-        <Testimonial>
-          <div className="profile">
-            <img src={avatar2} alt="Fernanda Lopes" />
-            <h4>Fernanda Lopes</h4>
-          </div>
-          <p>"Produtos de alta qualidade e atendimento excelente. A entrega foi rápida e os preços são justos."</p>
-        </Testimonial>
-        <Testimonial>
-          <div className="profile">
-            <img src={avatar3} alt="Mariana Queiroz" />
-            <h4>Mariana Queiroz</h4>
-          </div>
-          <p>"Recomendo demais! Encontrei tudo que precisava para meu home office com ótimo custo-benefício."</p>
-        </Testimonial>
-      </Testimonials>
+  <Testimonial>
+    <div className="profile">
+      <img src={avatar1} alt="Lucas Andrade" />
+      <div>
+        <h4>Lucas Andrade</h4>
+        <Stars>★★★★★</Stars>
+      </div>
+    </div>
+    <p>"A Amaral Office transformou nosso escritório com móveis confortáveis e modernos. Excelente experiência!"</p>
+  </Testimonial>
+  <Testimonial>
+    <div className="profile">
+      <img src={avatar2} alt="Fernanda Lopes" />
+      <div>
+        <h4>Fernanda Lopes</h4>
+        <Stars>★★★★★</Stars>
+      </div>
+    </div>
+    <p>"Produtos de alta qualidade e atendimento excelente. A entrega foi rápida e os preços são justos."</p>
+  </Testimonial>
+  <Testimonial>
+    <div className="profile">
+      <img src={avatar3} alt="Mariana Queiroz" />
+      <div>
+        <h4>Mariana Queiroz</h4>
+        <Stars>★★★★★</Stars>
+      </div>
+    </div>
+    <p>"Recomendo demais! Encontrei tudo que precisava para meu home office com ótimo custo-benefício."</p>
+  </Testimonial>
+</Testimonials>
+
     </HomeContainer>
   );
 };
 
 const HomeContainer = styled.div`
   background-color: #f4f4f4;
-  padding: 0 4rem 2rem 4rem;  // tiramos o padding-top
+  padding: 0 4rem 2rem 4rem;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem 2rem 1rem;
+  }
 `;
 
-
-const Banner = styled(Link)`
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  display: block;
-`;
 
 
 const BannerImage = styled.img`
-  width: 100%;
-  height: 40rem; // ou o valor que quiser
+  width: 100vw;
+  aspect-ratio: 16 / 5; /* ou 3 / 1, ajuste conforme desejado */
   object-fit: cover;
   object-position: center;
   display: block;
 `;
 
 
-
 const BannerWrapper = styled(Link)`
-  display: block;
+  position: relative;
   width: 100vw;
-  margin-left: calc(-50vw + 50%); /* Centraliza usando vw */
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
   overflow: hidden;
+  display: block;
 `;
-
-
-
-
 
 const SectionTitle = styled.h2`
   font-size: 1.6rem;
@@ -235,10 +235,14 @@ const CarouselItem = styled(Link)`
 
 const Categories = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 2rem;
   margin: 2.5rem 0 3rem;
-  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const CategoryButton = styled(Link)`
@@ -249,7 +253,8 @@ const CategoryButton = styled(Link)`
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 2rem 1.5rem;
-  width: 160px;
+  width: 280px;
+  height: 280px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   text-decoration: none;
@@ -262,7 +267,7 @@ const CategoryButton = styled(Link)`
   }
 
   img {
-    width: 80px;
+    width: 120px;
     height: auto;
     object-fit: contain;
     margin-bottom: 1rem;
@@ -271,9 +276,10 @@ const CategoryButton = styled(Link)`
   span {
     font-weight: bold;
     color: #2b3f42;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 `;
+
 
 const Testimonials = styled.div`
   display: flex;
@@ -313,6 +319,12 @@ const Testimonial = styled.div`
     font-size: 0.95rem;
     color: #333;
   }
+`;
+
+const Stars = styled.div`
+font-size: 1.2rem;
+color: #FFD700; /* cor dourada para estrelas */
+margin-top: 0.25rem;
 `;
 
 export default Home;
