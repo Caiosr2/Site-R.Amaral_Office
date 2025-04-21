@@ -22,6 +22,7 @@ export const router = createBrowserRouter([
       { path: "carrinho", element: <Carrinho /> },
       {path: "orcamento", element: <Orcamento />},
       {path: "produto1", element: <Produto1 />},
+      {path: "funcionario", element: <Funcionarios />},
 
     ]
   },
