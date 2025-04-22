@@ -11,14 +11,7 @@ function handleDownloadClick(e: React.MouseEvent<HTMLAnchorElement>) {
 
 const UsoInterno = () => {
   const [abaAtiva, setAbaAtiva] = useState('calendario');
-  const [dadosDinamicos, setDadosDinamicos] = useState({ vendas: 0, feedbacks: 0 });
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setDadosDinamicos({ vendas: 12300, feedbacks: 3 });
-    }, 1000);
-  }, []);
 
   return (
     <Container>
@@ -31,7 +24,10 @@ const UsoInterno = () => {
             <div>Nº de funcionário: 00134</div>
           </div>
         </UserInfo>
-        <SairButton onClick={() => navigate('/funcionarios')}>Sair</SairButton>
+        <div style={{ display: 'flex', gap: '12px' }}>
+          <BotaoEdicao>Edição de Produto</BotaoEdicao>
+          <SairButton onClick={() => navigate('/funcionarios')}>Sair</SairButton>
+        </div>
       </TopBar>
 
       <Spacer />
@@ -44,7 +40,7 @@ const UsoInterno = () => {
           <Tab selected={abaAtiva === 'dashboard'} onClick={() => setAbaAtiva('dashboard')}>Dashboard</Tab>
         </TabMenu>
 
-        <ContentBox>
+        <ContentBox style={{ marginTop: '-8px' }}>
           {abaAtiva === 'calendario' && (
             <>
               <CalendarWrapper>
@@ -60,7 +56,8 @@ const UsoInterno = () => {
                 </Secao>
                 <Secao>
                   <Subtitulo>Reuniões</Subtitulo>
-                  <Descricao>Sem eventos de reunião para esse mês</Descricao>
+                  <Descricao>28/04 → Reunião com Marcos</Descricao>
+                  <Descricao>30/04 → Reunião com Maria</Descricao>
                 </Secao>
               </Eventos>
             </>
@@ -112,15 +109,15 @@ const UsoInterno = () => {
               </Indicador>
               <Indicador>
                 <h4>Vendas do Mês</h4>
-                <p>R$ {dadosDinamicos.vendas}</p>
+                <p>R$ 12.300</p>
               </Indicador>
               <Indicador>
                 <h4>Reuniões</h4>
-                <p>0 agendadas</p>
+                <p>2 agendadas</p>
               </Indicador>
               <Indicador>
                 <h4>Feedbacks</h4>
-                <p>{dadosDinamicos.feedbacks} positivos</p>
+                <p>3 positivos</p>
               </Indicador>
             </IndicadorWrapper>
           )}
@@ -132,11 +129,13 @@ const UsoInterno = () => {
 
 const IndicadorWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 24px;
   padding: 24px;
-  gap: 16px;
   background-color: #eeeeee;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 const Indicador = styled.div`
@@ -144,7 +143,9 @@ const Indicador = styled.div`
   padding: 16px;
   border-radius: 12px;
   text-align: center;
-  width: 200px;
+  flex: 1 1 200px;
+  min-width: 200px;
+  max-width: 250px;
   box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
 `;
 
@@ -163,7 +164,7 @@ const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 32px;
+  padding: 16px 24px;
   box-sizing: border-box;
   position: fixed;
   top: 0;
@@ -172,7 +173,7 @@ const TopBar = styled.div`
 `;
 
 const Spacer = styled.div`
-  height: 96px;
+  height: 8px;
 `;
 
 const UserInfo = styled.div`
@@ -207,7 +208,7 @@ const PageContent = styled.div`
 const TabMenu = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0;
+  margin: 4px 0 8px 0;
 `;
 
 const Tab = styled.button<{ selected: boolean }>`
@@ -233,17 +234,23 @@ const ContentBox = styled.div`
   padding: 0;
   border-top: none;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 16px;
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const CalendarWrapper = styled.div`
-  width: 100%;
-  max-width: 820px;
+  width: 820px;
   height: auto;
+  flex-shrink: 0;
 
   img {
     width: 100%;
@@ -264,6 +271,7 @@ const Eventos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  flex-shrink: 0;
 
   @media (max-width: 768px) {
     align-items: center;
@@ -322,6 +330,17 @@ const LembreteWrapper = styled.div`
     flex-direction: column;
     align-items: center;
   }
+`;
+
+const BotaoEdicao = styled.div`
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-left: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-block;
 `;
 
 export default UsoInterno;
