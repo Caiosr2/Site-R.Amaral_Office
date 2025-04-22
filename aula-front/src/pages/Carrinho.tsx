@@ -112,7 +112,9 @@ const Carrinho = () => {
             <span>Total</span>
             <span><strong>R$ {total.toFixed(2)}</strong></span>
           </div>
-          <button className="checkout-button">Finalizar a compra</button>
+          <Link to="/checkout" className="checkout-button">
+            Finalizar a compra
+          </Link>
         </div>
       </div>
 

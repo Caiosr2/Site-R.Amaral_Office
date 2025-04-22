@@ -4,6 +4,104 @@ import { useNavigate } from 'react-router-dom';
 import avatar1 from '../../assets/avatar1.png';
 import calendario from '../../assets/calendario.png';
 
+
+function handleDownloadClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  alert('O arquivo foi baixado no seu computador.');
+}
+
+const UsoInterno = () => {
+  const [abaAtiva, setAbaAtiva] = useState('calendario');
+  const navigate = useNavigate();
+
+  return (
+    <Container>
+      <TopBar>
+        <UserInfo>
+          <Avatar src={avatar1} alt="Avatar" />
+          <div>
+            <div>Nome: Roberto Martins</div>
+            <div>Cargo: Gerente de vendas</div>
+            <div>Nº de funcionário: 00134</div>
+          </div>
+        </UserInfo>
+        <SairButton onClick={() => navigate('/funcionarios')}>Sair</SairButton>
+      </TopBar>
+
+      <Spacer />
+
+      <PageContent>
+        <TabMenu>
+          <Tab selected={abaAtiva === 'calendario'} onClick={() => setAbaAtiva('calendario')}>Calendário</Tab>
+          <Tab selected={abaAtiva === 'orcamentos'} onClick={() => setAbaAtiva('orcamentos')}>Orçamentos</Tab>
+          <Tab selected={abaAtiva === 'lembretes'} onClick={() => setAbaAtiva('lembretes')}>Lembretes</Tab>
+        </TabMenu>
+
+        <ContentBox>
+          {abaAtiva === 'calendario' && (
+            <>
+              <CalendarWrapper>
+                <ImgCalendario src={calendario} alt="Calendário" />
+              </CalendarWrapper>
+              <Eventos>
+                <TituloEventos>Eventos do mês:</TituloEventos>
+                <Secao>
+                  <Subtitulo>Feriados</Subtitulo>
+                  <Descricao>18/04 → Sexta feira Santa</Descricao>
+                  <Descricao>20/04 → Domingo de Páscoa</Descricao>
+                  <Descricao>21/04 → Tiradentes</Descricao>
+                </Secao>
+                <Secao>
+                  <Subtitulo>Reuniões</Subtitulo>
+                  <Descricao>Sem eventos de reunião para esse mês</Descricao>
+                </Secao>
+              </Eventos>
+            </>
+          )}
+
+          {abaAtiva === 'orcamentos' && (
+            <Table>
+              <tbody>
+                <tr>
+                  <Td><strong>Cliente</strong></Td>
+                  <Td><strong>Email para contato</strong></Td>
+                  <Td><strong>Detalhes</strong></Td>
+                  <Td><strong>Prazo</strong></Td>
+                </tr>
+                <tr>
+                  <Td>Marcos Silva</Td>
+                  <Td>marcos@xxxx.com.br</Td>
+                  <Td><a href="#" onClick={handleDownloadClick}>Clique aqui para ver o orçamento</a></Td>
+                  <Td>X dias para entrega</Td>
+                </tr>
+                <tr>
+                  <Td>Maria Clara Silvestre</Td>
+                  <Td>mcsilvestre@xxxx.com.br</Td>
+                  <Td><a href="#" onClick={handleDownloadClick}>Clique aqui para ver o orçamento</a></Td>
+                  <Td>X dias para entrega</Td>
+                </tr>
+              </tbody>
+            </Table>
+          )}
+
+          {abaAtiva === 'lembretes' && (
+            <LembreteWrapper>
+              <LembreteCard>
+                🔴 <strong>Orçamento Marcos Silva</strong>
+                <p>X dias para a entrega do orçamento</p>
+              </LembreteCard>
+              <LembreteCard>
+                🔴 <strong>Orçamento Maria Clara Silvestre</strong>
+                <p>X dias para a entrega do orçamento</p>
+              </LembreteCard>
+            </LembreteWrapper>
+          )}
+        </ContentBox>
+      </PageContent>
+    </Container>
+  );
+}
+
 const Container = styled.div`
   font-family: Arial, sans-serif;
   background: #fff;
@@ -184,99 +282,4 @@ const LembreteWrapper = styled.div`
   }
 `;
 
-function handleDownloadClick(e: React.MouseEvent<HTMLAnchorElement>) {
-  e.preventDefault();
-  alert('O arquivo foi baixado no seu computador.');
-}
-
-export default function UsoInterno() {
-  const [abaAtiva, setAbaAtiva] = useState('calendario');
-  const navigate = useNavigate();
-
-  return (
-    <Container>
-      <TopBar>
-        <UserInfo>
-          <Avatar src={avatar1} alt="Avatar" />
-          <div>
-            <div>Nome: Roberto Martins</div>
-            <div>Cargo: Gerente de vendas</div>
-            <div>Nº de funcionário: 00134</div>
-          </div>
-        </UserInfo>
-        <SairButton onClick={() => navigate('/Funcionario')}>Sair</SairButton>
-      </TopBar>
-
-      <Spacer />
-
-      <PageContent>
-        <TabMenu>
-          <Tab selected={abaAtiva === 'calendario'} onClick={() => setAbaAtiva('calendario')}>Calendário</Tab>
-          <Tab selected={abaAtiva === 'orcamentos'} onClick={() => setAbaAtiva('orcamentos')}>Orçamentos</Tab>
-          <Tab selected={abaAtiva === 'lembretes'} onClick={() => setAbaAtiva('lembretes')}>Lembretes</Tab>
-        </TabMenu>
-
-        <ContentBox>
-          {abaAtiva === 'calendario' && (
-            <>
-              <CalendarWrapper>
-                <ImgCalendario src={calendario} alt="Calendário" />
-              </CalendarWrapper>
-              <Eventos>
-                <TituloEventos>Eventos do mês:</TituloEventos>
-                <Secao>
-                  <Subtitulo>Feriados</Subtitulo>
-                  <Descricao>18/04 → Sexta feira Santa</Descricao>
-                  <Descricao>20/04 → Domingo de Páscoa</Descricao>
-                  <Descricao>21/04 → Tiradentes</Descricao>
-                </Secao>
-                <Secao>
-                  <Subtitulo>Reuniões</Subtitulo>
-                  <Descricao>Sem eventos de reunião para esse mês</Descricao>
-                </Secao>
-              </Eventos>
-            </>
-          )}
-
-          {abaAtiva === 'orcamentos' && (
-            <Table>
-              <tbody>
-                <tr>
-                  <Td><strong>Cliente</strong></Td>
-                  <Td><strong>Email para contato</strong></Td>
-                  <Td><strong>Detalhes</strong></Td>
-                  <Td><strong>Prazo</strong></Td>
-                </tr>
-                <tr>
-                  <Td>Marcos Silva</Td>
-                  <Td>marcos@xxxx.com.br</Td>
-                  <Td><a href="#" onClick={handleDownloadClick}>Clique aqui para ver o orçamento</a></Td>
-                  <Td>X dias para entrega</Td>
-                </tr>
-                <tr>
-                  <Td>Maria Clara Silvestre</Td>
-                  <Td>mcsilvestre@xxxx.com.br</Td>
-                  <Td><a href="#" onClick={handleDownloadClick}>Clique aqui para ver o orçamento</a></Td>
-                  <Td>X dias para entrega</Td>
-                </tr>
-              </tbody>
-            </Table>
-          )}
-
-          {abaAtiva === 'lembretes' && (
-            <LembreteWrapper>
-              <LembreteCard>
-                🔴 <strong>Orçamento Marcos Silva</strong>
-                <p>X dias para a entrega do orçamento</p>
-              </LembreteCard>
-              <LembreteCard>
-                🔴 <strong>Orçamento Maria Clara Silvestre</strong>
-                <p>X dias para a entrega do orçamento</p>
-              </LembreteCard>
-            </LembreteWrapper>
-          )}
-        </ContentBox>
-      </PageContent>
-    </Container>
-  );
-}
+export default UsoInterno;

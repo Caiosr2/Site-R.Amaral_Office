@@ -45,7 +45,6 @@ const Orcamento = () => {
         <label>Número de celular</label>
         <input type="tel" placeholder="(00) 00000-0000" />
 
-        <SubmitButton type="submit">Enviar</SubmitButton>
       </FormSection>
 
 
@@ -53,14 +52,10 @@ const Orcamento = () => {
         <FormSection>
 
           <label>Orçamento</label>
-          <textarea placeholder="Descreva o que deseja para seu orçamento" rows={15} />
+          <textarea placeholder="Descreva o que deseja para seu orçamento" rows={18} />
+          <SubmitButton type="submit">Enviar</SubmitButton>
         </FormSection>
-          <InfoSection>
-            <h3>Contato</h3>
-            <p><strong>Endereço:</strong> Rua XXXXX – XXXX (UF)</p>
-            <p><strong>Telefone:</strong> (XX) XXXXX-XXXX</p>
-            <p><strong>Email:</strong> suporte@ramaral.com.br</p>
-          </InfoSection>
+   
           
         </SideInfo>
       </FormCard>
