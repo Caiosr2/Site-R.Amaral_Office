@@ -19,10 +19,7 @@ const PoltronaEduarda = () => {
           <Price>R$ 899,99</Price>
 
           <Description>
-            A Poltrona Eduarda traz um toque moderno e elegante para escritórios,
-            home office ou espaços de estudo. Sua base dourada metálica com rodas
-            garante estabilidade e mobilidade, enquanto o sistema de regulagem de
-            altura proporciona mais ergonomia para o uso diário.
+            A Poltrona Eduarda traz um toque moderno e elegante para escritórios, home office ou espaços de estudo. Sua base dourada metálica com rodas garante estabilidade e mobilidade, enquanto o sistema de regulagem de altura proporciona mais ergonomia para o uso diário.
           </Description>
 
           <FeatureList>
@@ -104,6 +101,8 @@ export const Price = styled.div`
 `;
 
 export const Description = styled.p`
+  text-align: justify;
+  max-width: 250%;
   font-size: 1.05rem;
   color: #444;
   line-height: 1.6;

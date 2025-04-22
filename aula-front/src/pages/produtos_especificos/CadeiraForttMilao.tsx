@@ -1,39 +1,41 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import cadeira from "../assets/cadeiraeduarda.png";
+import milao from "../../assets/cadeiraforttmilao.png";
 
-const MesaExecutiva = () => {
+const CadeiraFM = () => {
   return (
     <PageWrapper>
       <Container>
         <RightColumn>
-          <ProductImage src={cadeira} alt="Poltrona Eduarda" />
+          <ProductImage src={milao} alt="Cadeira Fortt Milão" />
         </RightColumn>
 
         <LeftColumn>
           <Breadcrumb>
-            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Cadeiras">Mesas</StyledLink> &gt; <span>Mesa de Escritório Executiva 4 GV</span>
+            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt;{" "}
+            <StyledLink to="/produtos?categoria=Móveis,Cadeiras">Cadeiras</StyledLink> &gt;{" "}
+            <span>Cadeira Fortt Milão</span>
           </Breadcrumb>
 
-          <Title>Mesa de Escritório Executiva 4 GV</Title>
-          <Price>R$ 1576,99</Price>
+          <Title>Cadeira Fortt Milão Giratória com Rodízios</Title>
+          <Price>R$ 799,99</Price>
 
           <Description>
-          A Mesa Executiva é ideal para quem exige funcionalidade e presença. Com 4 gavetas posicionadas no lado direito, oferece amplo espaço para armazenamento e uma superfície de trabalho confortável. A combinação de cores garante um visual elegante.
+            A Cadeira Fortt Milão é sinônimo de praticidade e sofisticação. Com um design moderno e estrutura resistente, é ideal para ambientes corporativos e escritórios que exigem conforto e estilo durante o trabalho.
           </Description>
 
           <FeatureList>
-            <li>Lado direito com módulo fixo de armazenamento</li>
-            <li>Estrutura em MDP resistente e durável</li>
-            <li>Acabamento em marrom e preto, design profissional e elegante</li>
-            <li>Superfície ampla para computador, monitor e materiais de apoio</li>
+            <li>Assento e encosto com revestimento resistente e elegante</li>
+            <li>Base giratória com rodízios para fácil movimentação</li>
+            <li>Altura ajustável para melhor ergonomia</li>
+            <li>Design versátil que combina com diversos espaços</li>
           </FeatureList>
 
           <Buttons>
-            <StyledButton>Adicionar ao Carrinho</StyledButton>
-            <Link to="/orcamento" style={{ width: '100%' }}>
+            <Link to="/orcamento" style={{ width: "100%" }}>
               <StyledButton outlined>Faça um orçamento agora</StyledButton>
             </Link>
+            <StyledButton>Adicionar ao Carrinho</StyledButton>
           </Buttons>
         </LeftColumn>
       </Container>
@@ -164,4 +166,4 @@ export const StyledButton = styled.button<{ outlined?: boolean }>`
   }
 `;
 
-export default MesaExecutiva;
+export default CadeiraFM;

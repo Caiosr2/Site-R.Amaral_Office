@@ -1,39 +1,40 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import cadeira from "../assets/cadeiraeduarda.png";
+import cadeira from "../../assets/cadeiradecouro.png";
 
-const MesaExecutiva = () => {
+const CadeiraCouro = () => {
   return (
     <PageWrapper>
       <Container>
         <RightColumn>
-          <ProductImage src={cadeira} alt="Poltrona Eduarda" />
+          <ProductImage src={cadeira} alt="Cadeira de Escritório de Couro" />
         </RightColumn>
 
         <LeftColumn>
           <Breadcrumb>
-            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Cadeiras">Mesas</StyledLink> &gt; <span>Mesa de Escritório Executiva 4 GV</span>
+            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt;{" "}
+            <StyledLink to="/produtos?categoria=Móveis,Cadeiras">Cadeiras</StyledLink> &gt;{" "}
+            <span>Cadeira de escritório em couro</span>
           </Breadcrumb>
 
-          <Title>Mesa de Escritório Executiva 4 GV</Title>
-          <Price>R$ 1576,99</Price>
+          <Title>Cadeira de Escritório de couro</Title>
+          <Price>R$ 599,99</Price>
 
           <Description>
-          A Mesa Executiva é ideal para quem exige funcionalidade e presença. Com 4 gavetas posicionadas no lado direito, oferece amplo espaço para armazenamento e uma superfície de trabalho confortável. A combinação de cores garante um visual elegante.
+            Essa cadeira é ideal para escritórios, salas de reunião ou home office sofisticado. Revestida em couro preto com acabamento acolchoado, proporciona excelente apoio para longas jornadas de trabalho.Sua base e o ajuste de altura garantem mobilidade e ergonomia no uso diário, enquanto os braços curvados oferecem um maior conforto.
           </Description>
 
           <FeatureList>
-            <li>Lado direito com módulo fixo de armazenamento</li>
-            <li>Estrutura em MDP resistente e durável</li>
-            <li>Acabamento em marrom e preto, design profissional e elegante</li>
-            <li>Superfície ampla para computador, monitor e materiais de apoio</li>
+            <li>Encosto alto com apoio lombar e design acolchoado</li>
+            <li>Sistema reclinável com ajuste de pressão</li>
+            <li>Apoios de braço fixos com acabamento metálico</li>
           </FeatureList>
 
           <Buttons>
-            <StyledButton>Adicionar ao Carrinho</StyledButton>
-            <Link to="/orcamento" style={{ width: '100%' }}>
+            <Link to="/orcamento" style={{ width: "100%" }}>
               <StyledButton outlined>Faça um orçamento agora</StyledButton>
             </Link>
+            <StyledButton>Adicionar ao Carrinho</StyledButton>
           </Buttons>
         </LeftColumn>
       </Container>
@@ -43,10 +44,11 @@ const MesaExecutiva = () => {
 
 export const PageWrapper = styled.div`
   width: 100%;
-  padding: 3rem 1rem;
+  height: 100vh;
   background-color: #f4f4f4;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const Container = styled.div`
@@ -59,7 +61,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   gap: 3rem;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Breadcrumb = styled.div`
@@ -118,11 +121,14 @@ export const FeatureList = styled.ul`
 `;
 
 export const LeftColumn = styled.div`
-  flex: 1 1 500px;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const RightColumn = styled.div`
-  flex: 1 1 400px;
+  flex: 1 1 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,13 +136,13 @@ export const RightColumn = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  max-width: 360px;
+  max-width: 320px;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 `;
 
 export const Buttons = styled.div`
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -163,5 +169,4 @@ export const StyledButton = styled.button<{ outlined?: boolean }>`
     color: white;
   }
 `;
-
-export default MesaExecutiva;
+export default CadeiraCouro;
