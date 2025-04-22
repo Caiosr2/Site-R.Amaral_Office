@@ -117,15 +117,15 @@ const Home = () => {
 
       <SectionTitle>Categorias</SectionTitle>
       <Categories>
-        <CategoryButton to="/moveis">
+        <CategoryButton to="/produtos?categoria=Móveis">
           <img src={moveis} alt="Móveis" />
           <span>MÓVEIS</span>
         </CategoryButton>
-        <CategoryButton to="/tecnologia">
+        <CategoryButton to="/produtos?categoria=Tecnologia">
           <img src={tecnologia} alt="Tecnologia" />
           <span>TECNOLOGIA</span>
         </CategoryButton>
-        <CategoryButton to="/papelaria">
+        <CategoryButton to="/produtos?categoria=Papelaria">
           <img src={papelaria} alt="Papelaria" />
           <span>PAPELARIA</span>
         </CategoryButton>

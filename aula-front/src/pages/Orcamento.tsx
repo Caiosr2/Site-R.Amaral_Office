@@ -10,69 +10,54 @@ const Orcamento = () => {
     e.preventDefault();
     setPopupVisible(true);
   };
-  
+
   return (
     <PageWrapper>
       <Title>Solicite um Orçamento</Title>
-      {popupVisible && (
-  <PopupOverlay>
-    <PopupBox>
-      <h2>Orçamento</h2>
-      <p>
-        Obrigado por sua solicitação. Um de nossos gerentes entrará em contato através do e-mail enviando mais informações.
-      </p>
-      <button onClick={() => setPopupVisible(false)}>
-        Retornar à página principal →
-      </button>
-    </PopupBox>
-  </PopupOverlay>
-)}
 
-      <FormCard>
-      <FormSection as="form" onSubmit={handleSubmit}>
-        <label>Nome</label>
-        <input type="text" placeholder="Digite seu nome completo" />
+      <FormCard as="form" onSubmit={handleSubmit}>
+        <FormSection>
+          <label>Nome</label>
+          <input type="text" placeholder="Digite seu nome completo" />
 
-        <label>Email</label>
-        <input type="email" placeholder="exemplo@email.com" />
+          <label>Email</label>
+          <input type="email" placeholder="exemplo@email.com" />
 
-        <label>Empresa</label>
-        <input type="text" placeholder="Nome da empresa" />
+          <label>Empresa</label>
+          <input type="text" placeholder="Nome da empresa" />
 
-        <label>CPF/CNPJ</label>
-        <input type="text" placeholder="000.000.000-00" />
+          <label>CPF/CNPJ</label>
+          <input type="text" placeholder="000.000.000-00" />
 
-        <label>Número de celular</label>
-        <input type="tel" placeholder="(00) 00000-0000" />
-
-      </FormSection>
-
+          <label>Número de celular</label>
+          <input type="tel" placeholder="(00) 00000-0000" />
+        </FormSection>
 
         <SideInfo>
-        <FormSection>
-
-          <label>Orçamento</label>
-          <textarea placeholder="Descreva o que deseja para seu orçamento" rows={18} />
-          <SubmitButton type="submit">Enviar</SubmitButton>
-        </FormSection>
-   
-          
+          <FormSection>
+            <label>Orçamento</label>
+            <textarea placeholder="Descreva o que deseja para seu orçamento" rows={18} />
+            <SubmitButton type="submit">Enviar</SubmitButton>
+          </FormSection>
         </SideInfo>
       </FormCard>
-      {popupVisible  && (
+
+      {popupVisible && (
         <PopupOverlay>
           <PopupBox>
             <h2>Orçamento Enviado!</h2>
             <p>Obrigado por sua solicitação. Um de nossos gerentes entrará em contato através do e-mail enviando mais informações.</p>
-            <Link to='/'> Voltar à Página Principal </Link>
+            <Link to='/'>Voltar à Página Principal</Link>
           </PopupBox>
         </PopupOverlay>
-      )}  
+      )}
     </PageWrapper>
   );
 };
 
 export default Orcamento;
+
+// Styled Components
 
 const PageWrapper = styled.div`
   padding: 4rem 2rem;
@@ -91,7 +76,7 @@ const Title = styled.h1`
   color: #243436;
 `;
 
-const FormCard = styled.div`
+const FormCard = styled.form`
   display: flex;
   flex-wrap: wrap;
   background: white;
@@ -151,38 +136,8 @@ const SideInfo = styled.div`
   flex: 1 1 300px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* move tudo pro final */
+  justify-content: flex-end;
 `;
-
-
-
-const InfoSection = styled.div`
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  border: 1px solid #ddd;
-  width: 100%;
-  box-sizing: border-box;
-
-  h3 {
-    margin-bottom: 1rem;
-    color: #243436;
-  }
-
-  p {
-    margin: 0.5rem 0;
-    color: #444;
-    line-height: 1.5;
-
-    strong {
-      font-weight: 600;
-      color: #243436;
-    }
-  }
-`;
-
-
-
 
 const PopupOverlay = styled.div`
   position: fixed;
@@ -234,4 +189,3 @@ const PopupBox = styled.div`
     }
   }
 `;
-
