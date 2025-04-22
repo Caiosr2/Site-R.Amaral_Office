@@ -12,24 +12,21 @@ const ProductPage = () => {
 
         <LeftColumn>
           <Breadcrumb>
-            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Cadeiras">Cadeiras</StyledLink> &gt; <span>Poltrona Eduarda Linho</span>
+            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Cadeiras">Mesas</StyledLink> &gt; <span>Mesa de Escritório Executiva 4 GV</span>
           </Breadcrumb>
 
-          <Title>Poltrona Escritório Eduarda em Linho</Title>
-          <Price>R$ 899,99</Price>
+          <Title>Mesa de Escritório Executiva 4 GV</Title>
+          <Price>R$ 1576,99</Price>
 
           <Description>
-            A Poltrona Eduarda traz um toque moderno e elegante para escritórios,
-            home office ou espaços de estudo. Sua base dourada metálica com rodas
-            garante estabilidade e mobilidade, enquanto o sistema de regulagem de
-            altura proporciona mais ergonomia para o uso diário.
+          A Mesa Executiva é ideal para quem exige funcionalidade e presença. Com 4 gavetas posicionadas no lado direito, oferece amplo espaço para armazenamento e uma superfície de trabalho confortável. A combinação de cores garante um visual elegante.
           </Description>
 
           <FeatureList>
-            <li>Revestimento em linho rosé – charme e suavidade ao toque</li>
-            <li>Base metálica dourada com rodízios – resistente e sofisticada</li>
-            <li>Regulagem de altura por pistão a gás</li>
-            <li>Assento giratório com estrutura confortável</li>
+            <li>Lado direito com módulo fixo de armazenamento</li>
+            <li>Estrutura em MDP resistente e durável</li>
+            <li>Acabamento em marrom e preto – design profissional e elegante</li>
+            <li>Superfície ampla para computador, monitor e materiais de apoio</li>
           </FeatureList>
 
           <Buttons>

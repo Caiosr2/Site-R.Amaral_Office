@@ -5,10 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 import cadeiraImg from "../assets/cadeiraeduarda.png";
 
 const produtos = [
-  { id: 1, nome: "Poltrona Escritório Eduarda", preco: 899.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiraImg, link: "/produto1" },
-  { id: 2, nome: "Mesa de Escritório Executiva", preco: 1576.99, categoria: ["Móveis", "Mesas"], imagem: "https://via.placeholder.com/150", link: "/produto/2" },
-  { id: 3, nome: "Telefone OpenScape CP400", preco: 849.99, categoria: ["Tecnologia", "Telefones"], imagem: "https://via.placeholder.com/150", link: "/produto/3" },
-  { id: 4, nome: "Lápis e borracha kit escolar", preco: 15.99, categoria: ["Papelaria", "Lápis e borracha"], imagem: "https://via.placeholder.com/150", link: "/produto/4" },
+  { id: 1, nome: "Poltrona Escritório Eduarda", preco: 899.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiraImg, link: "/PoltronaEduarda" },
+  { id: 2, nome: "Mesa de Escritório Executiva", preco: 1576.99, categoria: ["Móveis", "Mesas"], imagem: "https://via.placeholder.com/150", link: "/MesaExecutiva" },
+  { id: 3, nome: "Telefone OpenScape CP400", preco: 849.99, categoria: ["Tecnologia", "Telefones"], imagem: "https://via.placeholder.com/150", link: "/TelefoneOpenscape" },
+  { id: 4, nome: "Lápis e borracha kit escolar", preco: 15.99, categoria: ["Papelaria", "Lápis e borracha"], imagem: "https://via.placeholder.com/150", link: "/KitEscolar" },
 ];
 
 const categoriasPrincipais = ["Móveis", "Tecnologia", "Papelaria"];
@@ -155,6 +155,7 @@ const ProdutosGrid = styled.div<{ single: boolean }>`
   grid-template-columns: ${({ single }) => (single ? "1fr 1fr 1fr" : "repeat(auto-fit, minmax(220px, 1fr))")};
   justify-content: ${({ single }) => (single ? "start" : "stretch")};
   gap: 2.5rem;
+  padding-right: 2rem;
 `;
 
 const ProdutoCard = styled.div`
