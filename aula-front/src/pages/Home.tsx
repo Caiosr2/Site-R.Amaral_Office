@@ -47,13 +47,13 @@ const Home = () => {
 
   return (
     <HomeContainer>
-  <BannerWrapper as={Link} to={banners[currentBanner].link}>
-  <BannerImage src={banners[currentBanner].image} alt="banner" />
-</BannerWrapper>
-
-
-
-
+    <BannerWrapper as={Link} to={banners[currentBanner].link}>
+      <BannerImage
+        src={banners[currentBanner].image}
+        alt="banner"
+        className={`banner-${currentBanner}`}
+      />
+    </BannerWrapper>
 
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
@@ -155,16 +155,12 @@ const HomeContainer = styled.div`
   }
 `;
 
-
-
 const BannerImage = styled.img`
   width: 100vw;
-  aspect-ratio: 16 / 5; /* ou 3 / 1, ajuste conforme desejado */
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+  object-fit: contain;
   display: block;
 `;
-
 
 const BannerWrapper = styled(Link)`
   position: relative;
