@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import cadeira from "../assets/cadeiraeduarda.png";
+import poltrona from "../../assets/cadeiraeduarda.png";
 
 const PoltronaEduarda = () => {
   return (
     <PageWrapper>
       <Container>
         <RightColumn>
-          <ProductImage src={cadeira} alt="Poltrona Eduarda" />
+          <ProductImage src={poltrona} alt="Poltrona Eduarda" />
         </RightColumn>
 
         <LeftColumn>

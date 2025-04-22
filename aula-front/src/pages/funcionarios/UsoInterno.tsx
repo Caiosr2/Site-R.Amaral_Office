@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import avatar1 from '../../assets/avatar1.png';
 import calendario from '../../assets/calendario.png';
-
 
 function handleDownloadClick(e: React.MouseEvent<HTMLAnchorElement>) {
   e.preventDefault();
@@ -12,7 +11,14 @@ function handleDownloadClick(e: React.MouseEvent<HTMLAnchorElement>) {
 
 const UsoInterno = () => {
   const [abaAtiva, setAbaAtiva] = useState('calendario');
+  const [dadosDinamicos, setDadosDinamicos] = useState({ vendas: 0, feedbacks: 0 });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDadosDinamicos({ vendas: 12300, feedbacks: 3 });
+    }, 1000);
+  }, []);
 
   return (
     <Container>
@@ -35,6 +41,7 @@ const UsoInterno = () => {
           <Tab selected={abaAtiva === 'calendario'} onClick={() => setAbaAtiva('calendario')}>Calendário</Tab>
           <Tab selected={abaAtiva === 'orcamentos'} onClick={() => setAbaAtiva('orcamentos')}>Orçamentos</Tab>
           <Tab selected={abaAtiva === 'lembretes'} onClick={() => setAbaAtiva('lembretes')}>Lembretes</Tab>
+          <Tab selected={abaAtiva === 'dashboard'} onClick={() => setAbaAtiva('dashboard')}>Dashboard</Tab>
         </TabMenu>
 
         <ContentBox>
@@ -96,11 +103,50 @@ const UsoInterno = () => {
               </LembreteCard>
             </LembreteWrapper>
           )}
+
+          {abaAtiva === 'dashboard' && (
+            <IndicadorWrapper>
+              <Indicador>
+                <h4>Orçamentos Pendentes</h4>
+                <p>2</p>
+              </Indicador>
+              <Indicador>
+                <h4>Vendas do Mês</h4>
+                <p>R$ {dadosDinamicos.vendas}</p>
+              </Indicador>
+              <Indicador>
+                <h4>Reuniões</h4>
+                <p>0 agendadas</p>
+              </Indicador>
+              <Indicador>
+                <h4>Feedbacks</h4>
+                <p>{dadosDinamicos.feedbacks} positivos</p>
+              </Indicador>
+            </IndicadorWrapper>
+          )}
         </ContentBox>
       </PageContent>
     </Container>
   );
-}
+};
+
+const IndicadorWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 24px;
+  gap: 16px;
+  background-color: #eeeeee;
+`;
+
+const Indicador = styled.div`
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+`;
 
 const Container = styled.div`
   font-family: Arial, sans-serif;
@@ -187,15 +233,11 @@ const ContentBox = styled.div`
   padding: 0;
   border-top: none;
   display: flex;
+  flex-direction: column;
   gap: 16px;
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 0;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
 `;
 
 const CalendarWrapper = styled.div`
