@@ -93,7 +93,11 @@
   color: #344A4b;
 }
 
-
+.footer-descricao {
+  text-align: justify;
+  max-width: 270px; /* ajuste esse valor como preferir */
+  line-height: 1.6;
+}
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;

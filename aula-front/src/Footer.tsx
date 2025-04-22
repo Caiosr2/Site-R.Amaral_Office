@@ -7,24 +7,21 @@ const Footer = () => {
     const nomeInput = document.getElementById('nome') as HTMLInputElement;
     const emailInput = document.getElementById('email') as HTMLInputElement;
 
-    alert(`Obrigado, ${nomeInput.value}! Entraremos em contato no email ${emailInput.value}.`);
+    alert('Obrigado, ${nomeInput.value}! Entraremos em contato no email ${emailInput.value}.');
 
     nomeInput.value = '';
     emailInput.value = '';
-  }
-  
+  };
 
   return (
     <footer className="footer">
       <div className="footer-content">
-      <div className="footer-col">
-        <h3>R. Amaral Office</h3>
-        <p>Referência em qualidade e inovação no mercado </p>
-        <p>corporativo.  Especializada em móveis, eletrônicos</p> 
-        <p>e suprimentos para escritórios.</p>
-        <p>Agora também online!</p>
-      </div>
-
+        <div className="footer-col">
+          <h3>R. Amaral Office</h3>
+          <p className="footer-descricao">
+            Referência em qualidade e inovação no mercado corporativo. Especializada em móveis, eletrônicos e suprimentos para escritórios. Agora também online!
+          </p>
+        </div>
 
         <div className="footer-col">
           <h4>Mapa do Site</h4>
@@ -33,13 +30,12 @@ const Footer = () => {
             <li><Link to="/nossa-historia">Nossa História</Link></li>
             <li><Link to="/produtos">Produtos</Link></li>
             <li><Link to="/servicos">Serviços</Link></li>
-            
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Contato</h4>
-          <p><FaMapMarkerAlt /> Rua XXXXX – XXXX  (UF)</p>
+          <p><FaMapMarkerAlt /> Rua XXXXX – XXXX (UF)</p>
           <p><FaPhoneAlt /> (XX) XXXXX-XXXX</p>
           <p><FaEnvelope /> suporte@ramaral.com.br</p>
         </div>
