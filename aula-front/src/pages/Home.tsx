@@ -15,11 +15,34 @@ import avatar2 from '../assets/avatar2.png';
 import avatar3 from '../assets/avatar3.png';
 
 const Home = () => {
-  const banners =  [
-    { image: banner1, link: "/orcamento" },
-    { image: banner2, link: "/produtos" }
+  const banners = [
+    {
+      image: banner1,
+      link: "/orcamento",
+      label: (
+        <>
+          Buscando economia e qualidade? <br />
+          Faça já seu orçamento com a <br />
+          <strong>R. Amaral Office.</strong>
+        </>
+      ),
+      button: "Fazer orçamento"
+    },
+    {
+      image: banner2,
+      link: "/produtos",
+      label: (
+        <>
+          <strong style={{ fontSize: "2.5rem", display: 'block' }}>Descontos de até<br />20%</strong>
+          em produtos de papelaria
+        </>
+      ),
+      button: "Ver ofertas"
+    }
   ];
   
+  
+
   const [currentBanner, setCurrentBanner] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -48,12 +71,13 @@ const Home = () => {
   return (
     <HomeContainer>
     <BannerWrapper as={Link} to={banners[currentBanner].link}>
-      <BannerImage
-        src={banners[currentBanner].image}
-        alt="banner"
-        className={`banner-${currentBanner}`}
-      />
+      <BannerImage src={banners[currentBanner].image} alt="banner" />
+      <BannerTextBox>
+        <p>{banners[currentBanner].label}</p>
+        <button>{banners[currentBanner].button}</button>
+      </BannerTextBox>
     </BannerWrapper>
+
 
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
@@ -109,67 +133,40 @@ const Home = () => {
 
       <SectionTitle>Depoimentos de clientes</SectionTitle>
       <Testimonials>
-  <Testimonial>
-    <div className="profile">
-      <img src={avatar1} alt="Lucas Andrade" />
-      <div>
-        <h4>Lucas Andrade</h4>
-        <Stars>★★★★★</Stars>
-      </div>
-    </div>
-    <p>"A Amaral Office transformou nosso escritório com móveis confortáveis e modernos. Excelente experiência!"</p>
-  </Testimonial>
-  <Testimonial>
-    <div className="profile">
-      <img src={avatar2} alt="Fernanda Lopes" />
-      <div>
-        <h4>Fernanda Lopes</h4>
-        <Stars>★★★★★</Stars>
-      </div>
-    </div>
-    <p>"Produtos de alta qualidade e atendimento excelente. A entrega foi rápida e os preços são justos."</p>
-  </Testimonial>
-  <Testimonial>
-    <div className="profile">
-      <img src={avatar3} alt="Mariana Queiroz" />
-      <div>
-        <h4>Mariana Queiroz</h4>
-        <Stars>★★★★★</Stars>
-      </div>
-    </div>
-    <p>"Recomendo demais! Encontrei tudo que precisava para meu home office com ótimo custo-benefício."</p>
-  </Testimonial>
-</Testimonials>
-
+        <Testimonial>
+          <div className="profile">
+            <img src={avatar1} alt="Lucas Andrade" />
+            <div>
+              <h4>Lucas Andrade</h4>
+              <Stars>★★★★★</Stars>
+            </div>
+          </div>
+          <p>"A Amaral Office transformou nosso escritório com móveis confortáveis e modernos. Excelente experiência!"</p>
+        </Testimonial>
+        <Testimonial>
+          <div className="profile">
+            <img src={avatar2} alt="Fernanda Lopes" />
+            <div>
+              <h4>Fernanda Lopes</h4>
+              <Stars>★★★★★</Stars>
+            </div>
+          </div>
+          <p>"Produtos de alta qualidade e atendimento excelente. A entrega foi rápida e os preços são justos."</p>
+        </Testimonial>
+        <Testimonial>
+          <div className="profile">
+            <img src={avatar3} alt="Mariana Queiroz" />
+            <div>
+              <h4>Mariana Queiroz</h4>
+              <Stars>★★★★★</Stars>
+            </div>
+          </div>
+          <p>"Recomendo demais! Encontrei tudo que precisava para meu home office com ótimo custo-benefício."</p>
+        </Testimonial>
+      </Testimonials>
     </HomeContainer>
   );
 };
-
-const HomeContainer = styled.div`
-  background-color: #f4f4f4;
-  padding: 0 4rem 2rem 4rem;
-  box-sizing: border-box;
-
-  @media (max-width: 768px) {
-    padding: 0 1rem 2rem 1rem;
-  }
-`;
-
-const BannerImage = styled.img`
-  width: 100vw;
-  height: auto;
-  object-fit: contain;
-  display: block;
-`;
-
-const BannerWrapper = styled(Link)`
-  position: relative;
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  overflow: hidden;
-  display: block;
-`;
 
 const SectionTitle = styled.h2`
   font-size: 1.6rem;
@@ -276,7 +273,6 @@ const CategoryButton = styled(Link)`
   }
 `;
 
-
 const Testimonials = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -318,9 +314,73 @@ const Testimonial = styled.div`
 `;
 
 const Stars = styled.div`
-font-size: 1.2rem;
-color: #FFD700; /* cor dourada para estrelas */
-margin-top: 0.25rem;
+  font-size: 1.2rem;
+  color: #FFD700;
+  margin-top: 0.25rem;
 `;
+
+
+const HomeContainer = styled.div`
+  background-color: #f4f4f4;
+  padding: 0 4rem 2rem 4rem;
+  box-sizing: border-box;
+  @media (max-width: 768px) {
+    padding: 0 1rem 2rem 1rem;
+  }
+`;
+
+const BannerImage = styled.img`
+  width: 100vw;
+  height: auto;
+  object-fit: contain;
+  display: block;
+`;
+
+const BannerWrapper = styled(Link)`
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  display: block;
+`;
+
+const BannerTextBox = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  background-color: #fff8f2;
+  padding: 2rem 2.5rem;
+  border-radius: 2rem;
+  text-align: left;
+  max-width: 400px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+
+  p {
+    color: #243436;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  button {
+    background-color: #F54900;
+    color: white;
+    padding: 0.85rem 1.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+`;
+
 
 export default Home;
