@@ -12,7 +12,7 @@ const PoltronaEduarda = () => {
 
         <LeftColumn>
           <Breadcrumb>
-            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Cadeiras">Cadeiras</StyledLink> &gt; <span>Poltrona Eduarda Linho</span>
+            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Móveis,Cadeiras">Cadeiras</StyledLink> &gt; <span>Poltrona Eduarda Linho</span>
           </Breadcrumb>
 
           <Title>Poltrona Escritório Eduarda em Linho</Title>
@@ -33,10 +33,11 @@ const PoltronaEduarda = () => {
           </FeatureList>
 
           <Buttons>
-            <StyledButton>Adicionar ao Carrinho</StyledButton>
-            <Link to="/orcamento" style={{ width: '100%' }}>
+          <Link to="/orcamento" style={{ width: '100%' }}>
               <StyledButton outlined>Faça um orçamento agora</StyledButton>
             </Link>
+            <StyledButton>Adicionar ao Carrinho</StyledButton>
+           
           </Buttons>
         </LeftColumn>
       </Container>
@@ -46,10 +47,11 @@ const PoltronaEduarda = () => {
 
 export const PageWrapper = styled.div`
   width: 100%;
-  padding: 3rem 1rem;
+  height: 100vh;
   background-color: #f4f4f4;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const Container = styled.div`
@@ -62,7 +64,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   gap: 3rem;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Breadcrumb = styled.div`
@@ -119,11 +122,14 @@ export const FeatureList = styled.ul`
 `;
 
 export const LeftColumn = styled.div`
-  flex: 1 1 500px;
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const RightColumn = styled.div`
-  flex: 1 1 400px;
+  flex: 1 1 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,13 +137,13 @@ export const RightColumn = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  max-width: 360px;
+  max-width: 320px;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 `;
 
 export const Buttons = styled.div`
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
