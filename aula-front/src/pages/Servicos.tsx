@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import React, { useState, ReactNode } from "react";
@@ -217,9 +216,11 @@ const PaginaServicos = () => {
         .conteudo-servico a:hover {
           color: #1a2624;
         }
+
         @media (max-width: 768px) {
           .layout-servico {
             flex-direction: column;
+            gap: 2rem;
           }
           .cabecalho-servico {
             flex-direction: column;
@@ -229,6 +230,13 @@ const PaginaServicos = () => {
           .icone-servico {
             width: 72px;
             height: 72px;
+            margin-left: 0;
+          }
+          .titulo {
+            font-size: 2.2rem;
+          }
+          .conteudo-servico {
+            padding: 2rem;
           }
         }
       `}</style>
