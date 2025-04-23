@@ -4,14 +4,7 @@ import styled from 'styled-components';
 
 import banner1 from '../assets/banner1.png';
 import banner2 from '../assets/banner2.png';
-import mouse from '../assets/mouse.png';
-import cadeira_ergonomica from '../assets/cadeira_ergonomica.png';
-import cadeiraeduarda  from "../assets/cadeiraeduarda.png"
-import mesamadeira from "../assets/mesamadeira.png"
-import cadeiracouro from "../assets/cadeiradecouro.png"
-import mesaL from "../assets/MesaL.png"
-import cadeirafort from "../assets/cadeiraforttmilao.png"
-import impressora from '../assets/impressora.png';
+import Lista_produtos from './ListaProdutos';
 import moveis from '../assets/categoria_moveis.png';
 import tecnologia from '../assets/categoria_tecnologia.png';
 import papelaria from '../assets/categoria_papelaria.png';
@@ -88,36 +81,13 @@ const Home = () => {
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
         <Carousel ref={carouselRef}>
-          <CarouselItem to="/poltronaeduarda">
-            <img src={cadeiraeduarda} alt="Poltrona Eduarda" />
-            <p>Poltrona Eduarda Linho</p>
-            <span>R$ 899,99</span>
-          </CarouselItem>
-          <CarouselItem to="/cadeiraergonomica">
-            <img src={cadeira_ergonomica} alt="Cadeira Ergonômica" />
-            <p>Cadeira de Escritório Comfy Stance Plus</p>
-            <span>R$ 721,99</span>
-          </CarouselItem>
-          <CarouselItem to="/mesaexecutiva">
-            <img src={mesamadeira} alt="Mesa Madeira" />
-            <p>Mesa de Escritório Executiva 4 GV</p>
-            <span>R$ 1576,99</span>
-          </CarouselItem>
-          <CarouselItem to="/cadeiradecouro">
-            <img src={cadeiracouro} alt="Cadeira Couro" />
-            <p>Cadeira de Escritório de couro</p>
-            <span>R$ 599,99</span>
-          </CarouselItem>
-          <CarouselItem to="/mesaeml">
-            <img src={mesaL} alt="Mesa em L" />
-            <p>Mesa de Escritório em L Anah</p>
-            <span>R$ 1597,99</span>
-          </CarouselItem>
-          <CarouselItem to="/cadeirafm">
-            <img src={cadeirafort} alt="Cadeira Fort Milão" />
-            <p>Cadeira Fortt Milão Giratória</p>
-            <span>R$ 799,99</span>
-          </CarouselItem>
+        {Lista_produtos.slice(2, 10).map(prod => (
+  <CarouselItem to={`/produto/${prod.id}`}> 
+    <img src={prod.imagem} alt={prod.nome} />
+    <p>{prod.nome}</p>
+    <span>R$ {prod.preco.toFixed(2).replace(".", ",")}</span>
+  </CarouselItem>
+))}
         </Carousel>
       </CarouselWrapper>
 
@@ -214,11 +184,13 @@ const CarouselItem = styled(Link)`
   }
 
   img {
-    width: auto;
-    height: 140px;
-    object-fit: contain;
-    margin-bottom: 1rem;
-  }
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
 
   p {
     font-weight: 500;

@@ -1,27 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
-import cadeira_ergonomica from '../assets/cadeira_ergonomica.png';
-import cadeiraeduarda from "../assets/cadeiraeduarda.png";
-import mesamadeira from "../assets/mesamadeira.png";
-import cadeiracouro from "../assets/cadeiradecouro.png";
-import mesaL from "../assets/MesaL.png";
-import cadeirafort from "../assets/cadeiraforttmilao.png";
-
-const produtos = [
-  { id: 1, nome: "Poltrona Escritório Eduarda", preco: 899.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiraeduarda, link: "/poltronaeduarda" },
-  { id: 2, nome: "Mesa de Escritório em L Anah", preco: 1597.99, categoria: ["Móveis", "Mesas"], imagem: mesaL, link: "/mesaeml" },
-  { id: 3, nome: "Cadeira de Escritório Comfy Stance Plus", preco: 721.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeira_ergonomica, link: "/cadeiraergonomica" },
-  { id: 4, nome: "Mesa de Escritório Executiva 4 GV", preco: 1576.99, categoria: ["Móveis", "Mesas"], imagem: mesamadeira, link: "/mesaexecutiva" },
-  { id: 5, nome: "Cadeira Fortt Milão Giratória", preco: 799.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeirafort, link: "/cadeirafm" },
-  { id: 6, nome: "Cadeira de Escritório de couro", preco: 599.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiracouro, link: "/cadeiradecouro" },
-];
+import Lista_produtos from "./ListaProdutos";
 
 const categoriasPrincipais = ["Móveis", "Tecnologia", "Papelaria"];
 const categoriasExtras = [
   "Cadeiras", "Mesas", "Armários", "Gaveteiros", "Periféricos",
   "Impressoras", "Suporte", "Telefones", "Tomada", "Papel",
-  "Lápis e borracha", "Canetas", "Grampeadores", "Cartucho de tinta"
+  "Lápis e borracha", "Canetas", "Grampeadores", "Cartucho de tinta", "Organização", "Acessórios", "Escrita"
 ];
 
 export default function Produtos() {
@@ -44,8 +30,8 @@ export default function Produtos() {
   };
 
   const produtosFiltrados = filtros.length === 0
-    ? produtos
-    : produtos.filter(p => p.categoria.some(cat => filtros.includes(cat)));
+    ? Lista_produtos
+    : Lista_produtos.filter(p => p.categoria.some(cat => filtros.includes(cat)));
 
   return (
     <Container>
@@ -87,11 +73,11 @@ export default function Produtos() {
         <ProdutosGrid single={produtosFiltrados.length === 1}>
           {produtosFiltrados.map(prod => (
             <ProdutoCard key={prod.id}>
-              <Link to={prod.link}>
-                <img src={prod.imagem} alt={prod.nome} />
+              <Link to={`/produto/${prod.id}`}>
+              <img src={prod.imagem} alt={prod.nome} />
                 <h4>{prod.nome}</h4>
               </Link>
-              <p>R$ {prod.preco.toFixed(2)}</p>
+              <p>R$ {prod.preco.toFixed(2).replace(".", ",")}</p>
               <button>Adicionar ao carrinho</button>
               <Link to="/orcamento">Faça um orçamento agora</Link>
             </ProdutoCard>
@@ -160,11 +146,9 @@ const ProdutosGrid = styled.div<{ single: boolean }>`
   display: grid;
   grid-template-columns: ${({ single }) => (single ? "1fr 1fr 1fr" : "repeat(auto-fit, minmax(220px, 1fr))")};
   justify-content: ${({ single }) => (single ? "start" : "stretch")};
-  gap: 2rem 2.5rem; /* 2rem vertical, 2.5rem horizontal */
-  padding: 0 2rem 4rem 2rem; /* padding horizontal e inferior */
+  gap: 2rem 2.5rem;
+  padding: 0 2rem 4rem 2rem;
 `;
-
-
 
 const ProdutoCard = styled.div`
   background: #fff;

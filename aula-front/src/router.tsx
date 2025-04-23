@@ -8,12 +8,7 @@ import Carrinho from "./pages/Carrinho";
 import Funcionarios from "./pages/Funcionarios";
 import UsoInterno from "./pages/funcionarios/UsoInterno";
 import Orcamento from "./pages/Orcamento";
-import PoltronaEduarda from "./pages/produtos_especificos/PoltronaEduarda";
-import MesaExecutiva from "./pages/produtos_especificos/MesaExecutiva";
-import MesaemL from "./pages/produtos_especificos/MesaemL";
-import CadeiraFM from "./pages/produtos_especificos/CadeiraForttMilao";
-import CadeiraErgonomica from "./pages/produtos_especificos/CadeiraErgonomica";
-import CadeiraCouro from "./pages/produtos_especificos/CadeiraCouro";
+import ProdutoEspecifico from "./pages/Produto_especifico";
 import Checkout from "./pages/Checkout";
 
 export const router = createBrowserRouter([
@@ -26,16 +21,12 @@ export const router = createBrowserRouter([
       { path: "servicos", element: <Servicos /> },
       { path: "nossa-historia", element: <NossaHistoria /> },
       { path: "carrinho", element: <Carrinho /> },
-      {path: "orcamento", element: <Orcamento />},
-      {path: "poltronaeduarda", element: <PoltronaEduarda />},
-      {path: "mesaexecutiva", element: <MesaExecutiva />},
-      {path: "mesaeml", element: <MesaemL />},
-      {path: "cadeirafm", element: <CadeiraFM />},
-      {path: "cadeiraergonomica", element: <CadeiraErgonomica />},
-      {path: "cadeiradecouro", element: <CadeiraCouro />},
+      { path: "orcamento", element: <Orcamento /> },
       {path: "checkout", element: <Checkout />},
+      { path: "produto/:id", element: <ProdutoEspecifico /> }
     ]
   },
   { path: "funcionarios", element: <Funcionarios /> },
   { path: "uso-interno", element: <UsoInterno /> }
 ]);
+

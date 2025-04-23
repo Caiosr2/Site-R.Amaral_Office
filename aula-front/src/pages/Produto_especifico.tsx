@@ -1,35 +1,36 @@
+import { useParams } from "react-router-dom";
+import Lista_produtos from "./ListaProdutos";
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import mesa from "../../assets/MesaL.png";
 
-const MesaemL = () => {
+const ProdutoEspecifico = () => {
+  const { id } = useParams();
+  const produto = Lista_produtos.find(p => p.id === Number(id));
+
+  if (!produto) {
+    return <div>Produto não encontrado</div>;
+  }
+
   return (
     <PageWrapper>
       <Container>
         <RightColumn>
-          <ProductImage src={mesa} alt="Mesa de Escritório em L Anah" />
+          <ProductImage  src={produto.imagem} alt={produto.nome} />
         </RightColumn>
 
         <LeftColumn>
           <Breadcrumb>
-            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt;{" "}
-            <StyledLink to="/produtos?categoria=Mesas">Mesas</StyledLink> &gt;{" "}
-            <span>Mesa de escritório em L</span>
+            <StyledLink to={`/produtos?categoria=${produto.categoria[0]}`}>{produto.categoria[0]}</StyledLink> &gt;{" "}
+            <StyledLink to={`/produtos?categoria=${produto.categoria[1]}`}>{produto.categoria[1]}</StyledLink> &gt;{" "}
+            <span>{produto.nome}</span>
           </Breadcrumb>
 
-          <Title>Mesa de Escritório em L Anah</Title>
-          <Price>R$ 1597,99</Price>
+          <Title>{produto.nome}</Title>
+          <Price>R$ {produto.preco?.toFixed(2).replace(".", ",")}</Price>
+          <Description>{produto.descricao}</Description>
 
-          <Description>
-            A Mesa Anah em L é perfeita para escritórios, home office ou espaços corporativos que precisam de organização com um toque moderno. Seu design proporciona amplo espaço para computadores, documentos e acessórios.
-          </Description>
-
-          <FeatureList>
-            <li>Formato em L: ideal para aproveitamento de canto ou montagem reversível</li>
-            <li>Estrutura em MDF de alta resistência</li>
-            <li>Superfície ampla para monitores, documentos e itens de trabalho</li>
-            <li>Design versátil para ambientes corporativos ou residenciais</li>
-          </FeatureList>
+          <FeatureList dangerouslySetInnerHTML={{ __html: produto.features }} />
 
           <Buttons>
             <Link to="/orcamento" style={{ width: "100%" }}>
@@ -171,4 +172,5 @@ export const StyledButton = styled.button<{ outlined?: boolean }>`
   }
 `;
 
-export default MesaemL;
+export default ProdutoEspecifico;
+
