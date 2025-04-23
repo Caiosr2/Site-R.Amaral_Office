@@ -7,7 +7,6 @@ import impressora from '../assets/impressora.png';
 import ssd from '../assets/ssd.png';
 import Lista_produtos from './ListaProdutos';
 
-
 const Carrinho = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [cart, setCart] = useState([
@@ -89,16 +88,17 @@ const Carrinho = () => {
           <Link to="/checkout" className="finalizar">Finalizar a compra</Link>
         </Resumo>
       </Content>
+
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
         <Carousel ref={carouselRef}>
-        {Lista_produtos.slice(2, 10).map(prod => (
-  <CarouselItem to={`/produto/${prod.id}`}> 
-    <img src={prod.imagem} alt={prod.nome} />
-    <p>{prod.nome}</p>
-    <span>R$ {prod.preco.toFixed(2).replace(".", ",")}</span>
-  </CarouselItem>
-))}
+          {Lista_produtos.slice(2, 10).map(prod => (
+            <CarouselItem to={`/produto/${prod.id}`} key={prod.id}>
+              <img src={prod.imagem} alt={prod.nome} />
+              <p>{prod.nome}</p>
+              <span>R$ {prod.preco.toFixed(2).replace(".", ",")}</span>
+            </CarouselItem>
+          ))}
         </Carousel>
       </CarouselWrapper>
     </Wrapper>
@@ -107,10 +107,15 @@ const Carrinho = () => {
 
 export default Carrinho;
 
+// Estilos com responsividade adicionada
 const Wrapper = styled.div`
   padding: 2rem 4rem;
   background-color: #f4f4f4;
   font-family: 'Lora', serif;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Steps = styled.div`
@@ -118,6 +123,7 @@ const Steps = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
 `;
 
@@ -143,6 +149,7 @@ const Content = styled.div`
 
 const Items = styled.div`
   flex: 1;
+  min-width: 280px;
   background: #fff;
   padding: 2rem;
   border-radius: 1rem;
@@ -154,6 +161,7 @@ const Item = styled.div`
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 
   img {
     width: 120px;
@@ -164,6 +172,7 @@ const Item = styled.div`
 
   .info {
     flex: 1;
+    min-width: 180px;
   }
 
   .actions {
@@ -206,6 +215,10 @@ const Resumo = styled.div`
   border-radius: 1rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   .linha {
     display: flex;
     justify-content: space-between;
@@ -237,6 +250,7 @@ const Resumo = styled.div`
     }
   }
 `;
+
 const SectionTitle = styled.h2`
   font-size: 1.6rem;
   font-weight: bold;
@@ -277,13 +291,12 @@ const CarouselItem = styled(Link)`
   }
 
   img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-  margin: 0 auto 1rem;
-  display: block;
-}
-
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin: 0 auto 1rem;
+    display: block;
+  }
 
   p {
     font-weight: 500;

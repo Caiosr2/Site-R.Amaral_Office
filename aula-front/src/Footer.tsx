@@ -7,7 +7,7 @@ const Footer = () => {
     const nomeInput = document.getElementById('nome') as HTMLInputElement;
     const emailInput = document.getElementById('email') as HTMLInputElement;
 
-    alert('Obrigado, ${nomeInput.value}! Entraremos em contato no email ${emailInput.value}.');
+    alert(`Obrigado, ${nomeInput.value}! Entraremos em contato no email ${emailInput.value}.`);
 
     nomeInput.value = '';
     emailInput.value = '';

@@ -46,11 +46,20 @@ const ProdutoEspecifico = () => {
 
 export const PageWrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f4f4f4;
+  padding: 2rem 1rem;
+  padding-top: 110px; /* espaço para o header fixo */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    padding-top: 110px;
+    align-items: stretch;
+  }
 `;
 
 export const Container = styled.div`
@@ -65,6 +74,93 @@ export const Container = styled.div`
   gap: 3rem;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+`;
+
+export const LeftColumn = styled.div`
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+export const RightColumn = styled.div`
+  flex: 1 1 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+export const ProductImage = styled.img`
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    max-width: 240px;
+  }
+`;
+
+export const Title = styled.h1`
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: #1a1a1a;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
+export const Price = styled.div`
+  font-size: 2rem;
+  color: #e65c00;
+  font-weight: bold;
+  margin: 1.2rem 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+  }
+`;
+
+export const Description = styled.p`
+  text-align: justify;
+  max-width: 100%;
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+  }
+`;
+
+export const FeatureList = styled.ul`
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  list-style: disc;
+
+  li {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    color: #333;
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+    }
+  }
 `;
 
 export const Breadcrumb = styled.div`
@@ -75,6 +171,10 @@ export const Breadcrumb = styled.div`
   span {
     color: #1a1a1a;
     font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
   }
 `;
 
@@ -87,60 +187,6 @@ export const StyledLink = styled(Link)`
     color: #1a1a1a;
     text-decoration: underline;
   }
-`;
-
-export const Title = styled.h1`
-  font-size: 2rem;
-  margin: 0.5rem 0;
-  color: #1a1a1a;
-`;
-
-export const Price = styled.div`
-  font-size: 2rem;
-  color: #e65c00;
-  font-weight: bold;
-  margin: 1.2rem 0;
-`;
-
-export const Description = styled.p`
-  text-align: justify;
-  max-width: 250%;
-  font-size: 1.05rem;
-  color: #444;
-  line-height: 1.6;
-`;
-
-export const FeatureList = styled.ul`
-  margin: 1.5rem 0;
-  padding-left: 1.5rem;
-  list-style: disc;
-
-  li {
-    margin-bottom: 0.75rem;
-    font-size: 1.05rem;
-    color: #333;
-  }
-`;
-
-export const LeftColumn = styled.div`
-  flex: 1 1 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-export const RightColumn = styled.div`
-  flex: 1 1 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ProductImage = styled.img`
-  width: 100%;
-  max-width: 320px;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 `;
 
 export const Buttons = styled.div`
@@ -170,7 +216,13 @@ export const StyledButton = styled.button<{ outlined?: boolean }>`
     background-color: #e65c00;
     color: white;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
 `;
 
 export default ProdutoEspecifico;
+
 
