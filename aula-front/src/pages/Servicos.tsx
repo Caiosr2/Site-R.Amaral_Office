@@ -120,7 +120,7 @@ const PaginaServicos = () => {
 
       <style>{`
         .pagina-servicos {
-          padding: 5rem 2rem;
+          padding: 1.2rem 2rem;
           max-width: 1280px;
           margin: auto;
           font-family: 'Inter', sans-serif;
@@ -131,11 +131,11 @@ const PaginaServicos = () => {
           font-size: 3rem;
           font-weight: 700;
           color: #2c3e3b;
-          margin-bottom: 3rem;
+          margin-bottom: 1rem;
         }
         .layout-servico {
           display: flex;
-          gap: 3rem;
+          gap: 1rem;
           align-items: flex-start;
         }
         .abas {
