@@ -9,6 +9,11 @@ import Funcionarios from "./pages/Funcionarios";
 import UsoInterno from "./pages/funcionarios/UsoInterno";
 import Orcamento from "./pages/Orcamento";
 import PoltronaEduarda from "./pages/produtos_especificos/PoltronaEduarda";
+import MesaExecutiva from "./pages/produtos_especificos/MesaExecutiva";
+import MesaemL from "./pages/produtos_especificos/MesaemL";
+import CadeiraFM from "./pages/produtos_especificos/CadeiraForttMilao";
+import CadeiraErgonomica from "./pages/produtos_especificos/CadeiraErgonomica";
+import CadeiraCouro from "./pages/produtos_especificos/CadeiraCouro";
 import Checkout from "./pages/Checkout";
 
 export const router = createBrowserRouter([
@@ -22,7 +27,12 @@ export const router = createBrowserRouter([
       { path: "nossa-historia", element: <NossaHistoria /> },
       { path: "carrinho", element: <Carrinho /> },
       {path: "orcamento", element: <Orcamento />},
-      {path: "PoltronaEduarda", element: <PoltronaEduarda />},
+      {path: "poltronaeduarda", element: <PoltronaEduarda />},
+      {path: "mesaexecutiva", element: <MesaExecutiva />},
+      {path: "mesaeml", element: <MesaemL />},
+      {path: "cadeirafm", element: <CadeiraFM />},
+      {path: "cadeiraergonomica", element: <CadeiraErgonomica />},
+      {path: "cadeiradecouro", element: <CadeiraCouro />},
       {path: "checkout", element: <Checkout />},
     ]
   },

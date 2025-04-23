@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import cadeira from "../assets/cadeiraeduarda.png";
+import cadeira from "../../assets/mesamadeira.png";
 
 const MesaExecutiva = () => {
   return (
     <PageWrapper>
       <Container>
         <RightColumn>
-          <ProductImage src={cadeira} alt="Poltrona Eduarda" />
+          <ProductImage src={cadeira} alt="Mesa Madeira" />
         </RightColumn>
 
         <LeftColumn>
           <Breadcrumb>
-            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Cadeiras">Mesas</StyledLink> &gt; <span>Mesa de Escritório Executiva 4 GV</span>
+            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Mesas">Mesas</StyledLink> &gt; <span>Mesa de Escritório Executiva 4 GV</span>
           </Breadcrumb>
 
           <Title>Mesa de Escritório Executiva 4 GV</Title>

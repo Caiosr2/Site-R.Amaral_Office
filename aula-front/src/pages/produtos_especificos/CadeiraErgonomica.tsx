@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import cadeira from "../../assets/cadeiracomfystanceplus.png";
+import cadeira from "../../assets/cadeira_ergonomica.png";
 
 const CadeiraErgonomica = () => {
   return (

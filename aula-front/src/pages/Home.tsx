@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import banner1 from '../assets/banner1.png';
 import banner2 from '../assets/banner2.png';
 import mouse from '../assets/mouse.png';
-import cadeira from '../assets/cadeira.png';
+import cadeira from '../assets/cadeira_ergonomica.png';
 import impressora from '../assets/impressora.png';
 import moveis from '../assets/categoria_moveis.png';
 import tecnologia from '../assets/categoria_tecnologia.png';

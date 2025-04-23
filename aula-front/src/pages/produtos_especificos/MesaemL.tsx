@@ -13,12 +13,12 @@ const MesaemL = () => {
         <LeftColumn>
           <Breadcrumb>
             <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt;{" "}
-            <StyledLink to="/produtos?categoria=Móveis,Mesas">Mesas</StyledLink> &gt;{" "}
+            <StyledLink to="/produtos?categoria=Mesas">Mesas</StyledLink> &gt;{" "}
             <span>Mesa de escritório em L</span>
           </Breadcrumb>
 
           <Title>Mesa de Escritório em L Anah</Title>
-          <Price>R$ 597,99</Price>
+          <Price>R$ 1597,99</Price>
 
           <Description>
             A Mesa Anah em L é perfeita para escritórios, home office ou espaços corporativos que precisam de organização com um toque moderno. Seu design proporciona amplo espaço para computadores, documentos e acessórios.

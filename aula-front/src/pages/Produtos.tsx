@@ -1,12 +1,12 @@
-// src/pages/Produtos.tsx
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
-import cadeiraImg from "../assets/cadeiraeduarda.png";
+import cadeiraeduarda from "../assets/cadeiraeduarda.png";
+import mesaL from "../assets/MesaL.png";
 
 const produtos = [
-  { id: 1, nome: "Poltrona Escritório Eduarda", preco: 899.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiraImg, link: "/PoltronaEduarda" },
-  { id: 2, nome: "Mesa de Escritório Executiva", preco: 1576.99, categoria: ["Móveis", "Mesas"], imagem: "https://via.placeholder.com/150", link: "/MesaExecutiva" },
+  { id: 1, nome: "Poltrona Escritório Eduarda", preco: 899.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiraeduarda, link: "/poltronaeduarda" },
+  { id: 2, nome: "Mesa de Escritório em L Anah", preco: 1597.99, categoria: ["Móveis", "Mesas"], imagem: mesaL, link: "/mesaeml" },
   { id: 3, nome: "Telefone OpenScape CP400", preco: 849.99, categoria: ["Tecnologia", "Telefones"], imagem: "https://via.placeholder.com/150", link: "/TelefoneOpenscape" },
   { id: 4, nome: "Lápis e borracha kit escolar", preco: 15.99, categoria: ["Papelaria", "Lápis e borracha"], imagem: "https://via.placeholder.com/150", link: "/KitEscolar" },
 ];
@@ -27,7 +27,7 @@ export default function Produtos() {
     const query = new URLSearchParams(location.search);
     const categoria = query.get("categoria");
     if (categoria) {
-      setFiltros([categoria]);
+      setFiltros([categoria]); // Agora seleciona apenas a categoria informada na URL
     }
   }, [location.search]);
 

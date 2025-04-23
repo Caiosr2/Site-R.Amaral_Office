@@ -12,7 +12,7 @@ const PoltronaEduarda = () => {
 
         <LeftColumn>
           <Breadcrumb>
-            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Móveis,Cadeiras">Cadeiras</StyledLink> &gt; <span>Poltrona Eduarda Linho</span>
+            <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt; <StyledLink to="/produtos?categoria=Cadeiras">Cadeiras</StyledLink> &gt; <span>Poltrona Eduarda Linho</span>
           </Breadcrumb>
 
           <Title>Poltrona Escritório Eduarda em Linho</Title>
