@@ -5,7 +5,12 @@ import styled from 'styled-components';
 import banner1 from '../assets/banner1.png';
 import banner2 from '../assets/banner2.png';
 import mouse from '../assets/mouse.png';
-import cadeira from '../assets/cadeira_ergonomica.png';
+import cadeira_ergonomica from '../assets/cadeira_ergonomica.png';
+import cadeiraeduarda  from "../assets/cadeiraeduarda.png"
+import mesamadeira from "../assets/mesamadeira.png"
+import cadeiracouro from "../assets/cadeiradecouro.png"
+import mesaL from "../assets/MesaL.png"
+import cadeirafort from "../assets/cadeiraforttmilao.png"
 import impressora from '../assets/impressora.png';
 import moveis from '../assets/categoria_moveis.png';
 import tecnologia from '../assets/categoria_tecnologia.png';
@@ -13,6 +18,7 @@ import papelaria from '../assets/categoria_papelaria.png';
 import avatar1 from '../assets/avatar1.png';
 import avatar2 from '../assets/avatar2.png';
 import avatar3 from '../assets/avatar3.png';
+
 
 const Home = () => {
   const banners = [
@@ -82,35 +88,35 @@ const Home = () => {
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
         <Carousel ref={carouselRef}>
-          <CarouselItem to="/produto1">
-            <img src={mouse} alt="Mouse" />
-            <p>Mouse com fio USB Logitech M90</p>
-            <span>R$ 33,90</span>
+          <CarouselItem to="/poltronaeduarda">
+            <img src={cadeiraeduarda} alt="Poltrona Eduarda" />
+            <p>Poltrona Eduarda Linho</p>
+            <span>R$ 899,99</span>
           </CarouselItem>
-          <CarouselItem to="/produto/2">
-            <img src={cadeira} alt="Cadeira" />
-            <p>Cadeira de Escritório Fortt Milano</p>
-            <span>R$ 199,99</span>
+          <CarouselItem to="/cadeiraergonomica">
+            <img src={cadeira_ergonomica} alt="Cadeira Ergonômica" />
+            <p>Cadeira de Escritório Comfy Stance Plus</p>
+            <span>R$ 721,99</span>
           </CarouselItem>
-          <CarouselItem to="/produto/3">
-            <img src={impressora} alt="Impressora" />
-            <p>Impressora Multifuncional Epson L5590</p>
-            <span>R$ 1709,99</span>
+          <CarouselItem to="/mesaexecutiva">
+            <img src={mesamadeira} alt="Mesa Madeira" />
+            <p>Mesa de Escritório Executiva 4 GV</p>
+            <span>R$ 1576,99</span>
           </CarouselItem>
-          <CarouselItem to="/produto/4">
-            <img src={moveis} alt="Mesa Escritório" />
-            <p>Mesa Escritório Compacta</p>
-            <span>R$ 299,90</span>
+          <CarouselItem to="/cadeiradecouro">
+            <img src={cadeiracouro} alt="Cadeira Couro" />
+            <p>Cadeira de Escritório de couro</p>
+            <span>R$ 599,99</span>
           </CarouselItem>
-          <CarouselItem to="/produto/5">
-            <img src={tecnologia} alt="Notebook" />
-            <p>Notebook Dell Inspiron</p>
-            <span>R$ 3199,00</span>
+          <CarouselItem to="/mesaeml">
+            <img src={mesaL} alt="Mesa em L" />
+            <p>Mesa de Escritório em L Anah</p>
+            <span>R$ 1597,99</span>
           </CarouselItem>
-          <CarouselItem to="/produto/6">
-            <img src={papelaria} alt="Caneta" />
-            <p>Kit Canetas Esferográficas</p>
-            <span>R$ 19,90</span>
+          <CarouselItem to="/cadeirafm">
+            <img src={cadeirafort} alt="Cadeira Fort Milão" />
+            <p>Cadeira Fortt Milão Giratória</p>
+            <span>R$ 799,99</span>
           </CarouselItem>
         </Carousel>
       </CarouselWrapper>

@@ -13,7 +13,7 @@ const CadeiraCouro = () => {
         <LeftColumn>
           <Breadcrumb>
             <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt;{" "}
-            <StyledLink to="/produtos?categoria=Móveis,Cadeiras">Cadeiras</StyledLink> &gt;{" "}
+            <StyledLink to="/produtos?categoria=Cadeiras">Cadeiras</StyledLink> &gt;{" "}
             <span>Cadeira de escritório em couro</span>
           </Breadcrumb>
 

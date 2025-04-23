@@ -1,12 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Carrinho.css';
+import { FaTrash } from 'react-icons/fa';
+import { ShoppingCart, User, CreditCard, Eye, Check } from 'lucide-react';
 import impressora from '../assets/impressora.png';
 import ssd from '../assets/ssd.png';
-import cadeira from '../assets/cadeira_ergonomica.png';
-import teclado_e_mouse from '../assets/teclado_e_mouse.png';
-import papel from '../assets/papel.png';
-import { FaTrash } from 'react-icons/fa';
+import cadeiraeduarda from "../assets/cadeiraeduarda.png";
+import mesaL from "../assets/MesaL.png";
+import cadeira_ergonomica from "../assets/cadeira_ergonomica.png";
+import mesamadeira from "../assets/mesamadeira.png";
+import cadeirafort from "../assets/cadeiraforttmilao.png";
+import cadeiracouro from "../assets/cadeiradecouro.png";
 
 const Carrinho = () => {
   const [cart, setCart] = useState([
@@ -27,17 +31,12 @@ const Carrinho = () => {
   ]);
 
   const suggestionProducts = [
-    { id: 1, name: 'Cadeira Ergonômica', price: 899.99, image: cadeira },
-    { id: 2, name: 'Combo Teclado e Mouse sem fio Logitech MK235', price: 159.99, image: teclado_e_mouse },
-    { id: 3, name: 'Papel Sulfite A4 - 10 Pacotes x 500 Folhas', price: 249.99, image: papel },
-    { id: 4, name: 'Produto Extra 1', price: 129.90, image: teclado_e_mouse },
-    { id: 5, name: 'Produto Extra 2', price: 89.90, image: papel },
-    { id: 6, name: 'Produto Extra 3', price: 99.90, image: papel },
-    { id: 7, name: 'Produto Extra 4', price: 79.90, image: papel },
-    { id: 8, name: 'Produto Extra 5', price: 109.90, image: papel },
-    { id: 9, name: 'Produto Extra 6', price: 119.90, image: papel },
-    { id: 10, name: 'Produto Extra 7', price: 139.90, image: papel },
-    { id: 11, name: 'Produto Extra 8', price: 149.90, image: papel },
+    { id: 1, nome: "Poltrona Escritório Eduarda", preco: 899.99, imagem: cadeiraeduarda, link: "/poltronaeduarda" },
+    { id: 2, nome: "Mesa de Escritório em L Anah", preco: 1597.99, imagem: mesaL, link: "/mesaeml" },
+    { id: 3, nome: "Cadeira de Escritório Comfy Stance Plus", preco: 721.99, imagem: cadeira_ergonomica, link: "/cadeiraergonomica" },
+    { id: 4, nome: "Mesa de Escritório Executiva 4 GV", preco: 1576.99, imagem: mesamadeira, link: "/mesaexecutiva" },
+    { id: 5, nome: "Cadeira Fortt Milão Giratória", preco: 799.99, imagem: cadeirafort, link: "/cadeirafm" },
+    { id: 6, nome: "Cadeira de Escritório de couro", preco: 599.99, imagem: cadeiracouro, link: "/cadeiradecouro" },
   ];
 
   const updateQuantity = (id: number, delta: number) => {
@@ -51,7 +50,6 @@ const Carrinho = () => {
   };
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -59,7 +57,6 @@ const Carrinho = () => {
       const carousel = carouselRef.current;
       if (carousel) {
         const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-
         if (carousel.scrollLeft >= maxScrollLeft - 5) {
           carousel.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
@@ -67,12 +64,21 @@ const Carrinho = () => {
         }
       }
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="cart-container">
+      <div className="cart-steps">
+        <Step active><ShoppingCart size={20} /> Carrinho</Step>
+        <Line />
+        <Step><User size={20} /> Identificação</Step>
+        <Line />
+        <Step><CreditCard size={20} /> Pagamento</Step>
+        <Line />
+        <Step><Check size={20} /> Concluir</Step>
+      </div>
+
       <h1 className="cart-title">Seu Carrinho</h1>
       <div className="cart-content">
         <div className="cart-items">
@@ -105,27 +111,21 @@ const Carrinho = () => {
           ))}
           <hr />
           <div className="summary-total">
-            <span>Valor dos produtos</span>
-            <span><strong>R$ {total.toFixed(2)}</strong></span>
-          </div>
-          <div className="summary-total final">
             <span>Total</span>
             <span><strong>R$ {total.toFixed(2)}</strong></span>
           </div>
-          <Link to="/checkout" className="checkout-button">
-            Finalizar a compra
-          </Link>
+          <Link to="/checkout" className="checkout-button">Finalizar a compra</Link>
         </div>
       </div>
 
       <div className="suggestions">
         <h2>Você também pode se interessar por:</h2>
         <div className="suggestion-carousel" ref={carouselRef}>
-          {suggestionProducts.map((product) => (
-            <Link to={`/produto/${product.id}`} key={product.id} className="suggestion-item">
-              <img src={product.image} alt={product.name} />
-              <p>{product.name}</p>
-              <span>R$ {product.price.toFixed(2)}</span>
+          {suggestionProducts.map(product => (
+            <Link to={product.link} key={product.id} className="suggestion-item">
+              <img src={product.imagem} alt={product.nome} />
+              <p>{product.nome}</p>
+              <span>R$ {product.preco.toFixed(2)}</span>
             </Link>
           ))}
         </div>
@@ -135,3 +135,17 @@ const Carrinho = () => {
 };
 
 export default Carrinho;
+
+interface StepProps {
+  active?: boolean;
+}
+
+const Step = ({ children, active }: React.PropsWithChildren<StepProps>) => (
+  <div style={{ display: 'flex', alignItems: 'center', fontWeight: 600, color: active ? '#e65c00' : '#ccc', gap: '0.5rem' }}>
+    {children}
+  </div>
+);
+
+const Line = () => (
+  <div style={{ width: 30, height: 2, backgroundColor: '#ccc' }} />
+);

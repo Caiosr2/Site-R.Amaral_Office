@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
+import cadeira_ergonomica from '../assets/cadeira_ergonomica.png';
 import cadeiraeduarda from "../assets/cadeiraeduarda.png";
+import mesamadeira from "../assets/mesamadeira.png";
+import cadeiracouro from "../assets/cadeiradecouro.png";
 import mesaL from "../assets/MesaL.png";
+import cadeirafort from "../assets/cadeiraforttmilao.png";
 
 const produtos = [
   { id: 1, nome: "Poltrona Escritório Eduarda", preco: 899.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiraeduarda, link: "/poltronaeduarda" },
   { id: 2, nome: "Mesa de Escritório em L Anah", preco: 1597.99, categoria: ["Móveis", "Mesas"], imagem: mesaL, link: "/mesaeml" },
-  { id: 3, nome: "Telefone OpenScape CP400", preco: 849.99, categoria: ["Tecnologia", "Telefones"], imagem: "https://via.placeholder.com/150", link: "/TelefoneOpenscape" },
-  { id: 4, nome: "Lápis e borracha kit escolar", preco: 15.99, categoria: ["Papelaria", "Lápis e borracha"], imagem: "https://via.placeholder.com/150", link: "/KitEscolar" },
+  { id: 3, nome: "Cadeira de Escritório Comfy Stance Plus", preco: 721.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeira_ergonomica, link: "/cadeiraergonomica" },
+  { id: 4, nome: "Mesa de Escritório Executiva 4 GV", preco: 1576.99, categoria: ["Móveis", "Mesas"], imagem: mesamadeira, link: "/mesaexecutiva" },
+  { id: 5, nome: "Cadeira Fortt Milão Giratória", preco: 799.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeirafort, link: "/cadeirafm" },
+  { id: 6, nome: "Cadeira de Escritório de couro", preco: 599.99, categoria: ["Móveis", "Cadeiras"], imagem: cadeiracouro, link: "/cadeiradecouro" },
 ];
 
 const categoriasPrincipais = ["Móveis", "Tecnologia", "Papelaria"];
@@ -27,7 +33,7 @@ export default function Produtos() {
     const query = new URLSearchParams(location.search);
     const categoria = query.get("categoria");
     if (categoria) {
-      setFiltros([categoria]); // Agora seleciona apenas a categoria informada na URL
+      setFiltros([categoria]);
     }
   }, [location.search]);
 
@@ -154,9 +160,11 @@ const ProdutosGrid = styled.div<{ single: boolean }>`
   display: grid;
   grid-template-columns: ${({ single }) => (single ? "1fr 1fr 1fr" : "repeat(auto-fit, minmax(220px, 1fr))")};
   justify-content: ${({ single }) => (single ? "start" : "stretch")};
-  gap: 2.5rem;
-  padding-right: 2rem;
+  gap: 2rem 2.5rem; /* 2rem vertical, 2.5rem horizontal */
+  padding: 0 2rem 4rem 2rem; /* padding horizontal e inferior */
 `;
+
+
 
 const ProdutoCard = styled.div`
   background: #fff;
@@ -167,10 +175,16 @@ const ProdutoCard = styled.div`
   margin: 0 auto;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
 
   img {
-    width: 100%;
-    border-radius: 0.5rem;
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
     margin-bottom: 1rem;
   }
 
@@ -193,6 +207,7 @@ const ProdutoCard = styled.div`
     border-radius: 6px;
     margin-bottom: 0.5rem;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
 
   a {

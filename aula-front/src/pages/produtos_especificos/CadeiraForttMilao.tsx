@@ -13,11 +13,11 @@ const CadeiraFM = () => {
         <LeftColumn>
           <Breadcrumb>
             <StyledLink to="/produtos?categoria=Móveis">Móveis</StyledLink> &gt;{" "}
-            <StyledLink to="/produtos?categoria=Móveis,Cadeiras">Cadeiras</StyledLink> &gt;{" "}
+            <StyledLink to="/produtos?categoria=Cadeiras">Cadeiras</StyledLink> &gt;{" "}
             <span>Cadeira Fortt Milão</span>
           </Breadcrumb>
 
-          <Title>Cadeira Fortt Milão Giratória com Rodízios</Title>
+          <Title>Cadeira Fortt Milão Giratória</Title>
           <Price>R$ 799,99</Price>
 
           <Description>

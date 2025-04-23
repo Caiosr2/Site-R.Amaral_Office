@@ -39,4 +39,3 @@ export const router = createBrowserRouter([
   { path: "funcionarios", element: <Funcionarios /> },
   { path: "uso-interno", element: <UsoInterno /> }
 ]);
-
