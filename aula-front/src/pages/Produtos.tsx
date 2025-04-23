@@ -5,9 +5,9 @@ import Lista_produtos from "./ListaProdutos";
 
 const categoriasPrincipais = ["Móveis", "Tecnologia", "Papelaria"];
 const categoriasExtras = [
-  "Cadeiras", "Mesas", "Armários", "Gaveteiros", "Periféricos",
+  "Cadeiras", "Mesas", "Armário", "Gaveteiro", "Periféricos",
   "Impressoras", "Suporte", "Telefones", "Tomada", "Papel",
-  "Lápis e borracha", "Canetas", "Grampeadores", "Cartucho de tinta", "Organização", "Acessórios", "Escrita"
+  "Lápis e borracha", "Canetas", "Grampeador", "Cartucho de tinta", "Organização", "Acessórios", "Utilidades"
 ];
 
 export default function Produtos() {
