@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Mapa do Site</h4>
           <ul>
-            <li><Link to="/funcionarios">Funcionários</Link></li>
+            <li><Link to="/funcionarios">Para Funcionários</Link></li>
             <li><Link to="/nossa-historia">Nossa História</Link></li>
             <li><Link to="/produtos">Produtos</Link></li>
             <li><Link to="/servicos">Serviços</Link></li>
