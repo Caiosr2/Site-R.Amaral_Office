@@ -139,6 +139,7 @@ const Content = styled.div`
     margin-bottom: 1.5rem;
     text-align: center;
     color: #243436;
+    font-size: 2.5rem;
   }
 `;
 
