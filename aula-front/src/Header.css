@@ -1,44 +1,36 @@
 a {
   text-decoration: none;
 }
+
 .header {
   background-color: #243436;
   color: white;
-  font-family: "Lora" ;
+  font-family: "Lora";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
 }
+
 body {
-  padding-top: 101px; /* ajuste conforme a altura real do seu header */
-@media (max-width: 768px) {
-  padding-top: 164px;
-    
-  }
+  padding-top: 101px;
 }
+
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1.5rem;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .logo-area {
   display: flex;
   align-items: center;
-  text-decoration: none;
   gap: 0.5rem;
   color: white;
-}
-
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-left: auto;  
 }
 
 .logo {
@@ -50,6 +42,15 @@ body {
   font-size: 1.25rem;
 }
 
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+  flex-wrap: nowrap;
+  min-width: 200px;
+}
+
 .search-bar {
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -58,7 +59,9 @@ body {
   max-width: 300px;
   background-color: white;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
+
 .search-bar:focus {
   outline: none;
   box-shadow: 0 0 0 2px #c1e3d8;
@@ -66,14 +69,17 @@ body {
 
 .cart {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .nav-bar {
-  background-color: #344A4b;   
+  background-color: #344A4b;
   display: flex;
   justify-content: space-around;
   gap: 5rem;
   padding: 0.5rem 0;
+  flex-wrap: nowrap;
 }
 
 .nav-bar a {
@@ -86,39 +92,38 @@ body {
   text-decoration: underline;
 }
 
+/* Responsividade leve sem alterar a estrutura */
 @media (max-width: 768px) {
-  .top-bar {
-    flex-wrap: wrap;
-  }
-
-  .search-bar {
-    flex: 1 1 100%;
-    min-width: 200px;
-    margin-top: 0.5rem;
-  }
-
-  .right-section {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    width: 100%;
-  }
-
-  .nav-bar {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-}
-@media (max-width: 768px) {
-  .search-bar {
-    max-width: 12px;
-    font-size: 0.8rem;
+  body {
+    padding-top: 164px;
   }
 
   .logo {
     height: 2rem;
   }
 
-  .cart {
-    font-size: 1.2rem; /* ou ajuste o SVG */
+  .title {
+    font-size: 1rem;
+  }
+
+  .search-bar {
+    max-width: 180px;
+    font-size: 0.9rem;
+  }
+
+  .cart svg {
+    font-size: 1.2rem;
+  }
+
+  .nav-bar a {
+    font-size: 0.9rem;
+  }
+
+  .top-bar {
+    gap: 1rem;
+  }
+
+  .right-section {
+    gap: 0.5rem;
   }
 }
