@@ -18,6 +18,18 @@ import cadeiraeduarda from "../assets/cadeiraeduarda.png";
 import postit from "../assets/Post it.png";
 import reguatomada from "../assets/reguadetomada.png";
 import suportenote from "../assets/Suporte.png";
+import borracha from "../assets/Borrachas.png";
+import lapisgrafite from "../assets/lápis_grafite.png";
+import folhasA3 from "../assets/Folhas_A3.png";
+import canetasbic from "../assets/Canetas_bic.png";
+import papel from "../assets/papel.png";
+import tintas from "../assets/Tintas.png";
+import tecladocomfio from "../assets/teclado_com_fio.png";
+import telefone from "../assets/telefone.png";
+import ssd from "../assets/ssd.png";
+import webcam from "../assets/Webcam.png";
+import impressora from "../assets/impressora.png";
+
 const Lista_produtos =
 [
     {
@@ -271,6 +283,149 @@ const Lista_produtos =
               <li>Estrutura leve, dobrável e fácil de transportar</li>
               <li>Embalagem com 1 unidade</li>`
     },
+    {
+        id: 20,
+        nome: "Pacote de Borrachas Pequenas, Faber-Castell, 24 Un",
+        preco: 105.99,
+        categoria: ['Papelaria', 'Borracha'],
+        imagem: borracha, 
+        link: "/borracha",
+        descricao: `As borrachas pequenas da Faber-Castell são macias e eficientes, garantindo uma boa apagabilidade sem danificar o papel. Perfeitas para quem busca qualidade e praticidade no dia a dia.`,
+        features: `<li>Apagam com facilidade e sem deixar resíduos</li>
+                   <li>Tamanho compacto: práticas para estojos e mesas de trabalho</li>
+                   <li>Embalagem com 24 unidades</li>`
+      },
+      {
+        id: 21,
+        nome: "Lápis Grafite 2B Preto, Faber-Castell, 14 Un.",
+        preco: 119.99,
+        categoria: ['Papelaria', 'Lápis'],
+        imagem: lapisgrafite,
+        link: "/lapisgrafite",
+        descricao: `O Ecolápis Grafite Faber-Castell Nº 2B possui alta qualidade e maciez. Sua ponta resistente proporciona escrita suave e precisa.`,
+        features: `<li>Grafite nº 2B: escuro, macio e fácil de apagar</li>
+                   <li>Ponta resistente e escrita suave</li>
+                   <li>Formato sextavado: mais firmeza e conforto ao escrever</li>
+                   <li>Caixa com 144 lápis + 24 unidades grátis (total: 168 unidades)</li>
+                   <li>Cor do corpo: preta</li>`
+      },
+      {
+        id: 22,
+        nome: "Papel Sulfite A3 – 10 Pacotes x 250 Folhas",
+        preco: 269.99,
+        categoria: ['Papelaria', 'Papel'],
+        imagem: folhasA3,
+        link: "/folhasa3",
+        descricao: `Papel sulfite de alta qualidade, ideal para impressões coloridas, relatórios gráficos, projetos arquitetônicos e apresentações com acabamento profissional. Com gramatura de 90g/m², garante maior resistência e excelente desempenho em impressoras jato de tinta e laser.`,
+        features: `<li>Formato: A3 – 297 x 420 mm</li>
+                   <li>Embalagem com 10 pacotes de 250 folhas (total: 2.500 folhas)</li>`
+      },
+      {
+        id: 23,
+        nome: "Caneta Esferográfica Preta, Bic, 50 Un.",
+        preco: 36.99,
+        categoria: ['Papelaria', 'Canetas'],
+        imagem: canetasbic,
+        link: "/canetasbic",
+        descricao: `A Bic Cristal é sinônimo de praticidade, economia e confiabilidade. Essa caneta esferográfica é perfeita para quem busca uma escrita suave, limpa e de alta durabilidade. Com a tecnologia Dura+, proporciona ainda mais rendimento e resistência, sendo ideal para o uso intenso.`,
+        features: `<li>Escrita macia e fluida, com tinta de secagem rápida</li>
+                   <li>Ponta média (1.0mm): equilíbrio ideal entre precisão e conforto</li>
+                   <li>Cor da tinta: preta</li>
+                   <li>Contém: 50 unidades</li>`
+      },
+      {
+        id: 24,
+        nome: "Papel Sulfite A4 – 10 Pacotes x 500 Folhas",
+        preco: 249.99,
+        categoria: ['Papelaria', 'Papel'],
+        imagem: papel,
+        link: "/papel",
+        descricao: `Ideal para quem busca eficiência e praticidade no dia a dia. Excelente para escritórios, home office e estudos, com ótimo desempenho e compatibilidade com impressoras e copiadoras.`,
+        features: `<li>Excelente desempenho</li>
+                   <li>Alta brancura</li>
+                   <li>Compatível com impressoras e copiadoras</li>
+                   <li>Indicado para escritórios, home office e estudos</li>
+                   <li>Contém 5.000 folhas A4 (10 pacotes de 500 folhas)</li>`
+      },
+      {
+        id: 25,
+        nome: "Kit com 4 Garrafas de Tinta Epson",
+        preco: 33.99,
+        categoria: ['Papelaria', 'Tinta'],
+        imagem: tintas,
+        link: "/tintas",
+        descricao: `Tinta original Epson compatível com a EcoTank L5590. Garante impressões com cores vivas, secagem rápida e alto rendimento. Ideal para quem busca desempenho, economia e qualidade nas impressões do dia a dia.`,
+        features: `<li>Contém: 4 frascos (T544120, T544220, T544320, T544420)</li>
+                   <li>Cores: Preto, Ciano, Magenta e Amarelo</li>
+                   <li>Compatível com: Epson EcoTank L5590</li>
+                   <li>Embalagem com 1 kit (4 unidades)</li>`
+      },
+      {
+        id: 26,
+        nome: "Teclado Dell com fio - KB216",
+        preco: 99.99,
+        categoria: ['Tecnologia', 'Periféricos'],
+        imagem: tecladocomfio,
+        link: "/tecladocomfio",
+        descricao: `O teclado Dell KB216 combina praticidade, conforto e durabilidade para o uso diário. Com layout brasileiro (ABNT2) e conexão via cabo USB, é ideal para quem busca desempenho e digitação silenciosa. Perfeito para ambientes corporativos, escolares ou home office.`,
+        features: `<li>Teclas silenciosas: digitação mais confortável</li>
+                   <li>Teclado numérico integrado</li>
+                   <li>Compatível com Windows, Linux e outros sistemas via USB</li>
+                   <li>Cor: Preto</li>`
+      },
+      {
+        id: 27,
+        nome: "Telefone OpenScape Deskphone CP400",
+        preco: 849.99,
+        categoria: ['Tecnologia', 'Telefonia'],
+        imagem: telefone,
+        link: "/telefone",
+        descricao: `O OpenScape CP400 é um telefone IP corporativo ideal para empresas que exigem qualidade de áudio, praticidade e recursos avançados de comunicação. Com design elegante e interface intuitiva, ele é perfeito para ambientes profissionais dinâmicos.`,
+        features: `<li>Display gráfico de 3,7” com iluminação de fundo</li>
+                   <li>16 teclas programáveis com LED tricolor</li>
+                   <li>Conexão via Ethernet (10/100/1000 Mbps)</li>
+                   <li>Viva-voz em alta qualidade (HD Áudio)</li>`
+      },
+      {
+        id: 28,
+        nome: "SSD Externo Portátil Sandisk, 1TB",
+        preco: 509.99,
+        categoria: ['Tecnologia', 'Periféricos'],
+        imagem: ssd,
+        link: "/ssd",
+        descricao: `O SSD portátil SanDisk combina velocidade, durabilidade e praticidade em um design compacto. Com 1TB de capacidade e velocidade de leitura de até 800MB/s, é ideal para transferir grandes arquivos, executar backups e transportar dados com segurança.`,
+        features: `<li>Capacidade: 1TB</li>
+                   <li>Velocidade de leitura: até 800MB/s</li>
+                   <li>Conexão USB 3.2 Gen 2 (acompanha cabo USB-C e adaptador USB-A)</li>
+                   <li>Resistente a quedas de até 2 metros</li>
+                   <li>Design leve e portátil com gancho para transporte</li>
+                   <li>Cor: Preto com detalhes em laranja</li>`
+      },
+      {
+        id: 29,
+        nome: "Webcam Logitech C270 HD",
+        preco: 179.99,
+        categoria: ['Tecnologia', 'Periféricos'],
+        imagem: webcam,
+        link: "/webcam",
+        descricao: `A Logitech C270 é a webcam ideal para videochamadas com imagem clara e som nítido. Com resolução HD 720p e microfone embutido com redução de ruído, proporciona uma comunicação eficiente e com qualidade profissional para o dia a dia.`,
+        features: `<li>Resolução HD 720p (1280 × 720) a 30 fps</li>
+                   <li>Conexão fácil via USB 2.0 – Plug & Play</li>
+                   <li>Clipe universal para fixação em notebooks e monitores</li>
+                   <li>Cor: Cinza/Preta</li>`
+      },
+      {
+        id: 30,
+        nome: "Impressora Multifuncional Epson Ecotank L5590",
+        preco: 1709.99,
+        categoria: ['Tecnologia', 'Impressoras'],
+        imagem: impressora,
+        link: "/impressora",
+        descricao: `A Epson EcoTank L5590 é uma impressora completa. Possui o sistema EcoTank, eliminando o uso de cartuchos e reduzindo drasticamente o custo por página. Possui conectividade Wi-Fi, Wi-Fi Direct e USB.`,
+        features: `<li>Impressão, cópia, digitalização e fax</li>
+                   <li>Alimentador automático de documentos (ADF) para até 30 páginas</li>
+                   <li>Compatível com app Epson Smart Panel (configuração e impressão via celular)</li>`
+      }
   ];
   
 
