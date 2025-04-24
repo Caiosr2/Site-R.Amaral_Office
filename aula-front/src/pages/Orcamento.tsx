@@ -36,7 +36,7 @@ const Orcamento = () => {
         <SideInfo>
           <FormSection>
             <label>Orçamento</label>
-            <textarea placeholder="Descreva o que deseja para seu orçamento" rows={18} />
+            <textarea placeholder="Descreva o que deseja para seu orçamento" rows={15} />
             <SubmitButton type="submit">Enviar</SubmitButton>
           </FormSection>
         </SideInfo>
@@ -60,7 +60,7 @@ export default Orcamento;
 // Styled Components
 
 const PageWrapper = styled.div`
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
   background-color: #f4f4f4;
   min-height: 100vh;
   font-family: "Playfair Display", serif;
@@ -71,8 +71,8 @@ const PageWrapper = styled.div`
 
 const Title = styled.h1`
   text-align: center;
-  margin-bottom: 2.5rem;
-  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
   color: #243436;
 `;
 
@@ -80,33 +80,33 @@ const FormCard = styled.form`
   display: flex;
   flex-wrap: wrap;
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
   width: 100%;
-  gap: 3rem;
+  gap: 2rem;
   justify-content: space-between;
 `;
 
 const FormSection = styled.div`
-  flex: 1 1 400px;
+  flex: 1 1 380px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
 
   label {
     font-weight: 600;
     color: #344a4b;
-    margin-top: 0.5rem;
+    font-size: 0.9rem;
   }
 
   input,
   textarea {
-    padding: 0.8rem;
+    padding: 0.6rem;
     border-radius: 6px;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: inherit;
   }
 
@@ -118,8 +118,8 @@ const FormSection = styled.div`
 const SubmitButton = styled.button`
   background-color: #e65c00;
   color: white;
-  padding: 0.75rem;
-  font-size: 1rem;
+  padding: 0.6rem;
+  font-size: 0.95rem;
   font-weight: bold;
   border: none;
   border-radius: 6px;
@@ -138,6 +138,7 @@ const SideInfo = styled.div`
   flex-direction: column;
   justify-content: flex-end;
 `;
+
 
 const PopupOverlay = styled.div`
   position: fixed;

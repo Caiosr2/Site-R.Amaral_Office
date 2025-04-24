@@ -16,6 +16,23 @@ const icones: Record<AbaKey, string> = {
   garantia: iconeGarantia,
 };
 
+const BotaoLink = styled(Link)`
+  display: inline-block;
+  background-color: #e65c00;
+  color: white !important;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none !important;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #cf5100;
+  }
+`;
+
 const servicos: Record<AbaKey, { titulo: string; texto: ReactNode }> = {
   orcamentos: {
     titulo: "Compras corporativas em lote",
@@ -29,7 +46,7 @@ const servicos: Record<AbaKey, { titulo: string; texto: ReactNode }> = {
           <li>Logística adaptada à sua operação, com agendamento e entrega programada</li>
         </ul>
         <p>Entre em contato para um orçamento sob medida e descubra como podemos ajudar sua empresa a economizar tempo e recursos.</p>
-        <p><Link to = '/orcamento'>Solicitar orçamento agora</Link></p>
+        <BotaoLink to="/orcamento">Solicitar orçamento agora</BotaoLink>
       </>
     )
   },
@@ -83,165 +100,120 @@ const servicos: Record<AbaKey, { titulo: string; texto: ReactNode }> = {
 
 const PaginaServicos = () => {
   const [abaSelecionada, setAbaSelecionada] = useState<AbaKey>("orcamentos");
-
-  const renderizarAba = (chave: AbaKey, label: string) => (
-    <button
-      className={`aba ${abaSelecionada === chave ? "ativa" : ""}`}
-      onClick={() => setAbaSelecionada(chave)}
-    >
-      {label}
-    </button>
-  );
-
   const conteudo = servicos[abaSelecionada];
   const iconeAtual = icones[abaSelecionada];
 
   return (
-    <div className="pagina-servicos">
-      <h1 className="titulo">Serviços</h1>
-      <div className="layout-servico">
-        <div className="abas">
-          {renderizarAba("orcamentos", "Orçamentos")}
-          {renderizarAba("envio", "Envio de Pedidos")}
-          {renderizarAba("devolucao", "Devolução de Pedidos")}
-          {renderizarAba("garantia", "Garantia e assistência")}
-        </div>
+    <Container>
+      <Titulo>Serviços</Titulo>
 
-        <div className="conteudo-servico">
-          <div className="cabecalho-servico">
-            <div>
-              <h2>{conteudo.titulo}</h2>
-            </div>
-            <img src={iconeAtual} alt="Ícone do serviço" className="icone-servico" />
-          </div>
-          <div className="texto">{conteudo.texto}</div>
-        </div>
-      </div>
+      <AbasHorizontais>
+        <Aba onClick={() => setAbaSelecionada("orcamentos")} ativa={abaSelecionada === "orcamentos"}>Orçamentos</Aba>
+        <Aba onClick={() => setAbaSelecionada("envio")} ativa={abaSelecionada === "envio"}>Envio</Aba>
+        <Aba onClick={() => setAbaSelecionada("devolucao")} ativa={abaSelecionada === "devolucao"}>Devolução</Aba>
+        <Aba onClick={() => setAbaSelecionada("garantia")} ativa={abaSelecionada === "garantia"}>Garantia</Aba>
+      </AbasHorizontais>
 
-      <style>{`
-        .pagina-servicos {
-          padding: 1.2rem 2rem;
-          max-width: 1280px;
-          margin: auto;
-          font-family: 'Inter', sans-serif;
-          background-color: #fefefe;
-        }
-        .titulo {
-          text-align: center;
-          font-size: 3rem;
-          font-weight: 700;
-          color: #2c3e3b;
-          margin-bottom: 1rem;
-        }
-        .layout-servico {
-          display: flex;
-          gap: 1rem;
-          align-items: flex-start;
-        }
-        .abas {
-          display: flex;
-          flex-direction: column;
-          min-width: 260px;
-          border: 1px solid #d0d0d0;
-          border-radius: 12px;
-          overflow: hidden;
-          background: #ffffff;
-        }
-        .aba {
-          padding: 1rem 1.5rem;
-          background: white;
-          cursor: pointer;
-          font-size: 1.05rem;
-          text-align: left;
-          transition: all 0.2s ease;
-          border-bottom: 1px solid #e0e0e0;
-        }
-        .aba:last-child {
-          border-bottom: none;
-        }
-        .aba:hover {
-          background-color: #f8f9fa;
-        }
-        .aba.ativa {
-          background-color: #e8eeec;
-          font-weight: 600;
-          border-left: 5px solid #2c3e3b;
-        }
-        .conteudo-servico {
-          background: #f9f9f9;
-          flex: 1;
-          padding: 3rem 3rem 2.5rem 3rem;
-          border-radius: 20px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-          border-left: 5px solid #2c3e3b;
-        }
-        .cabecalho-servico {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: 2.5rem;
-        }
-        .cabecalho-servico h2 {
-          font-size: 2rem;
-          font-weight: 700;
-          color: #2c3e3b;
-          margin: 0;
-        }
-        .icone-servico {
-          width: 96px;
-          height: 96px;
-          object-fit: contain;
-          margin-left: 1rem;
-        }
-        .conteudo-servico p {
-          font-size: 1.1rem;
-          line-height: 1.8;
-          margin-bottom: 1.25rem;
-          color: #1a1a1a;
-        }
-        .conteudo-servico ul {
-          padding-left: 1.5rem;
-          margin-top: 1rem;
-          margin-bottom: 1.5rem;
-        }
-        .conteudo-servico ul li {
-          margin-bottom: 0.75rem;
-          font-size: 1.05rem;
-        }
-        .conteudo-servico a {
-          color: #2c3e3b;
-          text-decoration: underline;
-          font-weight: 500;
-        }
-        .conteudo-servico a:hover {
-          color: #1a2624;
-        }
-
-        @media (max-width: 768px) {
-          .layout-servico {
-            flex-direction: column;
-            gap: 2rem;
-          }
-          .cabecalho-servico {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-          }
-          .icone-servico {
-            width: 72px;
-            height: 72px;
-            margin-left: 0;
-          }
-          .titulo {
-            font-size: 2.2rem;
-          }
-          .conteudo-servico {
-            padding: 2rem;
-          }
-        }
-      `}</style>
-    </div>
+      <BoxConteudo>
+        <Header>
+          <h2>{conteudo.titulo}</h2>
+          <Icone src={iconeAtual} />
+        </Header>
+        <Texto>{conteudo.texto}</Texto>
+      </BoxConteudo>
+    </Container>
   );
 };
 
 export default PaginaServicos;
+
+// Styled Components ↓↓↓
+
+
+const Container = styled.div`
+  padding: 2rem;
+  max-width: 1100px;
+  margin: auto;
+`;
+
+const Titulo = styled.h1`
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e3b;
+  margin-bottom: 1.5rem;
+`;
+
+const AbasHorizontais = styled.div`
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+`;
+
+const Aba = styled.button<{ ativa: boolean }>`
+  background: ${({ ativa }) => ativa ? '#e8eeec' : '#ffffff'};
+  border: 2px solid ${({ ativa }) => ativa ? '#2c3e3b' : '#d0d0d0'};
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: ${({ ativa }) => ativa ? 600 : 500};
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+`;
+
+const BoxConteudo = styled.div`
+  background: #f9f9f9;
+  border-left: 4px solid #2c3e3b;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: 1.5rem;
+    color: #2c3e3b;
+  }
+`;
+
+const Icone = styled.img`
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+`;
+
+const Texto = styled.div`
+  margin-top: 1.5rem;
+
+  p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+
+    li {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  a {
+    color: #2c3e3b;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+`;
