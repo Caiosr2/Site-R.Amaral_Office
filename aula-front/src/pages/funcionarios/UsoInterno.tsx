@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -19,31 +19,29 @@ const UsoInterno = () => {
   const navigate = useNavigate();
 
   const faturamentoData = [
-    { mes: 'Set', valor: 10300 },
-    { mes: 'Out', valor: 12000 },
-    { mes: 'Nov', valor: 9500 },
-    { mes: 'Dez', valor: 13300 },
-    { mes: 'Jan', valor: 8700 },
-    { mes: 'Fev', valor: 11200 },
-    { mes: 'Mar', valor: 12300 },
-    { mes: 'Abr', valor: 9800 },
+    { mes: 'Jan', valor: 17650 },
+    { mes: 'Fev', valor: 25600 },
+    { mes: 'Mar', valor: 37500 },
+    { mes: 'Abr', valor: 31340},
   ];
 
   const orcamentosData = [
-    { mes: 'Set', total: 14 },
-    { mes: 'Out', total: 18 },
-    { mes: 'Nov', total: 15 },
-    { mes: 'Dez', total: 22 },
-    { mes: 'Jan', total: 9 },
+    { mes: 'Jan', total: 8 },
     { mes: 'Fev', total: 12 },
-    { mes: 'Mar', total: 17 },
-    { mes: 'Abr', total: 11 },
+    { mes: 'Mar', total: 18 },
+    { mes: 'Abr', total: 15 },
   ];
 
   const orcamentos = [
     { nome: 'Marcos Silva', email: 'marcos@xxxx.com.br', prazo: '12' },
     { nome: 'Maria Clara Silvestre', email: 'mcsilvestre@xxxx.com.br', prazo: '20' },
   ];
+
+  const orcamentosOrdenados = [...orcamentos].sort((a, b) => {
+    const prazoA = parseInt(a.prazo);
+    const prazoB = parseInt(b.prazo);
+    return ordenarPorPrazo === 'asc' ? prazoA - prazoB : prazoB - prazoA;
+  });
 
   return (
     <Container>
@@ -56,13 +54,11 @@ const UsoInterno = () => {
             <div>Nº de funcionário: 00134</div>
           </div>
         </UserInfo>
-        <div style={{ display: 'flex', gap: '12px' }}>
+        <ButtonWrapper>
           <BotaoEdicao>Edição de Produto</BotaoEdicao>
           <SairButton onClick={() => navigate('/funcionarios')}>Sair</SairButton>
-        </div>
+        </ButtonWrapper>
       </TopBar>
-
-      <Spacer />
 
       <PageContent>
         <TabMenu>
@@ -97,8 +93,8 @@ const UsoInterno = () => {
 
           {abaAtiva === 'orcamentos' && (
             <div style={{ width: '100%' }}>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '16px' }}>
-                <label htmlFor="ordenar">Ordenar por prazo:</label>{' '}
+              <OrdenacaoWrapper>
+                <label htmlFor="ordenar">Ordenar por prazo:</label>
                 <select
                   id="ordenar"
                   onChange={(e) => setOrdenarPorPrazo(e.target.value as 'asc' | 'desc')}
@@ -107,29 +103,27 @@ const UsoInterno = () => {
                   <option value="asc">Crescente</option>
                   <option value="desc">Decrescente</option>
                 </select>
-              </div>
-              <Table>
-                <tbody>
-                  <tr>
-                    <Td><strong>Cliente</strong></Td>
-                    <Td><strong>Email para contato</strong></Td>
-                    <Td><strong>Detalhes</strong></Td>
-                    <Td><strong>Prazo</strong></Td>
-                  </tr>
-                  {[...orcamentos].sort((a, b) => {
-                    const diasA = parseInt(a.prazo);
-                    const diasB = parseInt(b.prazo);
-                    return ordenarPorPrazo === 'asc' ? diasA - diasB : diasB - diasA;
-                  }).map((orc, idx) => (
-                    <tr key={idx}>
-                      <Td>{orc.nome}</Td>
-                      <Td>{orc.email}</Td>
-                      <Td><a href="#" onClick={handleDownloadClick}>Clique aqui para ver o orçamento</a></Td>
-                      <Td>{orc.prazo} dias para entrega</Td>
+              </OrdenacaoWrapper>
+              <TableWrapper>
+                <Table>
+                  <tbody>
+                    <tr>
+                      <Td><strong>Cliente</strong></Td>
+                      <Td><strong>Email para contato</strong></Td>
+                      <Td><strong>Detalhes</strong></Td>
+                      <Td><strong>Prazo</strong></Td>
                     </tr>
-                  ))}
-                </tbody>
-              </Table>
+                    {orcamentosOrdenados.map((orc, idx) => (
+                      <tr key={idx}>
+                        <Td>{orc.nome}</Td>
+                        <Td>{orc.email}</Td>
+                        <Td><a href="#" onClick={handleDownloadClick}>Clique aqui para ver o orçamento</a></Td>
+                        <Td>{orc.prazo} dias para entrega</Td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </TableWrapper>
             </div>
           )}
 
@@ -149,22 +143,10 @@ const UsoInterno = () => {
           {abaAtiva === 'dashboard' && (
             <>
               <IndicadorWrapper>
-                <Indicador>
-                  <h4>Orçamentos Pendentes</h4>
-                  <p>2</p>
-                </Indicador>
-                <Indicador>
-                  <h4>Faturamento do mês</h4>
-                  <p>R$ 9.800</p>
-                </Indicador>
-                <Indicador>
-                  <h4>Reuniões</h4>
-                  <p>2 agendadas</p>
-                </Indicador>
-                <Indicador>
-                  <h4>Feedbacks</h4>
-                  <p>3 positivos</p>
-                </Indicador>
+                <Indicador><h4>Orçamentos Pendentes</h4><p>2</p></Indicador>
+                <Indicador><h4>Faturamento do mês</h4><p>R$ 31.340</p></Indicador>
+                <Indicador><h4>Reuniões</h4><p>2 agendadas</p></Indicador>
+                <Indicador><h4>Feedbacks</h4><p>14 positivos</p></Indicador>
               </IndicadorWrapper>
               <GraficosWrapper>
                 <GraphBox>
@@ -184,11 +166,10 @@ const UsoInterno = () => {
                   <ResponsiveContainer width="100%" height={250}>
                     <BarChart data={orcamentosData}>
                       <Bar dataKey="total" fill="#82ca9d" barSize={20} />
-                      <Tooltip cursor={false} />
                       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                       <XAxis dataKey="mes" />
                       <YAxis ticks={[0, 5, 10, 15, 20, 25]} />
-                      <Tooltip />
+                      <Tooltip cursor={false} />
                     </BarChart>
                   </ResponsiveContainer>
                 </GraphBox>
@@ -202,30 +183,25 @@ const UsoInterno = () => {
 };
 
 const Container = styled.div`
-  font-family: Arial, sans-serif;
-  background: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
 `;
 
 const TopBar = styled.div`
-  width: 100%;
   background-color: #243436;
-  color: white;
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
-  box-sizing: border-box;
+  padding: 16px 32px;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  width: 100%;
   z-index: 10;
-`;
-
-const Spacer = styled.div`
-  height: 10px;
+  box-sizing: border-box;
 `;
 
 const UserInfo = styled.div`
@@ -234,205 +210,228 @@ const UserInfo = styled.div`
   gap: 16px;
 `;
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 12px;
+  align-items: center;
+`;
+
 const Avatar = styled.img`
-  width: 66px;
-  height: 66px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
 `;
 
-const SairButton = styled.button`
-  background-color: #F95400;
-  color: white;
-  width: 120px;
-  height: 40px;
-  font-size: 18px;
+const BotaoEdicao = styled.button`
+  background-color: #007BFF;
   border: none;
-  font-weight: bold;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const SairButton = styled(BotaoEdicao)`
+  background-color: #F95400;
+
+  &:hover {
+    background-color: #c13e00;
+  }
 `;
 
 const PageContent = styled.div`
-  max-width: 1208px;
-  margin: 0 auto;
-  padding-top: 0;
+  max-width: 1200px;
+  margin: 10px auto 0;
+  padding: 24px;
 `;
 
 const TabMenu = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin: 0;
+  gap: 8px;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  background: #fff;
 `;
 
 const Tab = styled.button<{ selected: boolean }>`
   flex: 1;
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #000;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  color: #000;
-  text-decoration: ${({ selected }) => (selected ? 'underline' : 'none')};
+  padding: 12px;
+  min-width: 120px;
+  background-color: ${({ selected }) => (selected ? '#243436' : '#fff')};
+  color: ${({ selected }) => (selected ? '#fff' : '#243436')};
+  border: 2px solid #243436;
+  font-weight: bold;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease-in-out;
+
   &:hover {
-    background-color: ${({ selected }) => (selected ? 'white' : '#f0f0f0')};
+    background-color: ${({ selected }) => (selected ? '#1a2526' : '#e5e7eb')};
   }
 `;
 
-
 const ContentBox = styled.div`
-  background: #D9D9D9;
-  border: 1px solid #000;
-  padding: 0;
-  border-top: none;
+  margin-top: 16px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ccc;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  gap: 16px;
-  justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 0;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  gap: 24px;
 `;
 
 const CalendarWrapper = styled.div`
-  width: 820px;
-  height: auto;
-  flex-shrink: 0;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
+  flex: 1 1 60%;
+  min-width: 300px;
 `;
 
 const ImgCalendario = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  border-radius: 12px;
 `;
 
 const Eventos = styled.div`
-  padding: 0;
-  max-width: 300px;
-  width: 90%;
+  flex: 1 1 35%;
+  min-width: 260px;
+  border-left: 1px solid #ccc;
+  padding-left: 24px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  flex-shrink: 0;
 
   @media (max-width: 768px) {
-    align-items: center;
-    text-align: center;
+    border-left: none;
+    border-top: 1px solid #ccc;
+    padding-left: 0;
+    padding-top: 16px;
   }
 `;
 
 const TituloEventos = styled.h3`
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 16px;
+  font-size: 24px;
+  margin-bottom: 12px;
+  margin-top: 0;
 `;
 
 const Secao = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 `;
 
-const Subtitulo = styled.p`
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 8px;
+const Subtitulo = styled.h4`
+  font-size: 18px;
+  color: #111827;
 `;
 
 const Descricao = styled.p`
+  color: #374151;
   font-size: 16px;
-  font-weight: 500;
-  margin: 2px 0;
+  margin: 4px 0;
 `;
 
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
+  background: white;
 `;
 
 const Td = styled.td`
-  border: 1px solid #999;
-  padding: 8px;
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  text-align: left;
+  font-size: 15px;
 `;
 
 const LembreteCard = styled.div`
-  background: white;
-  padding: 12px;
+  background: #fff;
+  padding: 16px;
   margin: 12px;
-  border-radius: 8px;
-  display: inline-block;
-  width: 240px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  width: 280px;
+  border: 1px solid #ccc;
 `;
 
 const LembreteWrapper = styled.div`
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const BotaoEdicao = styled.div`
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  margin-left: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  display: inline-block;
+  justify-content: center;
 `;
 
 const IndicadorWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   flex-wrap: wrap;
-  gap: 24px;
-  padding: 24px;
-  background-color: #eeeeee;
-  width: 100%;
-  box-sizing: border-box;
+  margin-bottom: 24px;
 `;
 
 const Indicador = styled.div`
-  background: white;
-  padding: 16px;
-  border-radius: 12px;
-  text-align: center;
-  flex: 1 1 200px;
+  flex: 1;
   min-width: 200px;
-  max-width: 250px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-align: center;
 `;
 
 const GraficosWrapper = styled.div`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
-  margin-top: 24px;
+  gap: 24px;
 `;
 
 const GraphBox = styled.div`
   flex: 1 1 400px;
   background: #fff;
   padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+`;
+
+const OrdenacaoWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+
+  label {
+    font-size: 16px;
+    color: #111;
+  }
+
+  select {
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+
+const TableWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto;
 `;
 
 export default UsoInterno;
