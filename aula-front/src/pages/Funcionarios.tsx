@@ -29,8 +29,6 @@ const Funcionarios = () => {
               Entrar
             </Link>
 
-            <a href="#" className="login-link">Esqueci minha senha</a>
-            <a href="#" className="login-link">Criar conta</a>
           </div>
         </div>
       </div>
