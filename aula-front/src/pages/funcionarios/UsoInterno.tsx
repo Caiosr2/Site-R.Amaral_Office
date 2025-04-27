@@ -247,8 +247,9 @@ const SairButton = styled(BotaoEdicao)`
 
 const PageContent = styled.div`
   max-width: 1200px;
-  margin: 10px auto 0;
-  padding: 24px;
+  margin: 0 auto;
+  padding: 150px 24px 24px;
+  box-sizing: border-box;
 `;
 
 const TabMenu = styled.div`
