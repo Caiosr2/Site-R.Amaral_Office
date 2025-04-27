@@ -131,9 +131,18 @@ export default PaginaServicos;
 
 
 const Container = styled.div`
-  padding: 2rem;
+  padding: 8rem 2rem 2rem;
   max-width: 1100px;
-  margin: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 8rem 1.5rem 2rem;
+  }
+
+  @media (max-width: 425px) {
+    padding: 10rem 1rem 2rem; /* 🔥 Em telas MUITO pequenas, aumenta ainda mais o espaço no topo */
+  }
 `;
 
 const Titulo = styled.h1`
@@ -146,10 +155,12 @@ const Titulo = styled.h1`
 
 const AbasHorizontais = styled.div`
   display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
 `;
 
 const Aba = styled.button<{ ativa: boolean }>`

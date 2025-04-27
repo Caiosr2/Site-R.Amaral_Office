@@ -1,11 +1,12 @@
 .funcionarios-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: #f9f9f9;
   padding: 0;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
@@ -16,13 +17,15 @@
   font-family: 'Georgia', serif;
   margin: 0;
   padding: 0;
-  flex-direction: row; /* padrão: lado a lado */
+  flex-direction: row;
 }
 
 .login-left {
   flex: 1;
   background-color: #f0f0f0;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-left img {
@@ -33,10 +36,10 @@
 
 .login-right {
   flex: 1;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
   padding: 2rem;
   overflow-y: auto;
 }
@@ -121,47 +124,40 @@
   text-decoration: underline;
 }
 
+/* 📱 Responsividade para telas pequenas */
 @media (max-width: 768px) {
   .login-wrapper {
-    flex-direction: column;
+    flex-direction: column; /* imagem em cima, login embaixo */
     height: auto;
     min-height: 100vh;
   }
 
   .login-left {
-    height: 40vh;
     width: 100%;
-    flex: none;
+    height: 30vh; /* 🔥 Agora a imagem ocupa só 30% da altura da tela */
+    max-height: 200px; /* 🔥 limita a altura para caber sem scroll */
   }
 
   .login-left img {
-    height: 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
   .login-right {
     width: 100%;
     flex: none;
-    padding: 2rem 1.5rem 3rem; /* espaçamento ao redor */
-    background-color: white;
+    padding: 1.5rem 1rem;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-   }
+    align-items: center;
+  }
 
   .login-card {
     width: 100%;
-    margin-right: 3rem;
-    max-width: 380px;
-    padding-top: 0.1rem;
-    padding-left: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    background-color: white;
-
-    /* adiciona espaçamento interno confortável */
-    margin-top: 1.5rem;
+    max-width: 320px;
+    padding: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
   }
 }
