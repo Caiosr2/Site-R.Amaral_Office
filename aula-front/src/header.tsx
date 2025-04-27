@@ -5,7 +5,7 @@ import logo from './assets/logo.png';
 
 const Header = () => {
   return (
-    <header className="header">
+    <header id="header" className="header">
       <div className="top-bar">
         <Link to="/" className="logo-area">
           <img src={logo} alt="Logo" className="logo" />

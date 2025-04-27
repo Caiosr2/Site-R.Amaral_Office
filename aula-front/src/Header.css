@@ -16,11 +16,6 @@ a {
   z-index: 1000;
 }
 
-
-body {
-  padding-top: 101px;
-}
-
 .top-bar {
   display: flex;
   align-items: center;
@@ -99,9 +94,6 @@ body {
 
 
 @media (max-width: 768px) {
-  body {
-    padding-top: 164px;
-  }
 
   .logo {
     height: 2rem;
