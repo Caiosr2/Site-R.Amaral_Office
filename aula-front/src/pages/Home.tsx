@@ -2,363 +2,450 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import banner1 from '../assets/banner1.png';
-import banner2 from '../assets/banner2.png';
-import Lista_produtos from './ListaProdutos';
+
+import banner from '../assets/banner.png';
 import moveis from '../assets/categoria_moveis.png';
 import tecnologia from '../assets/categoria_tecnologia.png';
 import papelaria from '../assets/categoria_papelaria.png';
-import avatar1 from '../assets/avatar1.png';
-import avatar2 from '../assets/avatar2.png';
-import avatar3 from '../assets/avatar3.png';
-
+import descontoPapelaria from '../assets/descontoPapelaria.png';
+import orcamentoIcon from '../assets/Compra por lotes.png';
+import produtos from './ListaProdutos';
+import entregaIcon from '../assets/Caminhão Entrega.png';
+import devolucaoIcon from '../assets/Setas Devolução.png';
+import garantiaIcon from '../assets/Seguro e garantia.png';
+import atendimento from '../assets/atendimento.png';
 
 const Home = () => {
-  const banners = [
-    {
-      image: banner1,
-      link: "/orcamento",
-      label: (
-        <>
-          Buscando economia e qualidade? <br />
-          Faça já seu orçamento com a <br />
-          <strong>R. Amaral Office.</strong>
-        </>
-      ),
-      button: "Fazer orçamento"
-    },
-    {
-      image: banner2,
-      link: "/produtos",
-      label: (
-        <>
-          <strong style={{ fontSize: "2.5rem", display: 'block' }}>Descontos de até<br />20%</strong>
-          em produtos de papelaria
-        </>
-      ),
-      button: "Ver ofertas"
-    }
-  ];
-  
-  
+  const [indiceAtual, setIndiceAtual] = useState(0)
+  const proximoSlide = () => {
+    setIndiceAtual((prevIndice) => (prevIndice + 3) % produtos.length)
+  }
+  const slideAnterior = () => {
+    setIndiceAtual((prevIndice) => (prevIndice - 3 + produtos.length) % produtos.length)
+  }
+  const produtosVisiveis = [
+    produtos[indiceAtual],
+    produtos[(indiceAtual + 1) % produtos.length],
+    produtos[(indiceAtual + 2) % produtos.length],
+  ]
 
-  const [currentBanner, setCurrentBanner] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBanner((prev) => (prev + 1) % banners.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const scrollInterval = setInterval(() => {
-      const carousel = carouselRef.current;
-      if (carousel) {
-        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        if (carousel.scrollLeft >= maxScroll - 5) {
-          carousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          carousel.scrollBy({ left: 240, behavior: 'smooth' });
-        }
-      }
-    }, 3000);
-    return () => clearInterval(scrollInterval);
-  }, []);
 
   return (
-    <HomeContainer>
-    <BannerWrapper as={Link} to={banners[currentBanner].link}>
-      <BannerImage src={banners[currentBanner].image} alt="banner" />
-      <BannerTextBox>
-        <p>{banners[currentBanner].label}</p>
-        <button>{banners[currentBanner].button}</button>
-      </BannerTextBox>
-    </BannerWrapper>
+    <div className="home-wrapper">
+      {/* Banner principal */}
+      <Banner className='banner'>
+        <BannerImage src={banner} alt="Banner" className='banner-image'/>
+        <BannerText className='banner-text'>
+          <h1>Reduza custos sem abrir mão da qualidade. Solicite seu orçamento com a R. Amaral Office</h1>
+          <Link to="/orcamento">SOLICITE ORÇAMENTO</Link>
+        </BannerText>
+      </Banner>
 
 
-      <SectionTitle>Produtos mais procurados</SectionTitle>
-      <CarouselWrapper>
-        <Carousel ref={carouselRef}>
-        {Lista_produtos.slice(2, 10).map(prod => (
-  <CarouselItem to={`/produto/${prod.id}`}> 
-    <img src={prod.imagem} alt={prod.nome} />
-    <p>{prod.nome}</p>
-    <span>R$ {prod.preco.toFixed(2).replace(".", ",")}</span>
-  </CarouselItem>
-))}
-        </Carousel>
-      </CarouselWrapper>
-
-      <SectionTitle>Categorias</SectionTitle>
-      <Categories>
-        <CategoryButton to="/produtos?categoria=Móveis">
-          <img src={moveis} alt="Móveis" />
-          <span>MÓVEIS</span>
-        </CategoryButton>
-        <CategoryButton to="/produtos?categoria=Tecnologia">
-          <img src={tecnologia} alt="Tecnologia" />
-          <span>TECNOLOGIA</span>
-        </CategoryButton>
-        <CategoryButton to="/produtos?categoria=Papelaria">
-          <img src={papelaria} alt="Papelaria" />
-          <span>PAPELARIA</span>
-        </CategoryButton>
-      </Categories>
-
-      <SectionTitle>Depoimentos de clientes</SectionTitle>
-      <Testimonials>
-        <Testimonial>
-          <div className="profile">
-            <img src={avatar1} alt="Lucas Andrade" />
-            <div>
-              <h4>Lucas Andrade</h4>
-              <Stars>★★★★★</Stars>
-            </div>
+      {/* Categorias */}
+      <section className="categorias">
+        <h2>Transforme seu ambiente de trabalho</h2>
+        <p>Produtos que aliam conforto, eficiência e design</p>
+        <div className="categorias-cards">
+          <div className="card">
+            <img src={moveis} alt="Móveis" />
+            <h3>MÓVEIS</h3>
+            <p>Cadeiras; Mesas; Armários</p>
           </div>
-          <p>"A Amaral Office transformou nosso escritório com móveis confortáveis e modernos. Excelente experiência!"</p>
-        </Testimonial>
-        <Testimonial>
-          <div className="profile">
-            <img src={avatar2} alt="Fernanda Lopes" />
-            <div>
-              <h4>Fernanda Lopes</h4>
-              <Stars>★★★★★</Stars>
-            </div>
+          <div className="card">
+            <img src={tecnologia} alt="Tecnologia" />
+            <h3>TECNOLOGIA</h3>
+            <p>Periféricos; Eletrônicos</p>
           </div>
-          <p>"Produtos de alta qualidade e atendimento excelente. A entrega foi rápida e os preços são justos."</p>
-        </Testimonial>
-        <Testimonial>
-          <div className="profile">
-            <img src={avatar3} alt="Mariana Queiroz" />
-            <div>
-              <h4>Mariana Queiroz</h4>
-              <Stars>★★★★★</Stars>
-            </div>
+          <div className="card">
+            <img src={papelaria} alt="Papelaria" />
+            <h3>PAPELARIA</h3>
+            <p>Papel; Escrita; Acessórios</p>
           </div>
-          <p>"Recomendo demais! Encontrei tudo que precisava para meu home office com ótimo custo-benefício."</p>
-        </Testimonial>
-      </Testimonials>
-    </HomeContainer>
+        </div>
+      </section>
+
+      {/* Soluções personalizadas */}
+      <section className="solucoes">
+        <h2>Para Sua Empresa, Soluções Sob Medida</h2>
+        <p className="subtext">Atendemos desde pequenos escritórios até grandes corporações</p>
+      </section>
+
+      {/* Promoção de papelaria */}
+      <section className="desconto">
+        <div className="desconto-banner">
+          <img src={descontoPapelaria} alt="Desconto Papelaria" />
+          <div className="desconto-texto">
+            <h3>DESCONTOS DE ATÉ 20%</h3>
+            <p>em produtos de papelaria</p>
+            <Link to="/ofertas" className="botao-laranja">Ver ofertas</Link>
+          </div>
+        </div>
+        <div className="placeholder-produtos">
+          {/* Espaço para produtos destacados */}
+          <div className="produto-placeholder" />
+          <div className="produto-placeholder" />
+          <div className="produto-placeholder" />
+          <div className="produto-placeholder" />
+        </div>
+      </section>
+
+      {/* Produtos mais procurados */}
+      <ProdutosMaisProcurados>
+        <h2>Produtos mais procurados</h2>
+        <div className="carrossel">
+          {produtosVisiveis.map((produto) => (
+            <div key={produto.id} className="produto">
+              <img src={produto.imagem} alt={produto.nome} />
+              <p>{produto.nome}</p>
+              <span>{produto.preco}</span>
+            </div>
+          ))}
+        </div>
+        <div className="botoes">
+          <button className="botao" onClick={slideAnterior}>←</button>
+          <button className="botao" onClick={proximoSlide}>→</button>
+        </div>
+      </ProdutosMaisProcurados>
+
+      {/* Serviços */}
+      <section className="servicos">
+        <h2>Os Nossos SERVIÇOS</h2>
+        <div className="servicos-cards">
+          <div className="servico">
+            <img src={orcamentoIcon} alt="Orçamento" />
+            <p>Orçamento</p>
+          </div>
+          <div className="servico">
+            <img src={entregaIcon} alt="Entrega" />
+            <p>Entrega</p>
+          </div>
+          <div className="servico">
+            <img src={devolucaoIcon} alt="Devolução" />
+            <p>Devolução</p>
+          </div>
+          <div className="servico">
+            <img src={garantiaIcon} alt="Garantia" />
+            <p>Garantia</p>
+          </div>
+        </div>
+        <div className="servicos-atendimento">
+          <img src={atendimento} alt="Atendimento" />
+        </div>
+      </section>
+
+      {/* Depoimentos de clientes */}
+      <section className="depoimentos">
+        <h2>Depoimentos de clientes</h2>
+        <div className="depoimentos-cards">
+          <div className="depoimento">
+            <p>"A R. Amaral Office transformou completamente nosso escritório. Desde os móveis até os suprimentos, tudo foi entregue com rapidez e qualidade excepcional. Recomendo demais!"</p>
+            <h4>Lucas Andrade</h4>
+          </div>
+          <div className="depoimento">
+            <p>"O atendimento da R. Amaral é impecável, seja na loja física ou no novo e-commerce. Sempre encontro exatamente o que preciso, com praticidade e eficiência."</p>
+            <h4>Fernanda Lopes</h4>
+          </div>
+          <div className="depoimento">
+            <p>"Desde que começamos a utilizar o e-commerce da R. Amaral Office, ficou muito mais fácil manter nosso estoque atualizado. A integração entre digital e físico foi um grande diferencial."</p>
+            <h4>Mariana Queiroz</h4>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
-const SectionTitle = styled.h2`
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin: 2rem 0 1rem;
-`;
-
-const CarouselWrapper = styled.div`
-  overflow: hidden;
-`;
-
-const Carousel = styled.div`
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-`;
-
-const CarouselItem = styled(Link)`
-  flex: 0 0 auto;
-  width: 220px;
-  scroll-snap-align: start;
-  background-color: #fff;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-  }
-
-  img {
-  width: 140px;
-  height: 140px;
-  object-fit: contain;
-  margin: 0 auto 1rem;
-  display: block;
-}
-
-
-  p {
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    min-height: 3rem;
-  }
-
-  span {
-    font-weight: bold;
-    color: #333;
-  }
-`;
-
-const Categories = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin: 2.5rem 0 3rem;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
-`;
-
-const CategoryButton = styled(Link)`
+const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  width: 280px;
-  height: 280px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.25s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  img {
-    width: 120px;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 1rem;
-  }
-
-  span {
-    font-weight: bold;
-    color: #2b3f42;
-    font-size: 1.2rem;
-  }
+  width: 100%;
 `;
 
-const Testimonials = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
+const Section = styled.section`
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem 0;
+  padding: 0 1rem;
 `;
 
-const Testimonial = styled.div`
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  flex: 1 1 30%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    h4 {
-      margin: 0;
-      color: #344A4b;
-      font-size: 1rem;
-    }
-  }
-
-  p {
-    font-size: 0.95rem;
-    color: #333;
-  }
+const Banner = styled.section`
+  position: relative;
+  width: 100%;
+  height: 532px;
+  box-shadow: inset 0px 4px 6px -4px rgba(0, 0, 0, 0.3); /* sombra interna para criar separação elegante */
+  margin: 0;
+  padding: 0;
 `;
 
-const Stars = styled.div`
-  font-size: 1.2rem;
-  color: #FFD700;
-  margin-top: 0.25rem;
-`;
-
-
-const HomeContainer = styled.div`
-  background-color: #f4f4f4;
-  padding: 0 4rem 2rem 4rem;
-  box-sizing: border-box;
-  @media (max-width: 768px) {
-    padding: 0 1rem 2rem 1rem;
-  }
-`;
 
 const BannerImage = styled.img`
-  width: 100vw;
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 `;
 
-const BannerWrapper = styled(Link)`
-  position: relative;
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  overflow: hidden;
-  display: block;
-`;
-
-const BannerTextBox = styled.div`
+const BannerText = styled.div`
   position: absolute;
   top: 50%;
-  left: 55%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff8f2;
-  padding: 2rem 2.5rem;
-  border-radius: 2rem;
-  text-align: left;
-  max-width: 400px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  max-width: 800px;
+  width: 100%;
 
-  p {
-    color: #243436;
-    font-size: 1.7rem;
-    font-weight: 700;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    word-break: break-word;
   }
 
-  button {
-    background-color: #F54900;
+  a {
+    background-color: #ff6600;
     color: white;
-    padding: 0.85rem 1.75rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
 
-    &:hover {
-      filter: brightness(1.1);
+  @media (max-width: 768px) {
+    max-width: 90%;
+    h1 {
+      font-size: 2rem;
+    }
+    a {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    max-width: 90%;
+    h1 {
+      font-size: 1.7rem;
+    }
+    a {
+      font-size: 0.9rem;
+      padding: 0.7rem 1.2rem;
     }
   }
 `;
 
+
+
+
+const Categorias = styled(Section)`
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  .categorias-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    .card {
+      background: #f6f6f6;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 200px;
+
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+`;
+
+const Solucoes = styled(Section)`
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .subtext {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    background: #243436;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+`;
+
+const Desconto = styled(Section)`
+  display: flex;
+  gap: 2rem;
+
+  .desconto-banner {
+    flex: 1;
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .desconto-texto {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      color: #243436;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        margin: 0.5rem 0;
+      }
+
+      a {
+        margin-top: 1rem;
+        display: inline-block;
+        background: #ff6600;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .placeholder-produtos {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    .produto-placeholder {
+      background: white;
+      border-radius: 8px;
+      height: 100px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+`;
+
+const ProdutosMaisProcurados = styled(Section)`
+  text-align: center;
+
+  .produtos-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+
+    .produto {
+      background: #f6f6f6;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 200px;
+
+      img {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+`;
+
+const Servicos = styled(Section)`
+  text-align: center;
+
+  .servicos-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    .servico {
+      background: #f6f6f6;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 150px;
+
+      img {
+        width: 60px;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .servicos-atendimento {
+    img {
+      width: 300px;
+      border-radius: 8px;
+    }
+  }
+`;
+
+const Depoimentos = styled(Section)`
+  text-align: center;
+
+  .depoimentos-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    .depoimento {
+      background: #f6f6f6;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 250px;
+
+      p {
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+
+      h4 {
+        font-weight: bold;
+      }
+    }
+  }
+`;
 
 export default Home;

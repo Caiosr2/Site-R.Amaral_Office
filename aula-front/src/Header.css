@@ -9,9 +9,13 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
   width: 100%;
   z-index: 1000;
 }
+
 
 body {
   padding-top: 101px;
@@ -79,6 +83,7 @@ body {
   justify-content: space-around;
   gap: 5rem;
   padding: 0.5rem 0;
+  border-bottom: none;
   flex-wrap: nowrap;
 }
 
@@ -133,3 +138,4 @@ body {
     gap: 0.5rem;
   }
 }
+

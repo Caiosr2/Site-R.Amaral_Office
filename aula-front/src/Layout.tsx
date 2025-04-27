@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from './Header';
+import Header from './header';
 import Footer from "./Footer";
 import ScrollToTop from "./components/ui/scroll_to_top";
 
