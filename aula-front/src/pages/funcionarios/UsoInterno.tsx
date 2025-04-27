@@ -202,6 +202,13 @@ const TopBar = styled.div`
   width: 100%;
   z-index: 10;
   box-sizing: border-box;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;
+  }
 `;
 
 const UserInfo = styled.div`
@@ -250,6 +257,10 @@ const PageContent = styled.div`
   margin: 0 auto;
   padding: 150px 24px 24px;
   box-sizing: border-box;
+
+  @media (max-width: 600px) {
+    padding: 130px 16px 24px; /* Aumenta o espaço no topo e ajusta o padding lateral */
+  }
 `;
 
 const TabMenu = styled.div`
