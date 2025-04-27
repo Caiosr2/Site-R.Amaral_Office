@@ -109,12 +109,18 @@ export default Carrinho;
 
 // Estilos com responsividade adicionada
 const Wrapper = styled.div`
-  padding: 2rem 4rem;
+  padding: 8rem 4rem 2rem; /* 🔥 7rem no topo para dar espaço para o Header */
   background-color: #f4f4f4;
   font-family: 'Lora', serif;
+  min-height: 100vh;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 8rem 1.5rem 2rem;
+  }
+
+  @media (max-width: 425px) {
+    padding: 11.2rem 1rem 2rem; /* 🔥 mais espaço para telas pequenas como iPhone SE */
   }
 `;
 
@@ -223,6 +229,10 @@ const Resumo = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 0.5rem 0;
+
+    span:last-child {
+      white-space: nowrap; /* 🔥 Não deixa quebrar o preço */
+    }
   }
 
   .total {
@@ -231,6 +241,10 @@ const Resumo = styled.div`
     font-size: 1.2rem;
     margin-top: 1rem;
     font-weight: bold;
+
+    strong {
+      white-space: nowrap; /* 🔥 Também para o total final */
+    }
   }
 
   .finalizar {

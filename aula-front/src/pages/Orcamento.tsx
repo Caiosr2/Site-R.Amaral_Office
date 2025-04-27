@@ -60,13 +60,22 @@ export default Orcamento;
 // Styled Components
 
 const PageWrapper = styled.div`
-  padding: 2rem 1rem;
+  padding: 7rem 1rem 2rem;
   background-color: #f4f4f4;
   min-height: 100vh;
   font-family: "Playfair Display", serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 7rem 1rem 2rem;
+  }
+
+  @media (max-width: 425px) {
+    padding: 10rem 1rem 2rem; /* 🔥 desce ainda mais o conteúdo no celular pequeno */
+  }
 `;
 
 const Title = styled.h1`
