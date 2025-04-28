@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from 'styled-components';
 import React, { useState, ReactNode } from "react";
 
@@ -7,11 +7,11 @@ import iconeEnvio from "../assets/Caminhão Entrega.png";
 import iconeDevolucao from "../assets/Setas Devolução.png";
 import iconeGarantia from "../assets/Seguro e garantia.png";
 
-type AbaKey = 'orcamentos' | 'envio' | 'devolucao' | 'garantia';
+type AbaKey = 'orcamentos' | 'entrega' | 'devolucao' | 'garantia';
 
 const icones: Record<AbaKey, string> = {
   orcamentos: iconeOrcamento,
-  envio: iconeEnvio,
+  entrega: iconeEnvio,
   devolucao: iconeDevolucao,
   garantia: iconeGarantia,
 };
@@ -50,7 +50,7 @@ const servicos: Record<AbaKey, { titulo: string; texto: ReactNode }> = {
       </>
     )
   },
-  envio: {
+  entrega: {
     titulo: "Envio de Pedidos",
     texto: (
       <>
@@ -99,7 +99,12 @@ const servicos: Record<AbaKey, { titulo: string; texto: ReactNode }> = {
 };
 
 const PaginaServicos = () => {
-  const [abaSelecionada, setAbaSelecionada] = useState<AbaKey>("orcamentos");
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const tipoParam = queryParams.get('tipo') as AbaKey | null;
+
+const [abaSelecionada, setAbaSelecionada] = useState<AbaKey>(tipoParam && ['orcamentos', 'entrega', 'devolucao', 'garantia'].includes(tipoParam) ? tipoParam : 'orcamentos');
+
   const conteudo = servicos[abaSelecionada];
   const iconeAtual = icones[abaSelecionada];
 
@@ -109,7 +114,7 @@ const PaginaServicos = () => {
 
       <AbasHorizontais>
         <Aba onClick={() => setAbaSelecionada("orcamentos")} ativa={abaSelecionada === "orcamentos"}>Orçamentos</Aba>
-        <Aba onClick={() => setAbaSelecionada("envio")} ativa={abaSelecionada === "envio"}>Envio</Aba>
+        <Aba onClick={() => setAbaSelecionada("entrega")} ativa={abaSelecionada === "entrega"}>Entrega</Aba>
         <Aba onClick={() => setAbaSelecionada("devolucao")} ativa={abaSelecionada === "devolucao"}>Devolução</Aba>
         <Aba onClick={() => setAbaSelecionada("garantia")} ativa={abaSelecionada === "garantia"}>Garantia</Aba>
       </AbasHorizontais>

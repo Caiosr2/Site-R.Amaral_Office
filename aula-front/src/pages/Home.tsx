@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import banner from '../assets/banner.png';
@@ -17,6 +17,9 @@ import devolucaoIcon from '../assets/Setas Devolução.png';
 import garantiaIcon from '../assets/Seguro e garantia.png';
 import atendimento from '../assets/atendimento.png';
 import logo from '../assets/logo.png';
+import avatar1 from '../assets/avatar1.png';
+import avatar2 from '../assets/avatar2.png';
+import avatar3 from '../assets/avatar3.png';
 
 const Home = () => {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -70,6 +73,7 @@ const Home = () => {
         </BannerText>
       </Banner>
 
+      <BlocoComGradiente>
       {/* Categorias */}
       <Categorias>
         <h2>Transforme seu ambiente de trabalho</h2>
@@ -94,6 +98,15 @@ const Home = () => {
           </Link>
         </div>
       </Categorias>
+
+      {/* Texto B2B */}
+      <BlocoEmpresas>
+      <div className="texto">
+        <h2>De pequenas a grandes empresas</h2>
+        <p>Entregamos soluções sob medida que priorizam<br />o que realmente importa: o sucesso do seu negócio.</p>
+        <Link to="/orcamento" className="botao">SOLICITE ORÇAMENTO</Link>
+      </div>
+    </BlocoEmpresas>
 
       {/* Promoção Papelaria */}
       <DescontoSection>
@@ -143,11 +156,12 @@ const Home = () => {
           })}
         </ProdutosDesconto>
       </DescontoSection>
+      </BlocoComGradiente>
   
       {/* Produtos mais procurados */}
       <TituloCarrossel>Produtos mais procurados</TituloCarrossel>
         <ProdutosProcuradosContainer>
-          <BotaoCarrossel onClick={slideAnterior}>&#8249;</BotaoCarrossel> {/* ‹ */}
+          <BotaoCarrossel onClick={slideAnterior}>&#8249;</BotaoCarrossel>
           
           <ProdutosProcuradosWrapper>
             {produtosVisiveis.map((produtoProcurado) => {
@@ -182,7 +196,7 @@ const Home = () => {
               );
             })}
           </ProdutosProcuradosWrapper>
-          <BotaoCarrossel onClick={proximoSlide}>&#8250;</BotaoCarrossel> {/* › */}
+          <BotaoCarrossel onClick={proximoSlide}>&#8250;</BotaoCarrossel>
         </ProdutosProcuradosContainer>
 
 
@@ -190,22 +204,26 @@ const Home = () => {
       {/* Serviços */}
       <ServicosContainer>
         <ServicosCards>
-          <ServicoCard>
-            <img src={orcamentoIcon} alt="Orçamento" />
-            <p>Orçamento</p>
-          </ServicoCard>
-          <ServicoCard>
-            <img src={entregaIcon} alt="Entrega" />
-            <p>Entrega</p>
-          </ServicoCard>
-          <ServicoCard>
-            <img src={devolucaoIcon} alt="Devolução" />
-            <p>Devolução</p>
-          </ServicoCard>
-          <ServicoCard>
-            <img src={garantiaIcon} alt="Garantia" />
-            <p>Garantia</p>
-          </ServicoCard>
+        <ServicoCard to="/servicos?tipo=orcamento">
+          <img src={orcamentoIcon} alt="Orçamento" />
+          <p>Orçamento</p>
+        </ServicoCard>
+
+        <ServicoCard to="/servicos?tipo=entrega">
+          <img src={entregaIcon} alt="Entrega" />
+          <p>Entrega</p>
+        </ServicoCard>
+
+        <ServicoCard to="/servicos?tipo=devolucao">
+          <img src={devolucaoIcon} alt="Devolução" />
+          <p>Devolução</p>
+        </ServicoCard>
+
+        <ServicoCard to="/servicos?tipo=garantia">
+          <img src={garantiaIcon} alt="Garantia" />
+          <p>Garantia</p>
+        </ServicoCard>
+
         </ServicosCards>
 
         <ServicoTextoImagem>
@@ -220,43 +238,53 @@ const Home = () => {
         </ServicoTextoImagem>
       </ServicosContainer>
 
+    {/* Depoimentos de clientes */}
+    <SectionDepoimentos>
+      <h2>Depoimentos de clientes</h2>
+      <DepoimentosWrapper>
+        <DepoimentoCard>
+          <DepoimentoTopo>
+            <FotoCliente src={avatar1} alt="Lucas Andrade" />
+            <NomeEstrelas>
+              <NomeCliente>Lucas Andrade</NomeCliente>
+              <Estrelas>★★★★★</Estrelas>
+            </NomeEstrelas>
+          </DepoimentoTopo>
+          <TextoDepoimento>
+            "A R. Amaral Office transformou completamente nosso escritório. Desde os móveis até os suprimentos, tudo foi entregue com rapidez e qualidade excepcional. Recomendo demais!"
+          </TextoDepoimento>
+        </DepoimentoCard>
 
-      {/* Depoimentos de clientes */}
-      <section className="depoimentos">
-        <h2>Depoimentos de clientes</h2>
-        <div className="depoimentos-cards">
-          <div className="depoimento">
-            <p>"A R. Amaral Office transformou completamente nosso escritório. Desde os móveis até os suprimentos, tudo foi entregue com rapidez e qualidade excepcional. Recomendo demais!"</p>
-            <h4>Lucas Andrade</h4>
-          </div>
-          <div className="depoimento">
-            <p>"O atendimento da R. Amaral é impecável, seja na loja física ou no novo e-commerce. Sempre encontro exatamente o que preciso, com praticidade e eficiência."</p>
-            <h4>Fernanda Lopes</h4>
-          </div>
-          <div className="depoimento">
-            <p>"Desde que começamos a utilizar o e-commerce da R. Amaral Office, ficou muito mais fácil manter nosso estoque atualizado. A integração entre digital e físico foi um grande diferencial."</p>
-            <h4>Mariana Queiroz</h4>
-          </div>
-        </div>
-      </section>
+        <DepoimentoCard>
+          <DepoimentoTopo>
+            <FotoCliente src={avatar2} alt="Fernanda Lopes" />
+            <NomeEstrelas>
+              <NomeCliente>Fernanda Lopes</NomeCliente>
+              <Estrelas>★★★★★</Estrelas>
+            </NomeEstrelas>
+          </DepoimentoTopo>
+          <TextoDepoimento>
+            "O atendimento da R. Amaral é impecável, seja na loja física ou no novo e-commerce. Sempre encontro exatamente o que preciso, com praticidade e eficiência."
+          </TextoDepoimento>
+        </DepoimentoCard>
+
+        <DepoimentoCard>
+          <DepoimentoTopo>
+            <FotoCliente src={avatar3} alt="Mariana Queiroz" />
+            <NomeEstrelas>
+              <NomeCliente>Mariana Queiroz</NomeCliente>
+              <Estrelas>★★★★★</Estrelas>
+            </NomeEstrelas>
+          </DepoimentoTopo>
+          <TextoDepoimento>
+            "Desde que começamos a utilizar o e-commerce da R. Amaral Office, ficou muito mais fácil manter nosso estoque atualizado. A integração entre digital e físico foi um grande diferencial."
+          </TextoDepoimento>
+        </DepoimentoCard>
+      </DepoimentosWrapper>
+    </SectionDepoimentos>
     </div>
   );
 };
-
-const HomeWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-`;
-
-const Section = styled.section`
-  width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  text-align: center;
-`;
 
 const Banner = styled.section<{ headerHeight: number }>`
   position: relative;
@@ -365,14 +393,14 @@ const Categorias = styled.section`
     flex-wrap: wrap;
 
     .card {
-      background: #f6f6f6;
+      background: #505d5e;
       padding: 2rem 1.5rem;
       border-radius: 16px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       text-align: center;
       flex: 1 1 300px;
       max-width: 340px;
-      min-height: 400px; /* <<< OBRIGA altura igual */
+      min-height: 400px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -390,14 +418,14 @@ const Categorias = styled.section`
       h3 {
         font-size: 1.6rem;
         font-weight: bold;
-        color: #243436;
+        color: #ffffff;
         margin-bottom: 0.8rem;
       }
 
       p {
         font-size: 1.1rem;
-        color: #666;
-        margin-top: auto; /* joga o parágrafo para "crescer" naturalmente */
+        color: #ffffff;
+        margin-top: auto;
       }
 
       &:hover {
@@ -415,7 +443,7 @@ const Categorias = styled.section`
       .card {
         width: 100%;
         max-width: 350px;
-        min-height: 400px; /* Mantém mesmo no mobile */
+        min-height: 400px;
       }
     }
   }
@@ -531,7 +559,7 @@ const TextoSobreImagem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.5rem; /* Diminuído: estava 1rem */
+  gap: 0.5rem;
 
   h2 {
     font-family: 'Poppins', sans-serif;
@@ -547,18 +575,18 @@ const TextoSobreImagem = styled.div`
     font-size: 5rem;
     font-weight: 1000;
     color: #243436;
-    line-height: 1; /* diminui espaço entre % e o título */
+    line-height: 1;
   }
 
   p {
     font-family: 'Inter', sans-serif;
     font-size: 1.8rem;
     color: #243436;
-    margin-top: 0.2rem; /* pequena margem só pra dar respiro */
+    margin-top: 0.2rem;
   }
 
   a {
-    margin-top: 1rem; /* Deixa o botão um pouco separado */
+    margin-top: 1rem;
     background-color: #ff6600;
     color: white;
     padding: 1rem 2rem;
@@ -577,43 +605,54 @@ const TextoSobreImagem = styled.div`
 const ProdutosProcuradosWrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 3rem;
   overflow: hidden;
   flex-wrap: nowrap;
 `;
 
 const ProdutoCard = styled.div`
-  background-color: #ebe1d4;
+  background-color: #505d5e;
   border-radius: 20px;
   padding: 1rem;
   width: 250px;
-  flex-shrink: 0; 
+  flex-shrink: 0;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   img {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
+    max-width: 180px;
     height: 160px;
-    max-height: 160px;
     object-fit: contain;
-    display: block;
-    margin: 0 auto 1rem auto;
+    margin-bottom: 1rem;
   }
-
-
 
   p {
     font-size: 1rem;
     font-weight: bold;
-    color: #243436;
+    color: #ffffff;
     margin-bottom: 0.5rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   span {
     font-size: 1.2rem;
-    color: #243436;
+    color: #ffffff;
     font-weight: bold;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
   }
 `;
 
@@ -621,7 +660,7 @@ const ProdutosProcuradosContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem; /* aumentei um pouco o gap entre botões e produtos */
+  gap: 2rem;
   flex-wrap: nowrap;
 `;
 
@@ -643,7 +682,7 @@ const TituloCarrossel = styled.h2`
   font-size: 2.8rem;
   color: #243436;
   text-align: center;
-  margin-bottom: 3rem; /* aumentei o espaçamento */
+  margin-bottom: 3rem;
 `;
 
 const ImagemWrapper = styled.div`
@@ -682,9 +721,7 @@ const ServicosCards = styled.div`
   justify-content: center;
 `;
 
-
-
-const ServicoCard = styled.div`
+const ServicoCard = styled(Link)`
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -696,22 +733,31 @@ const ServicoCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: inherit;
   
   img {
-    width: 70px;
-    height: 70px;
+    width: 140px;
+    height: 140px;
     margin-bottom: 1.5rem;
     object-fit: contain;
+    flex-shrink: 0;
   }
 
   p {
+    margin-top: auto;
     font-size: 1.4rem;
     font-weight: 700;
     color: #243436;
+    min-height: 40px;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
   }
 `;
-
-
 
 const ServicoTextoImagem = styled.div`
   display: flex;
@@ -746,6 +792,10 @@ const ImagemAtendimento = styled.img`
   width: 400px;
   height: auto;
   object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f4f1eb;
+  padding: 1rem;
 `;
 
 const TituloServicosWrapper = styled.div`
@@ -760,5 +810,142 @@ const LogoImagem = styled.img`
   margin-left: 10px;
   filter: invert(1) brightness(1.2) contrast(1.2) saturate(2);
 `;
+
+const SectionDepoimentos = styled.section`
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    color: #243436;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+`;
+
+const DepoimentosWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+`;
+
+const DepoimentoCard = styled.div`
+  background: #505d5e;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 340px;
+  height: auto;
+  text-align: left;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const FotoCliente = styled.img`
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+const NomeEstrelas = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const NomeCliente = styled.h3`
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+`;
+
+const Estrelas = styled.div`
+  font-size: 1.1rem;
+  color: #FFD700;
+`;
+
+const TextoDepoimento = styled.p`
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.5;
+`;
+
+const DepoimentoTopo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+const BlocoEmpresas = styled.section`
+  width: 100%;
+  background-color: #243436;
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  .texto {
+    max-width: 800px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+
+  .botao {
+    background-color: #ff6600;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #e65500;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+`;
+
+
+const BlocoComGradiente = styled.div`
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%, 
+    #243436 35%,
+    #243436 65%,
+    #ffffff 100%
+  );
+  padding: 6rem 0;
+`;
+
 
 export default Home;
