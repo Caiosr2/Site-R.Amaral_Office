@@ -10,6 +10,9 @@ import UsoInterno from "./pages/funcionarios/UsoInterno";
 import Orcamento from "./pages/Orcamento";
 import ProdutoEspecifico from "./pages/Produto_especifico";
 import Checkout from "./pages/Checkout";
+import Editar from "./pages/funcionarios/EditarProdutos";
+import AdicionarProdutos from "./pages/funcionarios/AdicionarProdutos";
+
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +30,8 @@ export const router = createBrowserRouter([
     ]
   },
   { path: "funcionarios", element: <Funcionarios /> },
-  { path: "uso-interno", element: <UsoInterno /> }
+  { path: "uso-interno", element: <UsoInterno /> },
+  { path: "editar-produtos", element: <Editar />},
+  { path: "adicionar-produtos", element: <AdicionarProdutos />}
 ]);
 

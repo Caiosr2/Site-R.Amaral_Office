@@ -55,7 +55,7 @@ const UsoInterno = () => {
           </div>
         </UserInfo>
         <ButtonWrapper>
-          <BotaoEdicao>Edição de Produto</BotaoEdicao>
+          <BotaoEdicao onClick={() => navigate('/editar-produtos')}>Edição de Produto</BotaoEdicao>
           <SairButton onClick={() => navigate('/funcionarios')}>Sair</SairButton>
         </ButtonWrapper>
       </TopBar>
