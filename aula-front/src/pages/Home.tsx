@@ -663,6 +663,7 @@ const ProdutosProcuradosContainer = styled.div`
   justify-content: center;
   gap: 2rem;
   flex-wrap: nowrap;
+  margin-bottom: 4.5rem;
 `;
 
 const BotaoCarrossel = styled.button`
@@ -904,22 +905,22 @@ const BlocoEmpresas = styled.section`
   }
 
   h2 {
-    font-size: 3.8rem; /* AUMENTADO */
+    font-size: 3.8rem;
     font-weight: 700;
-    margin-bottom: 2rem; /* aumenta o espaço depois do título */
-    line-height: 1.2; /* controle da altura entre linhas */
+    margin-bottom: 2rem;
+    line-height: 1.2;
   }
 
   p {
-    font-size: 1.8rem; /* AUMENTADO */
+    font-size: 1.8rem;
     margin-bottom: 2.5rem;
-    line-height: 1.6; /* melhor leitura */
+    line-height: 1.6;
   }
 
   .botao {
     background-color: #ff6600;
     padding: 1.2rem 2.5rem;
-    font-size: 1.4rem; /* deixa o botão mais proporcional */
+    font-size: 1.4rem;
     border-radius: 999px;
     font-weight: bold;
     color: white;
