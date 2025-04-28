@@ -48,17 +48,18 @@ export const PageWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: #f4f4f4;
-  padding: 2rem 1rem;
-  padding-top: 110px; /* espaço para o header fixo */
+  padding: 8rem 2rem 2rem; /* 🔥 8rem de padding-top (128px) para desktop */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
-    padding: 1rem;
-    padding-top: 110px;
-    align-items: stretch;
+    padding: 7rem 1.5rem 2rem; /* 🔥 ajusta para tablets */
+  }
+
+  @media (max-width: 425px) {
+    padding: 10rem 1rem 2rem; /* 🔥 ainda mais no mobile pequeno */
   }
 `;
 
@@ -104,12 +105,14 @@ export const RightColumn = styled.div`
 `;
 
 export const ProductImage = styled.img`
-  width: 100%;
-  max-width: 320px;
+  width: 320px; /* 🔥 Tamanho fixo para telas grandes */
+  height: auto;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
 
   @media (max-width: 768px) {
+    width: 100%; /* 🔥 Abaixo de 768px, imagem vira responsiva */
     max-width: 240px;
   }
 `;
