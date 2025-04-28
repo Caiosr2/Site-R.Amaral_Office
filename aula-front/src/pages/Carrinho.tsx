@@ -41,7 +41,14 @@ const Carrinho = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (carouselRef.current) {
-        carouselRef.current.scrollBy({ left: 244, behavior: 'smooth' }); 
+        const carousel = carouselRef.current;
+        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+        if (carousel.scrollLeft >= maxScrollLeft - 10) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: 244, behavior: 'smooth' });
+        }
       }
     }, 3000);
 
