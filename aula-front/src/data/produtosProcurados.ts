@@ -10,13 +10,13 @@ const produtosProcurados = [
     {
       id: 1,
       nome: "Mouse com fio USB Logitech M90",
-      preco: 33.90,
+      preco: 33.99,
       imagem: mouse
     },
     {
       id: 2,
       nome: "Cadeira Fortt Milão Giratória",
-      preco: 199.99,
+      preco: 799.99,
       imagem: cadeiraforttmilao
     },
     {
@@ -28,19 +28,19 @@ const produtosProcurados = [
     {
       id: 4,
       nome: "Papel Sulfite A4 – 10 Pacotes x 500 Folhas",
-      preco: 289.99,
+      preco: 239.99,
       imagem: papel
     },
     {
       id: 5,
       nome: "Kit com 4 Garrafas de Tinta Epson",
-      preco: 225.90,
+      preco: 189.99,
       imagem: tintas
     },
     {
       id: 6,
       nome: "Mesa de Escritório em L Anah",
-      preco: 597.99,
+      preco: 1597.99,
       imagem: mesaeml
     },
     {

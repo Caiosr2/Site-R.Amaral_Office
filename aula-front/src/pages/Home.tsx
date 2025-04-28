@@ -367,7 +367,7 @@ const BannerText = styled.div`
 `;
 
 const Categorias = styled.section`
-  margin: 4rem auto;
+  margin: 3rem auto 6rem;
   max-width: 1200px;
   padding: 0 1rem;
   text-align: center;
@@ -457,6 +457,7 @@ const DescontoSection = styled.section`
   gap: 2rem;
   padding: 2rem;
   flex-wrap: wrap;
+  margin-top: 6rem;
 
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -885,11 +886,14 @@ const DepoimentoTopo = styled.div`
 
 const BlocoEmpresas = styled.section`
   width: 100%;
-  background-color: #243436;
-  padding: 4rem 2rem;
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 2rem;
 
   .texto {
     max-width: 800px;
@@ -900,20 +904,22 @@ const BlocoEmpresas = styled.section`
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 3.8rem; /* AUMENTADO */
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* aumenta o espaço depois do título */
+    line-height: 1.2; /* controle da altura entre linhas */
   }
 
   p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    line-height: 1.5;
+    font-size: 1.8rem; /* AUMENTADO */
+    margin-bottom: 2.5rem;
+    line-height: 1.6; /* melhor leitura */
   }
 
   .botao {
     background-color: #ff6600;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.4rem; /* deixa o botão mais proporcional */
     border-radius: 999px;
     font-weight: bold;
     color: white;
@@ -927,10 +933,13 @@ const BlocoEmpresas = styled.section`
 
   @media (max-width: 768px) {
     h2 {
-      font-size: 2rem;
+      font-size: 2.6rem;
     }
     p {
-      font-size: 1rem;
+      font-size: 1.2rem;
+    }
+    .botao {
+      font-size: 1.1rem;
     }
   }
 `;

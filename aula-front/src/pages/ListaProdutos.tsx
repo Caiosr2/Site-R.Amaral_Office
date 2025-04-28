@@ -220,7 +220,7 @@ const Lista_produtos =
     {
       id: 15,
       nome: "Mouse com fio USB Logitech M90",
-      preco: 33.9,
+      preco: 33.99,
       categoria: ['Tecnologia', 'Periféricos'],
       imagem: mouse,
       link: "/mouse",
@@ -286,7 +286,7 @@ const Lista_produtos =
     {
         id: 20,
         nome: "Pacote de Borrachas Pequenas, Faber-Castell, 24 Un",
-        preco: 105.99,
+        preco: 84.99,
         categoria: ['Papelaria', 'Borracha'],
         imagem: borracha, 
         link: "/borracha",
@@ -298,7 +298,7 @@ const Lista_produtos =
       {
         id: 21,
         nome: "Lápis Grafite 2B Preto, Faber-Castell, 14 Un.",
-        preco: 119.99,
+        preco: 95.99,
         categoria: ['Papelaria', 'Lápis'],
         imagem: lapisgrafite,
         link: "/lapisgrafite",
@@ -336,7 +336,7 @@ const Lista_produtos =
       {
         id: 24,
         nome: "Papel Sulfite A4 – 10 Pacotes x 500 Folhas",
-        preco: 249.99,
+        preco: 239.99,
         categoria: ['Papelaria', 'Papel'],
         imagem: papel,
         link: "/papel",
@@ -350,7 +350,7 @@ const Lista_produtos =
       {
         id: 25,
         nome: "Kit com 4 Garrafas de Tinta Epson",
-        preco: 33.99,
+        preco: 189.99,
         categoria: ['Papelaria', 'Tinta'],
         imagem: tintas,
         link: "/tintas",
