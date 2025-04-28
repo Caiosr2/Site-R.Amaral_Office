@@ -166,7 +166,7 @@ const Lista_produtos =
     },
     {
       id: 11,
-      nome: "Kit Teclado e Mouse sem fio Logitech MK235",
+      nome: "Kit Teclado e Mouse sem fio Logitech",
       preco: 149.99,
       categoria: ['Tecnologia', 'Periféricos'],
       imagem: kittecladomouse,
@@ -244,7 +244,7 @@ const Lista_produtos =
     },
     {
       id: 17,
-      nome: "Post-it, 76 mm x 76 mm, Amarela, 4 Un x 25 Folhas",
+      nome: "Post-it, 76 mm x 76 mm, Amarela",
       preco: 33.99,
       categoria: ['Papelaria', 'Papel'],
       imagem: postit,
@@ -272,7 +272,7 @@ const Lista_produtos =
     },
     {
       id: 19,
-      nome: "Suporte para notebook, portátil, NTB8520B, Elg",
+      nome: "Suporte para notebook, portátil, Elg",
       preco: 32.6,
       categoria: ['Tecnologia', 'Suporte'],
       imagem: suportenote,
@@ -285,7 +285,7 @@ const Lista_produtos =
     },
     {
         id: 20,
-        nome: "Pacote de Borrachas Pequenas, Faber-Castell, 24 Un",
+        nome: "Pacote de Borrachas, Faber-Castell, 24 Un",
         preco: 84.99,
         categoria: ['Papelaria', 'Borracha'],
         imagem: borracha, 
@@ -416,7 +416,7 @@ const Lista_produtos =
       },
       {
         id: 30,
-        nome: "Impressora Multifuncional Epson Ecotank L5590",
+        nome: "Impressora Epson Ecotank L5590",
         preco: 1709.99,
         categoria: ['Tecnologia', 'Impressoras'],
         imagem: impressora,

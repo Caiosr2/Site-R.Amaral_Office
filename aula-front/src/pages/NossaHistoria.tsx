@@ -67,7 +67,7 @@ const NossaHistoria = () => {
         <Evento>
           <Avatar src={img5} alt="Estoque" />
           <Texto>
-            <h2>2024 | Lançamento do e-commerce</h2>
+            <h2>2025 | Lançamento do e-commerce</h2>
             <p>
               É lançada oficialmente a plataforma online da R. Amaral Office.
               O e-commerce oferece uma experiência de compra ágil e personalizada com combinações prontas de produtos para clientes B2B e B2C.

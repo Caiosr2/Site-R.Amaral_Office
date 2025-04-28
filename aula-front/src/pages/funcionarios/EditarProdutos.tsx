@@ -123,19 +123,34 @@ const Editar = () => {
     );
   }
 
-const Container = styled.div`
+
+  const Container = styled.div`
   display: flex;
-  padding: 2rem;
+  padding: 2rem 4rem 2rem 4rem;
   gap: 2rem;
   background-color: #f4f4f4;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0rem 2rem 2rem 2rem;
+  }
+
+  @media (max-width: 425px) {
+    padding: 0rem 1.2rem 2rem 1.2rem;
+  }
 `;
+
 
 const Sidebar = styled.div`
   background: #d5d5cd;
   padding: 1.5rem;
   border-radius: 1rem;
   min-width: 220px;
+  max-width: 300px;
   margin-top: 4.5rem;
+  flex-shrink: 0;
+  box-sizing: border-box;
 
   h3 {
     margin-bottom: 1rem;
@@ -155,6 +170,18 @@ const Sidebar = styled.div`
       transform: scale(1.4);
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%; 
+    max-width: 100%;
+    margin-top: 3rem;
+    padding: 1.5rem 1rem;
+  }
+
+  @media (max-width: 425px) {
+    margin-top: 3rem;
+    padding: 1.2rem;
+  }
 `;
 
 const ExtrasToggle = styled.div`
@@ -171,6 +198,9 @@ const ExtrasBox = styled.div`
 
 const Content = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+
   h2 {
     margin-bottom: 1.5rem;
     text-align: center;
@@ -185,6 +215,7 @@ const BarraAcoes = styled.div`
   gap: 1rem;
   margin-bottom: 1.5rem;
   padding: 0 1rem;
+
 `;
 
 const BotaoAdicionar = styled.button`

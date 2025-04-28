@@ -12,7 +12,7 @@ const Carrinho = () => {
   const [cart, setCart] = useState([
     {
       id: 1,
-      name: 'Impressora Multifuncional Epson Ecotank L5590',
+      name: 'Impressora Epson Ecotank L5590',
       price: 1709.99,
       quantity: 1,
       image: impressora,
