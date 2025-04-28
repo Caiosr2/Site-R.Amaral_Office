@@ -203,6 +203,16 @@ const Home = () => {
 
       {/* Serviços */}
       <ServicosContainer>
+             <ServicoTextoImagem>
+        <TituloServicosWrapper>
+          <TituloServicos>
+            <span>Os Nossos</span>
+            <strong>SERVIÇOS</strong>
+          </TituloServicos>
+          <LogoImagem src={logo} alt="Logo" />
+        </TituloServicosWrapper>
+          <ImagemAtendimento src={atendimento} alt="Atendimento" />
+        </ServicoTextoImagem>
         <ServicosCards>
         <ServicoCard to="/servicos?tipo=orcamento">
           <img src={orcamentoIcon} alt="Orçamento" />
@@ -226,16 +236,7 @@ const Home = () => {
 
         </ServicosCards>
 
-        <ServicoTextoImagem>
-        <TituloServicosWrapper>
-          <TituloServicos>
-            <span>Os Nossos</span>
-            <strong>SERVIÇOS</strong>
-          </TituloServicos>
-          <LogoImagem src={logo} alt="Logo" />
-        </TituloServicosWrapper>
-          <ImagemAtendimento src={atendimento} alt="Atendimento" />
-        </ServicoTextoImagem>
+   
       </ServicosContainer>
 
     {/* Depoimentos de clientes */}
@@ -705,22 +706,39 @@ const ImagemWrapper = styled.div`
 
 const ServicosContainer = styled.section`
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 4rem 2rem;
-  gap: 6rem;
+  gap: 4rem;
   width: 95%;
-  max-width: 1600px;
+  max-width: 1000px;
   margin: 0 auto;
+  padding: 4rem 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 `;
 
 
 const ServicosCards = styled.div`
+  flex: 2;
   display: grid;
   grid-template-columns: repeat(2, 220px);
-  gap: 3rem;
+  gap: 2rem;
   justify-content: center;
+  align-items: center;
+
+  
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 2rem;
+  }
 `;
 
 const ServicoCard = styled(Link)`
@@ -762,10 +780,19 @@ const ServicoCard = styled(Link)`
 `;
 
 const ServicoTextoImagem = styled.div`
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
 `;
 
 const TituloServicos = styled.div`
