@@ -38,6 +38,16 @@ const Carrinho = () => {
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollBy({ left: 244, behavior: 'smooth' }); 
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Wrapper>
       <Steps>
@@ -92,7 +102,7 @@ const Carrinho = () => {
       <SectionTitle>Produtos mais procurados</SectionTitle>
       <CarouselWrapper>
         <Carousel ref={carouselRef}>
-          {Lista_produtos.slice(2, 10).map(prod => (
+          {Lista_produtos.slice(2, 12).map(prod => (
             <CarouselItem to={`/produto/${prod.id}`} key={prod.id}>
               <img src={prod.imagem} alt={prod.nome} />
               <p>{prod.nome}</p>
@@ -107,9 +117,10 @@ const Carrinho = () => {
 
 export default Carrinho;
 
-// Estilos com responsividade adicionada
+// Estilos
+
 const Wrapper = styled.div`
-  padding: 8rem 4rem 2rem; /* 🔥 7rem no topo para dar espaço para o Header */
+  padding: 8rem 4rem 2rem;
   background-color: #f4f4f4;
   font-family: 'Lora', serif;
   min-height: 100vh;
@@ -120,7 +131,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 425px) {
-    padding: 11.2rem 1rem 2rem; /* 🔥 mais espaço para telas pequenas como iPhone SE */
+    padding: 11.2rem 1rem 2rem;
   }
 `;
 
@@ -231,7 +242,7 @@ const Resumo = styled.div`
     margin: 0.5rem 0;
 
     span:last-child {
-      white-space: nowrap; /* 🔥 Não deixa quebrar o preço */
+      white-space: nowrap;
     }
   }
 
@@ -243,7 +254,7 @@ const Resumo = styled.div`
     font-weight: bold;
 
     strong {
-      white-space: nowrap; /* 🔥 Também para o total final */
+      white-space: nowrap;
     }
   }
 
