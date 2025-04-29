@@ -41,13 +41,27 @@ const Home = () => {
     return () => clearInterval(intervalo);
   }, []);
   
-  const produtosVisiveis = produtosProcurados.slice(indiceProcurados, indiceProcurados + 3);
+    const produtosVisiveis = [];
 
-  if (produtosVisiveis.length < 3) {
-    produtosVisiveis.push(
-      ...produtosProcurados.slice(0, 3 - produtosVisiveis.length)
-    );
-  }
+    let count = 0;
+    let index = indiceProcurados;
+    
+    while (count < 3) {
+      const produto = produtosProcurados[index % produtosProcurados.length];
+      const produtoOriginal = Lista_produtos.find((p) => {
+        const nomeProduto = p.nome.toLowerCase().replace(/\s|-/g, '');
+        const nomeProcurado = produto.nome.toLowerCase().replace(/\s|-/g, '');
+        return nomeProduto.includes(nomeProcurado.substring(0, nomeProcurado.length));
+      });
+    
+      if (produtoOriginal) {
+        produtosVisiveis.push({ ...produto, id: produtoOriginal.id });
+        count++;
+      }
+    
+      index++;
+    }
+  
   
   
   
@@ -164,37 +178,22 @@ const Home = () => {
           <BotaoCarrossel onClick={slideAnterior}>&#8249;</BotaoCarrossel>
           
           <ProdutosProcuradosWrapper>
-            {produtosVisiveis.map((produtoProcurado) => {
-              const produtoOriginal = Lista_produtos.find((p) => {
-                const nomeProduto = p.nome.toLowerCase().replace(/\s|-/g, '');
-                const nomeProcurado = produtoProcurado.nome.toLowerCase().replace(/\s|-/g, '');
+          {produtosVisiveis.map((produto) => (
+            <Link
+              key={produto.id}
+              to={`/produto/${produto.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <ProdutoCard>
+                <ImagemWrapper>
+                  <img src={produto.imagem} alt={produto.nome} />
+                </ImagemWrapper>
+                <p>{produto.nome}</p>
+                <span>R$ {produto.preco.toFixed(2)}</span>
+              </ProdutoCard>
+            </Link>
+          ))} 
 
-                if (nomeProduto.includes(nomeProcurado.substring(0, nomeProcurado.length))) {
-                  return true;
-                }
-
-                return false;
-              });
-
-              if (!produtoOriginal) return null;
-
-              return (
-                <Link
-                  key={produtoProcurado.nome}
-                  to={`/produto/${produtoOriginal.id}`}
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                <ProdutoCard>
-                  <ImagemWrapper>
-                    <img src={produtoProcurado.imagem} alt={produtoProcurado.nome} />
-                  </ImagemWrapper>
-                  <p>{produtoProcurado.nome}</p>
-                  <span>R$ {produtoProcurado.preco.toFixed(2)}</span>
-                </ProdutoCard>
-
-                </Link>
-              );
-            })}
           </ProdutosProcuradosWrapper>
           <BotaoCarrossel onClick={proximoSlide}>&#8250;</BotaoCarrossel>
         </ProdutosProcuradosContainer>
